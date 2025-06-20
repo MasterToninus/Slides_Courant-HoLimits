@@ -1,0 +1,217 @@
+%+----------------------------------------------------------------------------+
+%| SLIDES: template
+%| Contents:	- x minutes (extimated duration 3 minutes per slide )
+%|
+%| Author: Antonio miti
+%| Place: 
+%| Date: 
+%+----------------------------------------------------------------------------+
+
+
+%- HandOut Flag -----------------------------------------------------------------------------------------
+	\newif\ifHandout
+	\Handouttrue  %uncomment for the printable version
+	%Handling of flags it is not preserved when passing to standalone-subfiles!
+
+
+%- D0cum3nt ----------------------------------------------------------------------------------------------
+\ifHandout
+	\documentclass[handout,10pt]{beamer}   
+	\setbeameroption{show notes} %print notes   
+\else
+	\documentclass[10pt]{beamer}
+\fi
+
+
+
+
+%- Packages ----------------------------------------------------------------------------------------------
+\usepackage{custom-style}
+\usepackage{math}
+
+
+%--Beamer Style-----------------------------------------------------------------------------------------------
+\usetheme{toninus}
+
+
+\usetikzlibrary{backgrounds}
+  \tikzset{
+    invisible/.style={opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+  }
+
+
+
+%- T1tle P4g3 -------------------------------------------------------------------------------------------
+\title{A canonical morphism between \\ twisted and untwisted higher Courant \texorpdfstring{$L_\infty$}{Lie infinity} algebras} 
+\subtitle{\href{https://www.mat.uniroma2.it/~kowalzig/ws.html}{Geometry \& Topology in Rome}}
+\author[AMM]{\href{www.antoniomiti.it}{Antonio Michele Miti}}
+%\institute[UCSC and KU Leuven]{
+%  \begin{tabular}[h]{ccc}
+%      Università Cattolica del Sacro Cuore & $\qquad$ & KU Leuven \\
+%      Brescia, Italy & & Leuven, Belgium \\
+%      \href{https://dipartimenti.unicatt.it/dmf-home?rdeLocaleAttr=it}{\includegraphics[width=3.5cm]{Logos/UnicattBS-logo}} & & 
+%      \href{https://wis.kuleuven.be/english}{\includegraphics[width=4cm]{Logos/KULeuven_logo}}
+%  \end{tabular}      
+%}
+%\institute[Mpim]{
+%	MPIM, Bonn, Germany 
+%	\\
+%	\vspace{.5em}
+%	\href{https://www.mpim-bonn.mpg.de/}{\includegraphics[width=6cm]{./Logos/Mpim_logo}}
+%}
+\institute[SUR]{
+	Sapienza Università di Roma \\
+	Rome, Italy 	\\
+	\vspace{.5em}
+  \begin{tabular}[h]{ccc}
+      \href{https://dipartimenti.unicatt.it/dmf-home?rdeLocaleAttr=it}{\includegraphics[width=6cm]{./Logos/Sur_logo}} & & 
+      \href{https://wis.kuleuven.be/english}{\includegraphics[width=3cm]{Logos/Civis_logo}}
+  \end{tabular}    
+}
+\date[Template_21] % (optional, should be abbreviation of conference name)
+{	
+	{\vskip 1ex}
+	Roma,
+	\\
+	July 4, 2025
+}
+
+
+
+
+
+\newcommand{\thankyouslide}[0]{
+	\ifHandout
+
+	\else
+		\addtocounter{framenumber}{-1}
+		\begin{frame}{}
+		\label{frame:thankyouslide}
+			\vfill
+		  \centering 
+		  {\Huge\color{red} 
+		  \emph{Thank you for your attention!}}
+			\vfill
+			%
+			\centering
+			\fbox{
+				Picture or Take-away message.
+				% 		\includegraphics[width=.4\textwidth]{Pictures/thesis-cover}
+			}
+		\end{frame}
+		\note[itemize]{
+			\item
+		}
+	\fi
+}
+
+
+
+
+
+
+%---------------------------------------------------------------------------------------------------------------------------------------------------
+%- D0cum3nt ----------------------------------------------------------------------------------------------------------------------------------
+\begin{document}
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+
+\begin{frame}  % Alternative: \maketitle outside of frame
+	\titlepage
+	\ifHandout
+		\tikz[overlay,remember picture]
+		{
+	    	%	\node at ($(current page.west)+(1.5,0)$) [rotate=90] {\Huge\textcolor{gray}{\today}};
+	    	\node[        
+	    		draw,
+	    		shape border rotate=90,
+			isosceles triangle,
+			isosceles triangle apex angle=90,
+			fill=yellow]
+	        		at ($(current page.north east)-(1,1)$) [rotate=-45] {\textcolor{red}{Handout version}};
+		}
+	\fi
+	% European Commission	
+		\tikz[overlay,remember picture]
+		{
+	    	%	\node at ($(current page.west)+(1.5,0)$) [rotate=90] {\Huge\textcolor{gray}{\today}};
+	    	\node[        
+	    		text width = 3.5cm
+			]
+	        		at ($(current page.south west)+(1.5,1.)$) [rotate=0] {
+
+					\href{https://dipartimenti.unicatt.it/dmf-home?rdeLocaleAttr=it}{\includegraphics[width=\textwidth]{./Logos/Eu-h2020}}
+ 		
+	        		};
+		}
+	\end{frame}
+	\addtocounter{framenumber}{-1}
+\note{
+	%\textbf{\underline{OUTLINE}}:
+	%\tableofcontents
+	\textbf{Abstract:}
+	\\
+In "Lie infinity algebras and higher analogues of Dirac structures and Courant algebroids" \cite{Zambon2012}, Marco Zambon constructs a Lie infinity algebra associated with any higher standard Courant algebroid (also known as a Vinogradov algebroid), and exhibits an explicit Lie infinity morphism from the Lie algebra associated with a standard Lie algebroid twisted by a closed 2-form to the Lie-2 algebra of the standard Courant algebroid. He poses the question of whether analogous canonical morphisms exist in higher degrees—namely, for any standard higher Courant algebroids twisted by closed $(n+1)$-forms.
+In this talk, we present a general framework that naturally yields such canonical Lie infinity morphisms for arbitrary n, clarifying the geometric and homotopical structures underlying these constructions.
+Time permitting, we also discuss how this framework accommodates the canonical morphism between the observable Lie infinity algebra of a pre-n-plectic manifold and the higher Courant algebra we described in "Observables on multisymplectic manifolds and higher Courant algebroids" \cite{Miti2024}.
+This is joint work with Domenico Fiorenza.
+    
+}
+%---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Introduction}
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+	\input{HoLim-intro}
+
+
+
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Sec 1}
+\checkpoint	
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\subsection{SubSec a}
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+	%\input{template-subsec-a}
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+	\thankyouslide
+%------------------------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------------------------
+% APPENDIX
+%------------------------------------------------------------------------------------------------
+\appendix
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Complementary Material}
+	\input{HoLim-complementary-material}
+	\input{HoLim-aknowledgements}
+%------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+%------------------------------------------------------------------------------------------------
+\end{document}
+

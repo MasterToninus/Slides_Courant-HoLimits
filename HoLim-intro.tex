@@ -1,0 +1,143 @@
+%- HandOut Flag -----------------------------------------------------------------------------------------
+\makeatletter
+\@ifundefined{ifHandout}{%
+  \expandafter\newif\csname ifHandout\endcsname
+}{}
+\makeatother
+
+%- D0cum3nt ----------------------------------------------------------------------------------------------
+\documentclass[beamer,10pt]{standalone}   
+%\documentclass[beamer,10pt,handout]{standalone}  \Handouttrue  
+
+\ifHandout
+	\setbeameroption{show notes} %print notes   
+\fi
+
+	
+%- Packages ----------------------------------------------------------------------------------------------
+\usepackage{custom-style}
+\usepackage{math}
+
+
+
+
+%--Beamer Style-----------------------------------------------------------------------------------------------
+\usetheme{toninus}
+\usepackage{animate}
+\usetikzlibrary{positioning, arrows}
+\usetikzlibrary{shapes}
+
+%===========================================================%
+\begin{document}
+%===========================================================%
+
+
+%-----------------------------------------------------------%
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\begin{frame}[fragile]{Keywords}
+\tikzstyle{every picture}+=[remember picture]
+	\begin{columns}
+    	\begin{column}{.45\textwidth}
+    		\onslide<5->{
+			\tikz[baseline]{
+		            \node[draw=orange!40,anchor=base,text width=5cm] (s1)
+		            { Un canonical mordfismo?};
+			}
+		}
+	\end{column}
+    	\begin{column}{.45\textwidth}
+    		\onslide<2->{
+			 \tikz[baseline]{
+		            \node[draw=blue!40,anchor=base, text width=5cm] (s2)
+		            {Higher generalization of Lie algebras where the Jacobi identity is allowed only "up to homotopies".};
+			}
+		}
+	\end{column}
+	\end{columns}
+
+	\vfill
+	%A canonical morphism between \\ twisted and untwisted higher Courant $L_\infty$-algebras
+	\begin{center}
+		\large
+		A
+		 \tikz[baseline]{
+		            \node[fill=orange!20,anchor=base] (t1)
+		            {Canonical morphism};
+			}
+		between \\
+		 \tikz[baseline]{
+		            \node[fill=green!20,anchor=base] (t3)
+		            {twisted};
+		        } 
+		and untwisted 
+		 \tikz[baseline]{
+	            \node[fill=red!20,anchor=base] (t4)
+	            {higher Courant};
+		}
+		 \tikz[baseline]{
+	            \node[fill=blue!20,anchor=base] (t2)
+	            {$L_\infty$-algebras};
+		}		
+	\end{center}
+
+	\vfill
+
+	\begin{columns}
+    	\begin{column}{.45\textwidth}
+    		\onslide<4->{
+	 		 \tikz[baseline]{
+	            \node[draw=green!40,anchor=base,text width=5cm] (s3)
+	            {Twists};
+	         }
+		}		   	
+		\end{column}
+    	\begin{column}{.45\textwidth}
+    		\onslide<3->{
+				\tikz[baseline]{
+	            \node[draw=red!40,anchor=base,text width=5cm] (s4)
+	            {Courant algoids};
+	           }	
+			}
+		\end{column}
+	\end{columns}
+
+	\begin{tikzpicture}[overlay]
+        \path[->,draw=orange!40]<5-> (s1) edge [bend right] (t1);
+        \path[->,draw=blue!40]<2-> (s2) edge [bend left] (t2);
+        \path[->,draw=green!40]<4-> (s3) edge [bend left] (t3);
+        \path[->,draw=red!40]<3-> (s4) edge [bend right] (t4);
+	\end{tikzpicture}
+
+
+\end{frame}
+\note[itemize]{
+	\item Provide a vague idea of the words that make up the title.
+	\item
+	\item Conventions:
+	\\- $M$ and $G$ are connected,
+	\\- actions $\theta:G \curvearrowright M$ are always smooth
+	\\- $\xi,\eta\in\mathfrak{g}$,
+	\\- for $\mu\in\Omega^*(M,\mathfrak{g}^*)$ and $\xi\in\mathfrak{g}$, write
+			\[
+				\mu_\xi := \langle\mu,\xi\rangle \;{\color{black!50}\in\Omega^*(M)}
+			\]
+			for the ``$\xi$th component'' of $\mu$.
+}
+%-----------------------------------------------------------%
+
+\outline
+
+
+
+%-----------------------------------------------------------%
+\ifstandalone
+% https://en.wikibooks.org/wiki/LaTeX/Bibliographies_with_biblatex_and_biber
+\begin{frame}[t,allowframebreaks]{Partial Bibliography}
+	\nocite{Miti2021}
+	\bibliographystyle{alpha}
+	\bibliography{bibfile}
+\end{frame}
+\fi
+%-----------------------------------------------------------%
+
+\end{document}
