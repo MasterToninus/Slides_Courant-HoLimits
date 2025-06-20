@@ -1,0 +1,220 @@
+%+----------------------------------------------------------------------------+
+%| SLIDES: template
+%| Contents:	- x minutes (extimated duration 3 minutes per slide )
+%|
+%| Author: Antonio miti
+%| Place: 
+%| Date: 
+%+----------------------------------------------------------------------------+
+
+
+%- HandOut Flag -----------------------------------------------------------------------------------------
+	\newif\ifHandout
+	\Handouttrue  %uncomment for the printable version
+	%Handling of flags it is not preserved when passing to standalone-subfiles!
+
+
+%- D0cum3nt ----------------------------------------------------------------------------------------------
+\ifHandout
+	\documentclass[handout,10pt]{beamer}   
+	\setbeameroption{show notes} %print notes   
+\else
+	\documentclass[10pt]{beamer}
+\fi
+
+
+
+
+%- Packages ----------------------------------------------------------------------------------------------
+\usepackage{custom-style}
+\usepackage{math}
+
+
+%--Beamer Style-----------------------------------------------------------------------------------------------
+\usetheme{toninus}
+
+
+\usetikzlibrary{backgrounds}
+  \tikzset{
+    invisible/.style={opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+  }
+
+
+
+%- T1tle P4g3 -------------------------------------------------------------------------------------------
+\title{ Template \\ Title} 
+\subtitle{\href{www.google.com}{event-link}}
+\author[AMM]{\href{https://dmf.unicatt.it/miti/}{Antonio Michele Miti}}
+%\institute[UCSC and KU Leuven]{
+%  \begin{tabular}[h]{ccc}
+%      Università Cattolica del Sacro Cuore & $\qquad$ & KU Leuven \\
+%      Brescia, Italy & & Leuven, Belgium \\
+%      \href{https://dipartimenti.unicatt.it/dmf-home?rdeLocaleAttr=it}{\includegraphics[width=3.5cm]{Logos/UnicattBS-logo}} & & 
+%      \href{https://wis.kuleuven.be/english}{\includegraphics[width=4cm]{Logos/KULeuven_logo}}
+%  \end{tabular}      
+%}
+%\institute[Mpim]{
+%	MPIM, Bonn, Germany 
+%	\\
+%	\vspace{.5em}
+%	\href{https://www.mpim-bonn.mpg.de/}{\includegraphics[width=6cm]{./Logos/Mpim_logo}}
+%}
+\institute[SUR]{
+	Sapienza Università di Roma \\
+	Rome, Italy 	\\
+	\vspace{.5em}
+  \begin{tabular}[h]{ccc}
+      \href{https://dipartimenti.unicatt.it/dmf-home?rdeLocaleAttr=it}{\includegraphics[width=6cm]{./Logos/Sur_logo}} & & 
+      \href{https://wis.kuleuven.be/english}{\includegraphics[width=3cm]{Logos/Civis_logo}}
+  \end{tabular}    
+}
+
+\date[Template_21] % (optional, should be abbreviation of conference name)
+{	
+	{\vskip 1ex}
+	Caprarola,
+	\\
+	February 2, 2024
+}
+
+
+
+
+
+\newcommand{\thankyouslide}[0]{
+	\ifHandout
+
+	\else
+		\addtocounter{framenumber}{-1}
+		\begin{frame}{}
+		\label{frame:thankyouslide}
+			\vfill
+		  \centering 
+		  {\Huge\color{red} 
+		  \emph{Thank you for your attention!}}
+			\vfill
+			%
+			\centering
+			\fbox{
+				Picture or Take-away message.
+				% 		\includegraphics[width=.4\textwidth]{Pictures/thesis-cover}
+			}
+		\end{frame}
+		\note[itemize]{
+			\item
+		}
+	\fi
+}
+
+
+
+
+
+
+%---------------------------------------------------------------------------------------------------------------------------------------------------
+%- D0cum3nt ----------------------------------------------------------------------------------------------------------------------------------
+\begin{document}
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+
+\begin{frame}  % Alternative: \maketitle outside of frame
+	\titlepage
+	\ifHandout
+		\tikz[overlay,remember picture]
+		{
+	    	%	\node at ($(current page.west)+(1.5,0)$) [rotate=90] {\Huge\textcolor{gray}{\today}};
+	    	\node[        
+	    		draw,
+	    		shape border rotate=90,
+			isosceles triangle,
+			isosceles triangle apex angle=90,
+			fill=yellow]
+	        		at ($(current page.north east)-(1,1)$) [rotate=-45] {\textcolor{red}{Handout version}};
+		}
+	\fi
+	% European Commission	
+		\tikz[overlay,remember picture]
+		{
+	    	%	\node at ($(current page.west)+(1.5,0)$) [rotate=90] {\Huge\textcolor{gray}{\today}};
+	    	\node[        
+	    		text width = 3.5cm
+			]
+	        		at ($(current page.south west)+(1.85,.5)$) [rotate=0] {
+
+					\href{https://dipartimenti.unicatt.it/dmf-home?rdeLocaleAttr=it}{\includegraphics[width=\textwidth]{./Logos/Eu-h2020}}
+ 		
+	        		};
+		}
+	\end{frame}
+	\addtocounter{framenumber}{-1}
+\note{
+	%\textbf{\underline{OUTLINE}}:
+	%\tableofcontents
+	\textbf{Abstract:}
+	\\
+    Until end 2026 (1 year after the end of CIVIS3i)
+	All dissemination of results (in any form, including electronic) must:
+	(a) display the EU emblem (ie, logo)
+	(b) include the text “This project has received funding from the European
+		Union’s Horizon 2020 research and innovation programme under grant
+		agreement N°101034324.”
+    
+}
+%---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Introduction}
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+	\input{template-intro}
+
+
+
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Sec 1}
+\checkpoint	
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\subsection{SubSec a}
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+	%\input{template-subsec-a}
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+	\thankyouslide
+%------------------------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------------------------
+% APPENDIX
+%------------------------------------------------------------------------------------------------
+\appendix
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Complementary Material}
+	\input{template-complementary-material}
+	\input{template-aknowledgements}
+%------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+%------------------------------------------------------------------------------------------------
+\end{document}
+

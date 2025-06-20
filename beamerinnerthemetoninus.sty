@@ -1,0 +1,32 @@
+%%%%%%%%%%%%%%
+%%
+%% Inner theme
+%%
+%%%%%%%%%%%%%%
+
+
+\mode<presentation>
+
+% Title page
+%\defbeamertemplate*{title page}{toninus}[1][]{ }
+
+%\useinnertheme{rounded}
+\setbeamertemplate{itemize items}[triangle]
+
+% Footnotes
+\setbeamertemplate{footnote}{%
+%	\footnoterule\parindent 1em\noindent%
+  \parindent 0em\noindent%
+%  \raggedleft
+  \usebeamercolor{footnote}\hbox to 0.8em{\hfil\insertfootnotemark}\insertfootnotetext\par%
+}
+
+\setbeamertemplate{subsection in toc}{%
+\leavevmode\leftskip=5.65ex%
+  \llap{\raisebox{0.2ex}{\textcolor{structure}{$\blacktriangleright$}}\kern1ex}%
+  \inserttocsubsection\par%
+}
+
+
+\mode
+<all>

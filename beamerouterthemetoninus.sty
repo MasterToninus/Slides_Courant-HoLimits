@@ -1,0 +1,13 @@
+\mode<presentation>
+
+% Frame title
+%\defbeamertemplate*{frametitle}{toninus}[1][] { }
+\setbeamerfont{frametitle}{size=\normalsize,series=\normalfont}
+\setbeamertemplate{frametitle}{%
+    \hspace*{2ex}\bfseries\insertframetitle \hfill {\small\insertframenumber} \hspace*{1ex}%
+    \vphantom{g}% To avoid fluctuations per frame
+    \par\hspace*{-\dimexpr0.5\paperwidth-0.5\textwidth}\rule[0.5\baselineskip]{\paperwidth}{0.4pt}
+    \par\vspace*{-\baselineskip}% <-- reduce vertical space after rule
+}
+
+\mode<all>

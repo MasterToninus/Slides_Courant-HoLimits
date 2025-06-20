@@ -1,0 +1,138 @@
+%+----------------------------------------------------------------------------+
+%| Style file: Style macros and packages 
+%+----------------------------------------------------------------------------+
+
+
+\NeedsTeXFormat{LaTeX2e}[2009/09/24]
+\ProvidesPackage{custom-style}[11/13/2019 Custom Package]
+
+
+
+
+
+\makeatletter
+\g@addto@macro\normalsize{%
+    \setlength\belowdisplayskip{-0pt}
+}
+
+
+
+
+
+
+\AtBeginSubsection[]{}
+
+
+%%- Packages ----------------------------------------------------------------------------------------------
+\RequirePackage{verbatim}
+\RequirePackage{appendixnumberbeamer}
+\RequirePackage{amsmath, amssymb}
+\RequirePackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{arrows,shapes,calc}
+\RequirePackage{tikz-cd}
+\RequirePackage{graphicx, animate}
+\RequirePackage{hyperref}
+\RequirePackage[english]{babel}
+\RequirePackage{csquotes}
+\RequirePackage{wasysym}
+%\usepackage{enumitem} %option in itemize
+\RequirePackage{xcolor}
+\RequirePackage{pifont}
+\RequirePackage{empheq}
+\RequirePackage[font=scriptsize]{caption}
+\RequirePackage{cancel}
+\RequirePackage{stackengine}
+
+\RequirePackage[cal=boondox,scr=boondoxo]{mathalfa}
+% use mathscr for the v denoting hamiltonian vector fields. Avoid confusion with the infinitesimal action v!
+
+\RequirePackage{stmaryrd}
+\RequirePackage{fontawesome}
+
+
+\RequirePackage[export]{adjustbox}
+\RequirePackage[mode=buildnew,subpreambles=true]{standalone}
+\RequirePackage{textpos,eso-pic}
+
+
+%- Macros - Command --------------------------------------------------------------------------------------------------------------
+\providecommand{\cmark}{\textcolor{green}{\ding{51}}}%
+\providecommand{\xmark}{\textcolor{red}{\ding{55}}}%
+\providecommand{\smark}{\textcolor{orange}{\ding{43}}}%
+\providecommand{\vHam}{\mathscr{v}}
+\providecommand{\vAct}{v}
+\providecommand{\action}{\curvearrowright}
+
+
+
+%- WorkAround --------------------------------------------------------------------------------------------------------------
+%Standalone with relative path
+\newcommand{\includestandalonewithpath}[3][]
+{
+  \begingroup
+  \newcommand{\datapath}{#2}
+  \includestandalone[#1]{\datapath/#3}
+  \endgroup
+}
+
+
+
+
+%- HandOut Flag -----------------------------------------------------------------------------------------
+\makeatletter
+\@ifundefined{ifHandout}{%
+  \expandafter\newif\csname ifHandout\endcsname
+}{}
+\makeatother
+
+
+
+%- Contents macros -----------------------------------------------------------------------------------
+\setcounter{tocdepth}{2}
+%Intermediate checkpoint slide
+\newcommand{\checkpoint}[0]{
+	\ifHandout
+ 	\begin{frame}{Outline}
+  		%\tableofcontents[currentsection,currentsubsection]
+  		\tableofcontents[currentsection]
+	\end{frame}
+	\note{}
+	\else
+	\setcounter{tocdepth}{2}
+	\addtocounter{framenumber}{-1}
+ 	\begin{frame}{Outline}
+  		%\tableofcontents[currentsection,currentsubsection]
+  		\tableofcontents[currentsection]
+	\end{frame}
+	\note{}
+	\fi
+}
+\newcommand{\subcheckpoint}[0]{
+	\ifHandout
+
+	\else
+	\setcounter{tocdepth}{2}
+	\addtocounter{framenumber}{-1}
+ 	\begin{frame}[t]{Outline}
+  		\tableofcontents[currentsection,currentsubsection]
+  		%\tableofcontents[currentsubsection]
+  		\vfill
+  		\hfill\hyperlink{frame:thankyouslide}{\color{gray}$[>>]$}%\beamerskipbutton{}}
+	\end{frame}
+	\note{}	
+	\fi
+}
+%
+\newcommand{\outline}[0]{
+	\ifHandout
+
+	\else
+	\addtocounter{framenumber}{-1}
+ 	\begin{frame}{Outline}
+  		%\tableofcontents[currentsection,currentsubsection]
+  		\tableofcontents
+	\end{frame}
+	\note{}	
+	\fi
+}

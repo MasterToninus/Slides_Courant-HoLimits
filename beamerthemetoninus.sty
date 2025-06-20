@@ -1,0 +1,355 @@
+%|---------------------------
+%| Custom Beamer Theme
+%| Link:	https://www.r-bloggers.com/create-your-own-beamer-template/
+%| 				http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf
+%|---------------------------
+
+\mode<presentation>
+
+%--  Requirement -----------------------------------------------------------------------------------------
+\RequirePackage[most]{tcolorbox}
+
+%--  Settings -----------------------------------------------------------------------------------------------
+\useinnertheme{toninus}
+\useoutertheme{toninus}
+\usecolortheme{toninus}
+
+%--  Navigation bar ---------------------------------------------------------------------------------------
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[framed=true,rounded,shadow=true]
+%--  Page Size ---------------------------------------------------------------------------------------------
+\setbeamersize{
+	text margin left=1em,text margin right=1em,
+	sidebar width left=0em, sidebar width right=0em
+} 
+
+%--  Toc -----------------------------------------------------------------------------------------------
+\setbeamertemplate{section in toc}[square]
+\setbeamertemplate{subsection in toc}[ball unnumbered]
+
+
+%-- Sections ----------------
+%\AtBeginSection[]
+%{
+%  \begin{frame}%<beamer>
+%  	{Outline}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+%--  Fonts ---------------------------------------------------------------------------------------------------
+\setbeamerfont{note page}{size=\footnotesize}
+%\usefonttheme{serif}
+
+%--Personalized  Blocks---------------------------------------------------------------------------------
+% https://ctan.org/pkg/tcolorbox
+\newtcolorbox{defblock}[1][]{
+	colback=white,
+	colbacktitle=white,
+	coltitle=red!70!black,
+	colframe=red!70!black,
+	%boxrule=1pt,
+	titlerule=0pt,
+	%arc=15pt,
+	left skip=0em, right skip=0em,
+	%enlarge left by=-1em,width=\linewidth+1.5em, %box horizontal size
+	left=0em,right=0em,top=0em,bottom=0em, %text spacing
+	toptitle=-0.2em,bottomtitle=-0.2em, %title spacing
+	title={Def: \strut#1}
+}
+
+\newtcolorbox{propblock}[1][]{
+	colback=white,
+	colbacktitle=white,
+	coltitle=blue!70!black,
+	colframe=blue!70!black,
+	boxrule=1pt,
+	titlerule=0pt,
+	arc=15pt,
+	title={Prop: \strut#1}
+}
+
+\newtcolorbox{defpropblock}[1][]{
+	enhanced,breakable,
+	colback=white,
+	colbacktitle=white,
+	coltitle=red!70!black,
+	colframe=red!70!black,
+	%boxrule=1pt,
+	titlerule=0pt,
+	%arc=15pt,
+	borderline={0.5mm}{0mm}{red!70!black},
+	borderline={0.5mm}{0mm}{blue!70!black,dashed},		
+	left skip=0em, right skip=0em,
+	%enlarge left by=-1em,width=\linewidth+1.5em, %box horizontal size
+	left=0em,right=0em,top=0em,bottom=0em, %text spacing
+	toptitle=-0.2em,bottomtitle=-0.2em, %title spacing
+	title={Def/Prop: \strut#1}
+}
+
+
+
+\newtcolorbox{thmblock}[1][]{
+	colback=white,
+	colbacktitle=white,
+	coltitle=blue!70!black,
+	colframe=blue!70!black,
+	boxrule=1pt,
+	titlerule=0pt,
+	arc=15pt,
+	title={Thm: \strut#1}
+}
+
+\newtcolorbox{corblock}[1][]{
+	colback=white,
+	colbacktitle=white,
+	coltitle=blue!70!black,
+	colframe=blue!70!black,
+	boxrule=1pt,
+	titlerule=0pt,
+	arc=15pt,
+	title={Cor: \strut#1}
+}
+
+\newtcolorbox{lemblock}[1][]{
+	colback=white,
+	colbacktitle=white,
+	coltitle=blue!70!black,
+	colframe=blue!70!black,
+	boxrule=1pt,
+	titlerule=0pt,
+	%arc=15pt,
+	left skip=0em, right skip=0em,
+	%enlarge left by=-1em,width=\linewidth+1.5em, %box horizontal size
+	left=0em,right=0em,top=0em,bottom=0em, %text spacing
+	toptitle=-0.2em,bottomtitle=-0.2em, %title spacing
+	title={Lemma: \strut#1}
+}
+
+% Credit: https://tex.stackexchange.com/questions/431555/tcolorbox-with-title-on-the-left-side
+\newtcolorbox{keywordblock}[1][]{
+ enhanced,
+    coltitle=black, 
+    detach title,
+    left=10mm,
+ 		titlerule=0pt,
+		%arc=15pt,
+		%enlarge left by=-1cm,width=\linewidth+2cm, %box vertical size
+		left=0em,right=0em,top=0em,bottom=0em, %text spacing
+		toptitle=-0.5em,bottomtitle=-0.5em, %title spacing
+		title=keywords,
+		detach title,
+    left=10mm,
+    overlay={
+        \node[rotate=90, minimum width=1cm, anchor=south,yshift=-0.8cm] at (frame.west) {\tcbtitle};
+    }    
+}
+
+\newtcolorbox{asideblock}[1][]{
+    enhanced,
+	colback=white,
+	colbacktitle=white,
+	coltitle=brown!70!black,
+	colframe=brown!70!black,
+	%boxrule=1pt,
+	titlerule=0pt,
+	%arc=15pt,
+	%enlarge left by=-1cm,width=\linewidth+2cm, %box vertical size
+	left=0em,right=0em,top=0em,bottom=0em, %text spacing
+	toptitle=-0.25em,bottomtitle=-0.5em, %title spacing
+	leftrule=18pt,
+  title={\centering \strut#1},
+  overlay unbroken and first ={%
+    \node[rotate=90,
+          minimum width=1cm,
+          anchor=south,
+          font=\Large\sffamily\bfseries,
+          yshift=-18pt,
+          white]
+    at (frame.west) {(aside)};
+  }	
+}
+
+
+
+\newtcolorbox{claimblock}[1][Def:]{
+    enhanced,
+	colback=white,
+	colbacktitle=white,
+	coltitle=blue!70!black,
+	colframe=blue!70!black,
+	%boxrule=1pt,
+	titlerule=0pt,
+	%arc=15pt,
+	%enlarge left by=-1cm,width=\linewidth+2cm, %box vertical size
+	left=0em,right=0em,top=0em,bottom=0em, %text spacing
+	toptitle=-0.5em,bottomtitle=-0.5em, %title spacing
+	title={Claim:},
+	detach title,
+    left=13mm,
+    overlay={
+        \node[minimum width=1cm,xshift=0.8cm] at (frame.west) {\tcbtitle};
+    }
+}
+
+%tentative
+\newtcolorbox{proofblock}{
+	colframe=blue!75!black
+}
+
+\newtcolorbox{tamblock}[1][Def:]{
+    enhanced,
+	colback=white,
+	colbacktitle=white,
+	coltitle=purple!70!black,
+	colframe=purple!70!black,
+	%boxrule=1pt,
+	titlerule=0pt,
+	%arc=15pt,
+	%enlarge left by=-1cm,width=\linewidth+2cm, %box vertical size
+	left=0em,right=0em,top=0em,bottom=0em, %text spacing
+	toptitle=-0.5em,bottomtitle=-0.5em, %title spacing
+	title={TAM},
+	detach title,
+    left=10mm,
+    overlay={
+        \node[rotate=90, minimum width=1cm, anchor=south,yshift=-0.8cm] at (frame.west) {\tcbtitle};
+    }
+}
+
+\newtcolorbox{upshotblock}[1][Def:]{
+    enhanced,
+	colback=white,
+	colbacktitle=white,
+	coltitle=purple!50!black,
+	colframe=purple!50!black,
+	%boxrule=1pt,
+	titlerule=0pt,
+	%arc=15pt,
+	%enlarge left by=-1cm,width=\linewidth+2cm, %box vertical size
+	left=0em,right=0em,top=0em,bottom=0em, %text spacing
+	toptitle=-0.5em,bottomtitle=-0.5em, %title spacing
+	title={Upshot},
+	detach title,
+    left=10mm,
+    overlay={
+        \node[rotate=90, minimum width=1cm, anchor=south,yshift=-0.8cm] at (frame.west) {\tcbtitle};
+    }
+}
+
+\newtcolorbox{exblock}[1][]{
+	colback=white,
+	colbacktitle=white,
+	coltitle=black!90!white,
+	colframe=black!70!white,
+	%boxrule=1pt,
+	titlerule=0pt,
+	%arc=15pt,
+	left skip=0em, right skip=0em,
+	%enlarge left by=-1em,width=\linewidth+1.5em, %box horizontal size
+	left=0em,right=0em,top=0em,bottom=0em, %text spacing
+	toptitle=-0.2em,bottomtitle=-0.2em, %title spacing
+	title={Example: \strut#1}
+}
+
+\newtcolorbox{mathblock}[1][]{
+	colback=white,
+	colbacktitle=white,
+	coltitle=orange!70!black,
+	colframe=orange!90!black,
+	%boxrule=1pt,
+	titlerule=0pt,
+	%arc=15pt,
+	left skip=0em, right skip=0em,
+	%enlarge left by=-1em,width=\linewidth+1.5em, %box horizontal size
+	left=0em,right=0em,top=0em,bottom=0em, %text spacing
+	toptitle=-0.2em,bottomtitle=-0.2em, %title spacing
+	title={Mathematically: \strut#1}
+}
+
+\newtcolorbox{bracketbox}{
+freelance,
+breakable,
+enhanced,
+hbox,
+frame code={
+  \draw
+    ([xshift=1cm]frame.north west) --
+    (frame.north west) --
+    (frame.south west) --
+    ([xshift=1cm]frame.south west);
+  \draw 
+    ([xshift=-1cm]frame.north east) --
+    (frame.north east) --
+    (frame.south east) --
+    ([xshift=-1cm]frame.south east);
+  },
+colback=white
+}
+
+\newtcolorbox{upshotblocksimp}{
+	colback=white,
+	colbacktitle=white,
+	colframe=purple!70!black,
+	boxrule=1pt,
+	colupper=purple!70!black,
+	arc=15pt,
+	enhanced,
+}
+\newtcolorbox{upshotblocktitle}[1][]{
+	colback=white,
+	colbacktitle=white,
+	coltitle=purple!70!black,
+	colframe=purple!70!black,
+	%boxrule=1pt,
+	titlerule=0pt,
+	%arc=15pt,
+	left skip=0em, right skip=0em,
+	%enlarge left by=-1em,width=\linewidth+1.5em, %box horizontal size
+	left=0em,right=0em,top=0em,bottom=0em, %text spacing
+	toptitle=-0.2em,bottomtitle=-0.2em, %title spacing
+	title={Upshot: \strut#1}
+}
+
+\newtcolorbox{disclaimerbox}[1][]{
+	colback=white,
+	colbacktitle=white,
+	coltitle=black!70!white,
+	colupper=black!70!white,	
+	%boxrule=1pt,
+	titlerule=0pt,
+	%arc=15pt,
+	left skip=0em, right skip=0em,
+	%enlarge left by=-1em,width=\linewidth+1.5em, %box horizontal size
+	left=0em,right=0em,top=0em,bottom=0em, %text spacing
+	toptitle=-0.2em,bottomtitle=-0.2em, %title spacing
+	title={Disclaimer: \strut#1},
+	enhanced,frame hidden,borderline={0.5pt}{0pt}{black!70!white,dashed}
+}
+
+
+\newtcolorbox{zigzagbox}{
+freelance,
+breakable,
+enhanced,
+hbox,
+frame code={
+  \draw[decorate, decoration={zigzag, amplitude=0.05cm}]
+    ([xshift=-0.1cm,yshift=0.1cm]frame.north west) --
+    ([xshift=-0.1cm,yshift=-0.1cm]frame.south west);
+  \draw[decorate, decoration={zigzag, amplitude=0.05cm}]
+    ([xshift=-0.1cm,yshift=-0.1cm]frame.south west) --
+    ([xshift=0.1cm,yshift=-0.1cm]frame.south east);
+  \draw[decorate, decoration={zigzag, amplitude=0.05cm}]
+     ([xshift=0.1cm,yshift=-0.1cm]frame.south east) --
+    ([xshift=0.1cm,yshift=0.1cm]frame.north east);
+  \draw[decorate, decoration={zigzag, amplitude=0.05cm}]
+    ([xshift=0.1cm,yshift=0.1cm]frame.north east) --
+    ([xshift=-0.1cm,yshift=0.1cm]frame.north west);        
+
+  },
+colback=white  
+}
+
+
+\mode<all>

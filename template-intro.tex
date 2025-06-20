@@ -1,0 +1,95 @@
+%- HandOut Flag -----------------------------------------------------------------------------------------
+\makeatletter
+\@ifundefined{ifHandout}{%
+  \expandafter\newif\csname ifHandout\endcsname
+}{}
+\makeatother
+
+%- D0cum3nt ----------------------------------------------------------------------------------------------
+\documentclass[beamer,10pt]{standalone}   
+%\documentclass[beamer,10pt,handout]{standalone}  \Handouttrue  
+
+\ifHandout
+	\setbeameroption{show notes} %print notes   
+\fi
+
+	
+%- Packages ----------------------------------------------------------------------------------------------
+\usepackage{custom-style}
+\usepackage{math}
+
+
+
+
+%--Beamer Style-----------------------------------------------------------------------------------------------
+\usetheme{toninus}
+\usepackage{animate}
+\usetikzlibrary{positioning, arrows}
+\usetikzlibrary{shapes}
+
+\begin{document}
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Introduction}
+	\begin{columns}[]
+	\begin{column}{0.55\textwidth}
+		PhD colloquium:
+		\\
+		i.e.~
+		\emph{a talk inspired by my doctoral project}
+
+	\vspace{1em}
+
+	\begin{itemize}
+		\item<2-> \underline{Thesis}: focus on certain \emph{higher generalizations} in \emph{ symplectic geometry}.
+		\item<3-> \underline{Talk}: focus on \emph{motivations} rather than details.
+	\end{itemize}	
+
+
+
+	\end{column}
+	\begin{column}{0.4\textwidth}
+		\onslide<2->{
+			\fbox{\includegraphics[width=.9\textwidth]{Pictures/thesis-zoom}}
+		}
+	\end{column}
+	\end{columns}
+
+	\vfill
+
+	\vfill
+	\begin{columns}[]
+	\begin{column}{0.35\textwidth}
+		\onslide<4->{
+			\begin{tikzpicture}
+				\node [draw,cloud callout, minimum height=10em,minimum width=12em] (L1) {};
+				\node [text width=12em,text centered] (L2) {Why talk about \\ \emph{geometric mechanics}?};
+			\end{tikzpicture}
+		}
+	\end{column}
+	\begin{column}{0.65\textwidth}
+		\onslide<5->{
+			\begin{tikzpicture}
+				\node [draw,ellipse callout, minimum height=10em,minimum width=22em] (L1) {};
+				\node [text width=18em] (L2) 
+					{
+						$\bullet$ Historical inspiration for the development of (multi)-symplectic geometry.
+						\\
+						$\bullet$ Provides a "physical" intuition of certain geometric structures (and vice-versa).
+					};
+			\end{tikzpicture}
+		}
+	\end{column}
+	\end{columns}
+
+
+
+\end{frame}
+\note[itemize]{
+	\item
+}
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+
+\outline
+
+
+\end{document}
