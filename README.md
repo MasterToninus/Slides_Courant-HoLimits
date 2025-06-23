@@ -36,6 +36,11 @@ This repository contains the Beamer slides used for the presentation titled **"A
 
 ## Structure
 
+### Contents
+The mathematical background of the audience is quite ample, so ideally in your 60-minutes-talk you'd use half of the time for introduction, background, and overview, and the other half for your own results. You won't be punished if you do it differently, but that would be the idea. Both slides and blackboard talks are possible. 
+
+### Repository
+
 - `main.tex`: Main LaTeX file to compile the slides  
 - `Pictures/`: Directory for figures and diagrams  
 - `bibfile.bib`: (If applicable) Bibliography file  

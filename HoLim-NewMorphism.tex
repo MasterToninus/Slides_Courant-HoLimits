@@ -1,0 +1,57 @@
+%- HandOut Flag -----------------------------------------------------------------------------------------
+\makeatletter
+\@ifundefined{ifHandout}{%
+  \expandafter\newif\csname ifHandout\endcsname
+}{}
+\makeatother
+
+%- D0cum3nt ----------------------------------------------------------------------------------------------
+\documentclass[beamer,10pt]{standalone}   
+%\documentclass[beamer,10pt,handout]{standalone}  \Handouttrue  
+
+\ifHandout
+	\setbeameroption{show notes} %print notes   
+\fi
+
+	
+%- Packages ----------------------------------------------------------------------------------------------
+\usepackage{custom-style}
+\usepackage{math}
+
+
+
+
+%--Beamer Style-----------------------------------------------------------------------------------------------
+\usetheme{toninus}
+\usepackage{animate}
+\usetikzlibrary{positioning, arrows}
+\usetikzlibrary{shapes}
+
+%===========================================================%
+\begin{document}
+%===========================================================%
+
+
+
+
+
+%-----------------------------------------------------------%
+\subsection{Reminder: Cone construction and homotopy fibers}
+
+
+\subsection{TOOOOTOdo}
+
+
+
+%-----------------------------------------------------------%
+\ifstandalone
+% https://en.wikibooks.org/wiki/LaTeX/Bibliographies_with_biblatex_and_biber
+\begin{frame}[t,allowframebreaks]{Partial Bibliography}
+	\nocite{Miti2021}
+	\bibliographystyle{alpha}
+	\bibliography{bibfile}
+\end{frame}
+\fi
+%-----------------------------------------------------------%
+
+\end{document}
