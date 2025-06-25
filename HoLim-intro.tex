@@ -34,14 +34,17 @@
 
 %-----------------------------------------------------------%
 %-------------------------------------------------------------------------------------------------------------------------------------------------
-\begin{frame}[fragile]{Keywords}
+\begin{frame}[fragile]{Unpacking the title}
 \tikzstyle{every picture}+=[remember picture]
 	\begin{columns}
     	\begin{column}{.45\textwidth}
     		\onslide<5->{
 			\tikz[baseline]{
 		            \node[draw=orange!40,anchor=base,text width=5cm] (s1)
-		            { Un canonical mordfismo?};
+		            {\textbf{Goal:}
+					is there a morphism 
+					\\ \emph{from:} the $L_\infty$-algebra associated with $E^{(n)}$ and the twist $\omega$,
+					\\ \emph{to:} the $L_\infty$-algebra associated with $E^{(n+1)}$ without twist?};
 			}
 		}
 	\end{column}
@@ -87,7 +90,7 @@
     		\onslide<4->{
 	 		 \tikz[baseline]{
 	            \node[draw=green!40,anchor=base,text width=5cm] (s3)
-	            {Twists};
+	            {any closed differential form $$\omega\in\Omega^{n+2}(M)$$ can be use to \emph{twist} the binary bracket on $\Gamma(E^{(n)})$.};
 	         }
 		}		   	
 		\end{column}
@@ -95,24 +98,30 @@
     		\onslide<3->{
 				\tikz[baseline]{
 	            \node[draw=red!40,anchor=base,text width=5cm] (s4)
-	            {Courant algoids};
+	            {\textbf{Higher Courant algebroids}\\
+					smooth vector bundles
+				$$ E^{(n)}= TM \oplus \wedge^{n}T^\ast M \to M$$
+
+				 	the space of global sections $\Gamma(E^{(n)})$ forms an $L_\infty$-algebra!
+				};
 	           }	
 			}
 		\end{column}
 	\end{columns}
 
 	\begin{tikzpicture}[overlay]
-        \path[->,draw=orange!40]<5-> (s1) edge [bend right] (t1);
-        \path[->,draw=blue!40]<2-> (s2) edge [bend left] (t2);
-        \path[->,draw=green!40]<4-> (s3) edge [bend left] (t3);
-        \path[->,draw=red!40]<3-> (s4) edge [bend right] (t4);
+        \path[->,draw=orange!40, line width=.5mm]<5-> (s1) edge [bend right] (t1);
+        \path[->,draw=blue!40, line width=.5mm]<2-> (s2) edge [bend left] (t2);
+        \path[->,draw=green!40, line width=.5mm]<4-> (s3) edge [bend left] (t3);
+        \path[->,draw=red!40, line width=.5mm]<3-> (s4) edge [bend right] (t4);
 	\end{tikzpicture}
 
 
 \end{frame}
 \note[itemize]{
-	\item Provide a vague idea of the words that make up the title.
-	\item
+	\item we deal with the category of \emph{L_\infty-algebras}. These are a generalziation of dg-Lie algebras, where we ask the Jacobi identity to be satisfied up to exact terms. The corresponding primitives are given by certain higher brackets.
+	\item the (standard) higher Courant algebroid is part of a family of vector bundle over $M$. In degree 0 we have the standard Lie algebroid, in degree 1 the standard Courant algebroid an we can go higher in this sequence.
+	\item 
 	\item Conventions:
 	\\- $M$ and $G$ are connected,
 	\\- actions $\theta:G \curvearrowright M$ are always smooth

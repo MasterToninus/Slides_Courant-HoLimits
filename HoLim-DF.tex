@@ -1,0 +1,236 @@
+%+----------------------------------------------------------+
+%| SLIDES: DF talk in Xian
+%| Contents:	- 60 minutes (estimated duration: ~3 minutes per slide)
+%| Author: Domenico Fiorenza
+%| Comment: Transcription of a talk given by Domenico Fiorenza in China. 
+%|          I am reproducing it faithfully to help myself move forward. I am a bit stuck!!!!
+%+----------------------------------------------------------+
+
+
+%- HandOut Flag --------------------------------------------+
+\makeatletter
+\@ifundefined{ifHandout}{%
+  \expandafter\newif\csname ifHandout\endcsname
+}{}
+\makeatother
+
+%- D0cum3nt ------------------------------------------------+
+\documentclass[beamer,10pt]{standalone}   
+%\documentclass[beamer,10pt,handout]{standalone}  \Handouttrue  
+
+\ifHandout
+	\setbeameroption{show notes} %print notes   
+\fi
+
+	
+%- Packages ----------------------------------------------------------------------------------------------
+\usepackage{custom-style}
+\usepackage{math}
+
+
+
+
+%--Beamer Style-----------------------------------------------------------------------------------------------
+\usetheme{toninus}
+\usepackage{animate}
+\usetikzlibrary{positioning, arrows}
+\usetikzlibrary{shapes}
+
+%-- Custom Commands ---------------------------------------%
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\newcommand{\seprule}{\par\noindent\rule{.4\textwidth}{0.4pt}\\
+}
+
+%===========================================================%
+\begin{document}
+%===========================================================%
+
+
+%-----------------------------------------------------------%
+\begin{frame}{1-plectic case}
+	$M$ manifold; $\sigma \in \Omega^2_{\mathrm{cl}}(M)$ closed 2-form;
+	\vfill
+
+	Hamiltonian vector fields:
+	$\X_{\sigma,\ham} \subseteq \X$
+	$$ \X_{\sigma,\ham} = \{ X \in \X \mid \iota_X \sigma ~~\textrm{is exact }\}$$
+	\blfootnote{i.e. $\exists f \in \Omega^0$ s.t. $\iota_X \sigma + \d f=0$}
+	\vfill
+
+	Hamiltonian pairs:
+	$$\Ham^{(0)}_\sigma = \{(X,f) \mid \iota_X \sigma + \d f = 0 \}
+	\subseteq \X\oplus \Omega^0 = \Gamma(E^{(0)})$$
+	\vfill
+
+	Standard Lie algebroid:
+	$$ E^{(0)} = TM \oplus \R = TM \oplus \wedge^0 T^* M \to M$$
+
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+	$\Ham^{(0)}_\sigma$ has a Lie algebra structure:
+	\begin{equation}\label{eq:Bracket-HamPairs}
+		\{ (X,f), (Y,g)\} = ( [X,Y], \sigma(X,Y))
+	\end{equation}
+	\footnote{$\sigma(X,Y)$ is an Hamiltonian 1-form for $[X,Y]$}
+	\vfill
+
+	Clearly, $\Ham^{(0)}_\sigma \twoheadrightarrow \X_{\sigma,\ham}$
+	\\
+	if $\sigma$ is non-degenerate, then $\Ham^{(0)}_\sigma \cong \Omega^0$ and \eqref{eq:Bracket-HamPairs} is the usual \emph{Poisson bracket}.
+	\footnote{Note: $\sigma(X,Y) = \iota_Y \iota_X \sigma = -\iota_Y \d f = \iota_X \d g$ for $(X,f), (Y,g) \in \Ham^{(0)}_\sigma$.}
+	\vfill
+
+	\seprule
+	$\X\oplus \Omega^0$ carries a Lie algebra structure:
+	\begin{equation}\label{eq:Bracket-LieAlgoid}
+		\{ (X,f), (Y,g)\} = ( [X,Y], \Lie_X g - \Lie_Y f + \sigma(X,Y) )
+	\end{equation}
+
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+	\begin{block}{Notations:}
+		\begin{itemize}
+			\item $\Courant[\sigma]{0} := \X\oplus \Omega^{0}$ with its Lie algebra structure \eqref{eq:Bracket-LieAlgoid}
+			\item $\Rogers[\sigma]{0} := \Ham^{(0)}_\sigma$ with its Lie algebra structure \eqref{eq:Bracket-HamPairs}
+		\end{itemize}
+	\end{block}
+	\vfill
+
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\Rogers[\sigma]{0}   \ar[r,two heads]\ar[d,hook]\& \X_{\sigma,\ham}
+			\\ 
+			\Courant[\sigma]{0}
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+
+	\seprule
+	this was the $r=1$ case : $\sigma$ is a degree $r+1$ closed form and $\Rogers[\sigma]{r},\Courant[\sigma]{r}$ are $L_r$-algebras.
+	\\
+	Let us now move from $r=1$ to $r=2$.
+
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}{2-plectic case}
+	$\sigma \in \Omega^3_{\mathrm{cl}}(M)$ closed 3-form;
+	\vfill
+
+	Hamiltonian vector fields: $\X_{\sigma,\ham}$ same definition as before
+	\vfill
+
+	Hamiltonian pairs:
+	$$
+		\Ham^{(1)}_\sigma = \{ (X,\omega) \mid \iota_X \sigma + \d \omega  = 0 \}\subseteq \X\oplus \Omega^1 = \Gamma(E^{(1)})
+	$$
+	\vfill
+	
+	Standard Courant algebroid:
+	$$ E^{(1)} = TM \oplus T^*M = TM \oplus \wedge^1 T^* M \to M$$
+	\vfill
+
+	\emph{do $\Ham^{(1)}_\sigma$ and $E^{(1)}$ carry a Lie algebra structure?}
+	\vfill
+
+	$\Gamma(E^{(1)})$ has a canonical antisymmetric bracket (called \emph{Courant bracket}), that however does \underline{not} satisfy the Jacobi identity.
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+	Yet it satisfies it \emph{"up to homotopy"}. This suggests there could be a $L_\infty$-algebra structure hiding here.
+	\vfill
+
+	\seprule
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\& \text{\small (deg $-1$)} \& \text{\small (deg $0$)} \\[-.5em]
+			\Rogers[\sigma]{1}   \ar[r,phantom,":="]
+			\&
+			\Omega^0 \ar[r,"{(0,\d)}"] \ar[d,"id"]
+			\& \Ham_{\sigma}^{(1)} \ar[d,hook]
+			\&[1em] \parbox{10em}{carries a distinguished $L_\infty$-algebra structure}
+			\\
+			\Courant[\sigma]{1} \ar[r,phantom,":="]
+			\& \Omega^0 \ar[r,"{(0,\d)}"]
+			\& \Gamma(E^{(1)}) \&
+			\parbox{10em}{forms a $L_2$-algebra with the courant bracket [Roytenberg-Weinstein]}
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+
+	Vertical arrows are the linear part of a $L_\infty$-morphism $\Rogers[\sigma]{1} \to \Courant[\sigma]{1}$.
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}{General picture: arbitrary r}
+	$\sigma \in \Omega^{r+1}_{\mathrm{cl}}(M)$, 
+	$\X_{\sigma,\ham}$ same definition.
+	\vfill
+
+	Hamiltonian pairs:
+	$$
+		\Ham^{(r-1)}_\sigma = 
+		\{ (X,\omega) \mid \iota_X \sigma + \d \omega  = 0 \}
+		\subseteq \X\oplus \Omega^{r-1} = \Gamma(E^{(r-1)})
+	$$
+	\vfill
+	
+	Standard higher Courant (Vinogradov) algebroid:
+	$$ E^{(r-1)} = TM \oplus \wedge^{r-1} T^* M \to M$$
+	\vfill
+
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
+			\& \text{\small (deg $1-r$)} \& \cdots \& \&\text{\small (deg $-1$)} \& \text{\small (deg $0$)} \\[-.5em]
+			\Rogers[\sigma]{r-1}   \ar[r,phantom,":="]
+			\&
+			\Omega^0 \ar[r,"{\d}"] \ar[d,"id"]
+			\&
+			\Omega^1 \ar[r,"{\d}"] \ar[d,"id"]
+			\&
+			\cdots
+			\&
+			\Omega^{r-2} \ar[r,"{(0,\d)}"] \ar[d,"id"]
+			\& \Ham_{\sigma}^{(r-1)} \ar[d,hook]
+			\\
+			\Courant[\sigma]{r-1} \ar[r,phantom,":="]
+			\&
+			\Omega^0 \ar[r,"{\d}"]
+			\&
+			\Omega^1 \ar[r,"{\d}"] 
+			\&
+			\cdots
+			\&
+			\Omega^{r-2} \ar[r,"{(0,\d)}"]
+			\& \Gamma(E^{(1)})
+		\end{tikzcd}
+	\end{displaymath}
+
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+
+\end{frame}
+%-----------------------------------------------------------%
+
+
+%===========================================================%
+\end{document}
+%===========================================================%
