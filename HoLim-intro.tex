@@ -141,32 +141,188 @@
 %-----------------------------------------------------------%
 \subsection{Symplectic Case}
 %-----------------------------------------------------------%
-\begin{frame}{Symplectic Case}
-	\begin{itemize}
-		\item \textbf{Goal:} Find a canonical morphism between the twisted and untwisted higher Courant $L_\infty$-algebras.
-		\item \textbf{Strategy:} Use the cone construction to obtain a homotopy fiber of the morphism.
-		\item \textbf{Result:} The morphism is given by a certain 2-plectic structure on the cone.
-	\end{itemize}
+\begin{frame}{(Pre)-symplectic Case}
+	$M$ manifold; $\sigma \in \Omega^2_{\mathrm{cl}}$ closed 2-form;
+	\footnote{We omit to write $(M)$ when considering differential forms $\Omega(M)$ and vector fields $\X(M)$}
+	\vfill
+
+	\begin{defblock}[Hamiltonian vector fields $\X_{\sigma,\ham} \subseteq \X$]
+		\begin{displaymath}
+			\X_{\sigma,\ham} = \{ X \in \X \mid \iota_X \sigma ~~\textrm{is exact}\}
+		\end{displaymath}
+		\blfootnote{i.e. $\exists f \in \Omega^0$ s.t. $\iota_X \sigma + \d f=0$}
+	\end{defblock}
+	\vfill
+
+	\begin{defblock}[Hamiltonian pairs ]
+		\begin{displaymath}
+			\Ham^{(0)}_\sigma = \{(X,f) \mid \iota_X \sigma + \d f = 0 \}
+	\subseteq \X\oplus \Omega^0 = \Gamma(E^{(0)})
+		\end{displaymath}
+	\end{defblock}
+	\vfill
+
+	\begin{defblock}[Standard Lie algebroid]
+		Vector bundle
+		\begin{displaymath}
+			E^{(0)} = TM \oplus \R = TM \oplus \wedge^0 T^* M \to M
+		\end{displaymath}
+		... with a \emph{binary bracket} on sections and a \emph{anchor map} \small(see below)\normalsize.
+	\end{defblock}
 \end{frame}
 \note[itemize]{
-	\item 
+	\item Ok, we mentioned a morphism. How does it look like in the lower case?
+	\item The story starts from presymplectic geometry.
+	\item out of the data $\sigms$ we define a subspace of vector fields. (actually a Lie subalgebra since $\iota_{[x,y]}=\Lie_x \iota_y - \iota_y \Lie_x$).
+	\item We don't need non degeneracy to have a Lie algebra, we just say that exists a primitive function without specifying it.
+	\item An improved notion is to consider Hamiltonian pairs where elements are a specification of a v.field together with an hamiltonian function.
+	\item the index $(0)$ appearing is to recall the degree of hamiltonian forms and suggests that we can go higher -> we can devise a pattern.
+	\item Hamiltonian forms can be seen as elements of the space of sections of certain vector bundle $E^{(0)}$.
+	\item Again index $(0)$ is to devise a pattern going toward courant algebroids and their higher generalizations.
 }%-----------------------------------------------------------%
-\subsection{2-plectic Case}
+
 %-----------------------------------------------------------%
-\begin{frame}{2-plectic Case}
-	\begin{itemize}
-		\item \textbf{Goal:} Extend the result to the 2-plectic case.
-		\item \textbf{Strategy:} Use the cone construction to obtain a homotopy fiber of the morphism.
-		\item \textbf{Result:} The morphism is given by a certain 3-plectic structure on the cone.
-	\end{itemize}
+\begin{frame}{(Pre)-symplectic Case: algebraic structures (1)}
+	\begin{lemblock}[$\Ham^{(0)}_\sigma$ carries a Lie algebra structure:]
+		\begin{equation}\label{eq:Bracket-HamPairs}
+		\big\{ (X,f), (Y,g)\big\} = \big( [X,Y], \sigma(X,Y)\big)
+		\end{equation}
+	\blfootnote{rmk: $\sigma(X,Y)$ is an Hamiltonian 1-form for $[X,Y]$!}
+	\end{lemblock}
+	\vfill
+
+	\begin{remblock}["Observables" Poisson algebra]
+		Cleary $\Ham^{(0)}_\sigma \twoheadrightarrow \X_{\sigma,\ham}$ \small (forgetting the chosen primitive function) \normalsize
+		\\
+		if $\sigma$ is non-degenerate, then $\Ham^{(0)}_\sigma \cong \Omega^0$ and \eqref{eq:Bracket-HamPairs} is the usual \emph{Poisson bracket}.
+		\footnote{Note: $\sigma(X,Y) = \iota_Y \iota_X \sigma = -\iota_Y \d f = \iota_X \d g \qquad \forall(X,f), (Y,g) \in \Ham^{(0)}_\sigma$.}
+	\end{remblock}	 
+	\vfill
+ 
+	\begin{lemblock}[$\Gamma(E^{(0)}) = \X\oplus \Omega^0$ carries a Lie algebra structure:]
+		\begin{equation}\label{eq:Bracket-LieAlgoid}
+			\big\{ (X,f), (Y,g)\big\} = \big( [X,Y],~ \Lie_X g - \Lie_Y f + \sigma(X,Y) \big)
+		\end{equation}
+	\end{lemblock}
 \end{frame}
 \note[itemize]{
 	\item 
-}
+}%------------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}{(Pre)-symplectic Case: algebraic structures (2)}	
+	\begin{notblock}
+		\begin{itemize}
+			\item[$\bullet$] $\Courant[\sigma]{0} := \X\oplus \Omega^{0}$ with its Lie algebra structure \eqref{eq:Bracket-LieAlgoid}
+			\item[$\bullet$] $\Rogers[\sigma]{0} := \Ham^{(0)}_\sigma$ with its Lie algebra structure \eqref{eq:Bracket-HamPairs}
+		\end{itemize}
+		%
+		\begin{displaymath}
+			\begin{tikzcd}[ampersand replacement=\&]
+				\Rogers[\sigma]{0}   \ar[r,two heads]\ar[d,hook]\& \X_{\sigma,\ham}
+				\\ 
+				\Courant[\sigma]{0}
+			\end{tikzcd}
+		\end{displaymath}
+	\end{notblock}
+	\vfill
+
+
+	\seprule
+	\begin{upshotblock}
+		\begin{itemize}
+			\item this was the $r=1$ case :
+				\begin{itemize}
+					\item[$\bullet$] $\sigma$ is a degree $r+1$ closed form,
+					\item[$\bullet$] $\Rogers[\sigma]{r},\Courant[\sigma]{r}$ are Lie algebras.
+				\end{itemize}
+			\item Let us now move from $r=1$ to $r=2$.
+		\end{itemize}
+	\end{upshotblock}
+
+\end{frame}
+\note[itemize]{
+	\item 
+}%------------------------------------------------------------%	
+	\subsection{2-plectic Case}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}{2-plectic case}
+	Fix a closed 3-form $\sigma \in \Omega^3_{\mathrm{cl}}$;
+	\vfill
+
+	\begin{defblock}[Hamiltonian vector fields  \emph{(same as before!)}]
+		\begin{displaymath}
+			\X_{\sigma,\ham} = \{ X \in \X \mid \iota_X \sigma ~~\textrm{is exact}\}
+		\end{displaymath}
+	\end{defblock}
+	\vfill
+
+	\begin{defblock}[Hamiltonian pairs \emph{(same as before!)}]
+		\begin{displaymath}
+			\Ham^{(1)}_\sigma = \{(X,\omega) \mid \iota_X \sigma + \d f = 0 \}
+	\subseteq \X\oplus \Omega^1 = \Gamma(E^{(1)})
+		\end{displaymath}
+	\end{defblock}
+	\vfill
+
+	\begin{defblock}[Standard Courant algebroid]
+		Vector bundle
+		\begin{displaymath}
+			E^{(0)} = TM \oplus \R = TM \oplus \wedge^0 T^* M \to M
+		\end{displaymath}
+		... with a \emph{binary bracket} on sections and a \emph{anchor map} \small(see below)\normalsize.
+	\end{defblock}	
+
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}[fragile]{2-plectic case: algebraic structures}
+	\begin{itemize}
+		\item \emph{do $\Ham^{(1)}_\sigma$ and $E^{(1)}$ carry a Lie algebra structure?}
+			\begin{itemize}
+				\item[$\bullet$] $\Gamma(E^{(1)})$ has a canonical antisymmetric bracket (called \emph{Courant bracket});
+				\item[$\bullet$] Same for $\Ham^{(1)}_\sigma$ (generalizing \eqref{eq:Bracket-HamPairs} to 1-forms)
+			\end{itemize}
+		\item They do \underline{not} satisfy the Jacobi identity on the nose but only \emph{"up to homotopy"}. $\Rightarrow$ there could be a $L_\infty$-algebra lying around.
+	\end{itemize}	
+	\vfill
+
+	%
+	\begin{propblock}
+		\vspace{-2em}
+		\begin{displaymath}
+			\begin{tikzcd}[ampersand replacement=\&]
+				\& \text{\small (deg $-1$)} \& \text{\small (deg $0$)} \\[-2.5em]
+				\Rogers[\sigma]{1}   \ar[r,phantom,":="]
+				\&
+				\Omega^0 \ar[r,"{(0,\d)}"] \ar[d,"id"]
+				\& \Ham_{\sigma}^{(1)} \ar[d,hook]
+				\&[.7em] \parbox{9em}{\small carries a distinguished $L_\infty$-algebra structure \cite{Rogers2010}}
+				\\
+				\Courant[\sigma]{1} \ar[r,phantom,":="]
+				\& \Omega^0 \ar[r,"{(0,\d)}"]
+				\& \Gamma(E^{(1)}) \&
+				\parbox{9em}{\small forms a $L_2$-algebra with the courant bracket \cite{Roytenberg1998}}
+			\end{tikzcd}
+		\end{displaymath}
+
+
+	\cite{Rogers2013}: Vertical arrows are the linear part of a $L_\infty$-morphism $$\Rogers[\sigma]{1} \to \Courant[\sigma]{1}~.$$
+	\end{propblock}
+\end{frame}
+%-----------------------------------------------------------%
+
+
+
+
+
 %-----------------------------------------------------------%
 \subsection{Goals}
 %-----------------------------------------------------------%
-\begin{frame}{Goals}
+\begin{frame}{Goals: Going higher!}
 	\begin{itemize}
 		\item \textbf{Goal:} Find a canonical morphism between the twisted and untwisted higher Courant $L_\infty$-algebras.
 		\item \textbf{Strategy:} Use the cone construction to obtain a homotopy fiber of the morphism.

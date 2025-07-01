@@ -58,6 +58,36 @@
 	title={Def: \strut#1}
 }
 
+\newtcolorbox{remblock}[1][]{
+	colback=white,
+	colbacktitle=white,
+	coltitle=orange!70!black,
+	colframe=orange!70!black,
+	%boxrule=1pt,
+	titlerule=0pt,
+	%arc=15pt,
+	left skip=0em, right skip=0em,
+	%enlarge left by=-1em,width=\linewidth+1.5em, %box horizontal size
+	left=0em,right=0em,top=0em,bottom=0em, %text spacing
+	toptitle=-0.2em,bottomtitle=-0.2em, %title spacing
+	title={Rmk: \strut#1}
+}
+
+\newtcolorbox{notblock}[1][]{
+	colback=white,
+	colbacktitle=white,
+	coltitle=UniGreen!70!black,
+	colframe=UniGreen!70!black,
+	%boxrule=1pt,
+	titlerule=0pt,
+	%arc=15pt,
+	left skip=0em, right skip=0em,
+	%enlarge left by=-1em,width=\linewidth+1.5em, %box horizontal size
+	left=0em,right=0em,top=0em,bottom=0em, %text spacing
+	toptitle=-0.2em,bottomtitle=-0.2em, %title spacing
+	title={Notation: \strut#1}
+}
+
 \newtcolorbox{propblock}[1][]{
 	colback=white,
 	colbacktitle=white,
@@ -290,11 +320,12 @@ colback=white
 \newtcolorbox{upshotblocksimp}{
 	colback=white,
 	colbacktitle=white,
+	coltitle=purple!70!black,
 	colframe=purple!70!black,
 	boxrule=1pt,
-	colupper=purple!70!black,
+	titlerule=0pt,
 	arc=15pt,
-	enhanced,
+	title={UpShot:}
 }
 \newtcolorbox{upshotblocktitle}[1][]{
 	colback=white,

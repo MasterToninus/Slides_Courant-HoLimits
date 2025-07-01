@@ -37,14 +37,9 @@
 \usetikzlibrary{shapes}
 
 %-- Custom Commands ---------------------------------------%
-\newcommand\blfootnote[1]{%
-  \begingroup
-  \renewcommand\thefootnote{}\footnote{#1}%
-  \addtocounter{footnote}{-1}%
-  \endgroup
-}
-\newcommand{\seprule}{\par\noindent\rule{.4\textwidth}{0.4pt}\\
-}
+
+
+\usetikzlibrary{fit}
 
 %===========================================================%
 \begin{document}
@@ -249,7 +244,6 @@
 			C^\infty(T^*[r]T[1]M) \& C^\infty(T[1]M) \ar[l,hook]\ar[r,phantom,"\cong"] \& \Omega(M) 
  		\end{tikzcd}
 	\end{displaymath}
-
 \end{frame}
 %-----------------------------------------------------------%
 
@@ -266,11 +260,45 @@
 	\begin{enumerate}
 		\item \cite{Getzler1991} construct a canonical $L_\infty$-algebra structure on $\mathcal{C}_r^{<0}\cong \frac{\mathcal{C}_r }{\mathcal{C}_r^{\geq 0}}$ (via \emph{derived brackets});
 		\item \cite{Fiorenza2006} construct a canonical $L_\infty$-algebra associated with any dg Lie algebra morphism $\g \to \mathfrak{h}$ (via \emph{mapping cones});
-		\item \cite{boh} showed that the $L_\infty$-algebra  of 2. is a \emph{model of the homotopy fiber $\hofib(\g \to \mathfrak{h})$}.
-		\item \cite{Bandiera2015} showed that 1. is a model of the homotopy fiber $\hofib(\mathcal{C}_r^{\geq 0} \hookrightarrow \mathcal{C}_r)$.
+		\item \cite{Pridham2010a} showed that the $L_\infty$-algebra  of 2. is a \emph{model for the homotopy fiber $\hofib(\g \to \mathfrak{h})$}.
+		\item \cite{Bandiera2015} showed that 1. is a model for the homotopy fiber $\hofib(\mathcal{C}_r^{\geq 0} \hookrightarrow \mathcal{C}_r)$.
 	\end{enumerate}
 \end{frame}
 %-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}[fragile,shrink]{Details of the mapping cone construction}
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&,
+			/tikz/execute at end picture={
+    			\node  (large) [label=right:{\it dglas},draw,rectangle, draw,dashed, fit=(A1) (A2)] {};
+    			\node (large2) [label=right:{\it dgvspaces},rectangle, draw,dashed, fit=(B1) (B2)] {};}] 
+			|[alias=A1]| TW(f) \ar[dr] \ar[rr] \ar[drr,phantom,near start,"\lrcorner"]\& \& 0 \ar[d] \\
+			\& X \arrow[r,""{name=U, below, draw=red}] \& |[alias=A2]| Y  \\
+			\\
+			\& X \ar[r,""{name=D, draw=red}] \arrow[from=U, to=D, rightsquigarrow]\& |[alias=B2]| Y  \\
+			|[alias=B1]| MapCoCone(f) \ar[ur] \ar[rr] \ar[rru,phantom,near start,"\urcorner"]\& \& 0 \ar[u]
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+	\begin{enumerate}
+		\item $TW(f)$ Thom-Whitney of $X\to Y$, is a model for the homotopy fiber of $X\to Y$ in dglas \cite[Def 6.1.4]{Manetti2022b};
+		\item forgetting the Lie structure, $MapCoCone(f)$ is a model for the homotopy fiber of $X\to Y$ in dgvspaces \cite[Def.5.1.3]{Manetti2022b};
+		\item $TW(f)$ and $MapCoCone(f)$ are quasi isomorphic as dgspaces \cite[Cor. 6.1.7]{Manetti2022b}.
+		\item Via homotopy transfer one gets an $L_\infty$-structure on $MapCoCone(f)$.
+		\item the corresponding $L_\infty$-algebra is quasi-isomorphic to $TW(f)$ hence is a model for the homotopy fiber of the dgla map $X\to Y$.
+	\end{enumerate}
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}{What to read out of Pridham2010a}
+	nell'articolo di Pridham i risultati di interesse sono il Lemma 3.24, la Proposizione 4.42 e il Corollario 4.57 (numerazione dell'ultima versione arXiv)
+
+\end{frame}
+%-----------------------------------------------------------%
+
+
 
 %-----------------------------------------------------------%
 \begin{frame}
