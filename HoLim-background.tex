@@ -6,8 +6,8 @@
 \makeatother
 
 %- D0cum3nt ----------------------------------------------------------------------------------------------
-\documentclass[beamer,10pt]{standalone}   
-%\documentclass[beamer,10pt,handout]{standalone}  \Handouttrue  
+%\documentclass[beamer,10pt]{standalone}   
+\documentclass[beamer,10pt,handout]{standalone}  \Handouttrue  
 
 \ifHandout
 	\setbeameroption{show notes} %print notes   
@@ -86,10 +86,12 @@
 %-----------------------------------------------------------%
 %-----------------------------------------------------------%
 \begin{frame}{Courant Algebroids \& Generalized Geometry}
-
+	%
+   \begin{block}{Why should we care about Courant algebroids $E^{(1)}$?}	
+	
 \begin{columns}
   \column{0.6\textwidth}
-   \begin{block}{Why should we care about Courant algebroids $E^{(1)}$?}
+
     \begin{itemize}
       \item[\ding{43}] Generalize \textbf{Lie algebroids}, \textbf{Poisson}, and \textbf{symplectic} structures.
       
@@ -104,7 +106,6 @@
         \item Supergravity via generalized Ricci-flatness.
       \end{itemize}
     \end{itemize}
-  \end{block}
 
   \column{0.4\textwidth}
   \begin{exblock}[Symplectic as Dirac]
@@ -120,9 +121,8 @@
 	When $\sigma$ is closed, the graph is a Dirac structure.
 
   \end{exblock}
-
 \end{columns}
-
+\end{block}
 \end{frame}
 \note[itemize]{
 	\item   Courant algebroids have become pivotal in both differential geometry and theoretical physics because they unify and generalize diverse structures while providing a natural language for modern physical theories. Originally introduced by Dorfman and Courant to geometrize Dirac’s theory of constraints and as the “double” of Lie bialgebroids, a Courant algebroid extends a Lie algebroid by incorporating a nondegenerate symmetric pairing and a Leibniz (Dorfman) bracket.
@@ -136,7 +136,6 @@
 - Y. Kosmann-Schwarzbach, \textit{Courant algebroids: A short history}, \hyperref[https://arxiv.org/abs/1212.0559]{arXiv:1212.0559}
 	\item Dirac structure for \texorpdfstring{$p = 1$}{p = 1}]
 Let \( L \subseteq TM \oplus T^*M \) be a subbundle.
-\begin{itemize}
   \item \( L \) is \emph{isotropic} if for all sections \( X_1 + \alpha_1,\, X_2 + \alpha_2 \in \Gamma(L) \),
   \[
   \langle X_1 + \alpha_1,\; X_2 + \alpha_2 \rangle = \frac{1}{2}\left( \iota_{X_2} \alpha_1 + \iota_{X_1} \alpha_2 \right) = 0.
@@ -165,7 +164,7 @@ Let \( L \subseteq TM \oplus T^*M \) be a subbundle.
 %-----------------------------------------------------------%
 \begin{frame}{Higher Courant Algebroids}
 	\begin{defblock}[Higher Courant (Vinogradov) Algebroids]
-		\includestandalone[width=0.95\textwidth]{Pictures/Figure_vinogradov}	
+		\includestandalone[width=0.95\textwidth]{Pictures/Frame_vinogradov}	
 	\end{defblock}
 
 	\begin{itemize}
@@ -186,7 +185,7 @@ Let \( L \subseteq TM \oplus T^*M \) be a subbundle.
 	associated $L_\infty$-algebra.
 
 	\begin{defblock}[Vinogradov $L_\infty$-algebra \cite{Zambon2012}]
-		\includestandalone[width=0.95\textwidth]{Pictures/Figure_vinogradov-Linfty}	
+		\includestandalone[width=0.95\textwidth]{Pictures/Frame_vinogradov-Linfty}	
 	\end{defblock}
 	\vfill
 	\only<2->{
@@ -212,20 +211,18 @@ are given in the slide.
 	\item $				\mu_2 \left(e_1,f_2\right) = -\mu_2(f_2,e_1) = 
 				\frac{1}{2} \mathcal{L}_{X_1} f_2 = \langle e_1, \dd f_2 \rangle_-$
 	\item $k$-ary bracket for $k \ge 3$ an \emph{odd} integer:	 
-		\begin{equation}\label{eq:VinoMultibrakAllaZambon_1}
-			\begin{split}
-				\mu_k(\varv_0,\cdots,\varv_{k-1})
+		\begin{align*}
+				\mu_k(v_0,\cdots,v_{k-1})
 				=&
 				\left(\sum_{i=0}^{k-1} {(-)^{i-1}\mu_k(f_i+\alpha_i,X_0,\dots,\widehat{X_i},\dots,X_{k-1})}\right)
 				+\\
 				&+(-)^{\frac{k+1}{2}} \cdot k \cdot B_{k-1} \cdot 
 				\iota_{X_{k-1}}	\dots \iota_{X_{0}} \omega			
 				~;
-			\end{split}
-		\end{equation}
+		\end{align*}
+		
 		where 
-		\begin{equation}\label{eq:VinoMultibrakAllaZambon_2}
-			\begin{split}
+		\begin{align*}
 			\mu_k&(f_0+\alpha_0,X_1,\dots,X_{n-1}) =
 			\\
 			&=
@@ -233,13 +230,13 @@ are given in the slide.
 			\sum_{1\le i<j\le k-1}(-1)^{i+j+1}\iota_{X_{k-1}}\dots   
   			\widehat{\iota_{X_{j}}}\dots \widehat{\iota_{X_{i}}}\dots
 				\iota_{X_{1}} ~ [f_0+\alpha_0,X_i,X_j]_3~.
-			\end{split}
-		\end{equation}			
-In the above formula,		$[\cdot,\cdot,\cdot]_3 = -T_0$ denotes the ternary bracket %$\mu_3$ 
+		\end{align*}
+		
+		In the above formula,		$[\cdot,\cdot,\cdot]_3 = -T_0$ denotes the ternary bracket %$\mu_3$ 
 associated to the untwisted ($\omega=0$) Vinogradov Algebroid, and $c_k$ is a numerical constant
-		\begin{equation}\label{eq:UglyCoefficient}
+		\begin{displaymath} 
 			c_k= (-)^{\frac{k+1}{2}}\frac{12~B_{k-1}}{(k-1)(k-2)}.
-		\end{equation}
+		\end{displaymath}
 }
 %-----------------------------------------------------------%
 
