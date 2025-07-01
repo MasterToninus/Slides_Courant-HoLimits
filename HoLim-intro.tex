@@ -119,7 +119,7 @@
 
 \end{frame}
 \note[itemize]{
-	\item we deal with the category of \emph{L_\infty-algebras}. These are a generalziation of dg-Lie algebras, where we ask the Jacobi identity to be satisfied up to exact terms. The corresponding primitives are given by certain higher brackets.
+	\item we deal with the category of \emph{$L_\infty$-algebras}. These are a generalziation of dg-Lie algebras, where we ask the Jacobi identity to be satisfied up to exact terms. The corresponding primitives are given by certain higher brackets.
 	\item the (standard) higher Courant algebroid is part of a family of vector bundle over $M$. In degree 0 we have the standard Lie algebroid, in degree 1 the standard Courant algebroid an we can go higher in this sequence.
 	\item 
 	\item Conventions:
@@ -173,7 +173,7 @@
 \note[itemize]{
 	\item Ok, we mentioned a morphism. How does it look like in the lower case?
 	\item The story starts from presymplectic geometry.
-	\item out of the data $\sigms$ we define a subspace of vector fields. (actually a Lie subalgebra since $\iota_{[x,y]}=\Lie_x \iota_y - \iota_y \Lie_x$).
+	\item out of the data $\sigma$ we define a subspace of vector fields. (actually a Lie subalgebra since $\iota_{[x,y]}=\Lie_x \iota_y - \iota_y \Lie_x$).
 	\item We don't need non degeneracy to have a Lie algebra, we just say that exists a primitive function without specifying it.
 	\item An improved notion is to consider Hamiltonian pairs where elements are a specification of a v.field together with an hamiltonian function.
 	\item the index $(0)$ appearing is to recall the degree of hamiltonian forms and suggests that we can go higher -> we can devise a pattern.
@@ -320,19 +320,139 @@
 
 
 %-----------------------------------------------------------%
-\subsection{Goals}
+\subsection{$r$-plectic Case}
 %-----------------------------------------------------------%
-\begin{frame}{Goals: Going higher!}
-	\begin{itemize}
-		\item \textbf{Goal:} Find a canonical morphism between the twisted and untwisted higher Courant $L_\infty$-algebras.
-		\item \textbf{Strategy:} Use the cone construction to obtain a homotopy fiber of the morphism.
-		\item \textbf{Result:} The morphism is given by a certain $(n+1)$-plectic structure on the cone.
-	\end{itemize}
+%-----------------------------------------------------------%
+\begin{frame}{Going higher!}
+	%
+	Fix a closed $(r$+$1)$-form $\sigma \in \Omega^{r+1}_{\mathrm{cl}}$~;
+	\vfill
+
+	\begin{defblock}[Hamiltonian vector fields  \emph{(same as before!)}]
+		\small \color{gray}
+		\begin{displaymath}
+			\X_{\sigma,\ham} = \{ X \in \X \mid \iota_X \sigma ~~\textrm{is exact}\}
+		\end{displaymath}
+	\end{defblock}
+	\vfill
+
+	\begin{defblock}[Hamiltonian pairs \emph{(same as before!)}]
+		\small \color{gray}
+		\begin{displaymath}
+			\Ham^{(r-1)}_\sigma = 
+		\{ (X,\omega) \mid \iota_X \sigma + \d \omega  = 0 \}
+		\subseteq \X\oplus \Omega^{r-1} = \Gamma(E^{(r-1)})
+		\end{displaymath}
+	\end{defblock}
+	\vfill
+
+	\begin{defblock}[Higher Courant (Vinogradov) algebroid ]
+		Vector bundle
+		\begin{displaymath}
+			E^{(r-1)} = TM \oplus \wedge^{r-1} T^* M \to M
+		\end{displaymath}
+		... with a \emph{binary bracket} on sections and a \emph{anchor map} \small(see below)\normalsize.
+	\end{defblock}		
+	\vfill
+
 \end{frame}
 \note[itemize]{
 	\item 
 }
+%-----------------------------------------------------------%
 
+
+%-----------------------------------------------------------%
+\begin{frame}{Going higher!~Algebraic structures}
+	%
+	\begin{propblock}
+		\vspace{-1em}
+		\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
+			\& \text{\small (deg $1-r$)} \& \cdots \& \&\text{\small (deg $-1$)} \& \text{\small (deg $0$)} \\[-.5em]
+			\Rogers[\sigma]{r-1}   \ar[r,phantom,":="]
+			\&
+			\Omega^0 \ar[r,"{\d}"] \ar[d,"id"]
+			\&
+			\Omega^1 \ar[r,"{\d}"] \ar[d,"id"]
+			\&
+			\cdots
+			\&
+			\Omega^{r-2} \ar[r,"{(0,\d)}"] \ar[d,"id"]
+			\& \Ham_{\sigma}^{(r-1)} \ar[d,hook]
+			\\
+			\Courant[\sigma]{r-1} \ar[r,phantom,":="]
+			\&
+			\Omega^0 \ar[r,"{\d}"]
+			\&
+			\Omega^1 \ar[r,"{\d}"] 
+			\&
+			\cdots
+			\&
+			\Omega^{r-2} \ar[r,"{(0,\d)}"]
+			\& \Gamma(E^{(1)})
+		\end{tikzcd}
+	\end{displaymath}
+	\vspace{2em}
+
+	\begin{itemize}
+		\item \cite{Rogers2010} endows $\Rogers[\sigma]{r-1}$ with a $L_\infty$-algebra structure.
+		\item \cite{Zambon2012} endows $\Courant[\sigma]{r-1}$ with a $L_\infty$-algebra structure.
+		\item The vertical arrows give a morphism of cochain complexes.
+		\item \cite{Miti2021} shows that the vertical arrows are the linear part of a $L_\infty$-morphism
+			$$\Rogers[\sigma]{r-1} \to \Courant[\sigma]{r-1}~.$$
+	\end{itemize}
+
+	\end{propblock}
+
+\end{frame}
+\note[itemize]{
+	\item 
+}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\subsection{Goals}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}{Goals}
+	\begin{itemize}
+		\item \cite{Miti2021} explicitly contructs a morphism of $L_\infty$-algebras
+		\begin{displaymath}
+			\begin{tikzcd}[ampersand replacement=\&]
+				\Rogers[\sigma]{r-1} \ar[r] \& 
+				\Courant[\sigma]{r-1} \ar[r,phantom] \&
+				\phantom{\Courant[]{r}}
+			\end{tikzcd}
+		\end{displaymath}
+	\end{itemize}
+	\vfill
+
+	\begin{claimblock}
+		\centering We can prove that we can go on:
+		\vspace{-.5em}
+		\begin{displaymath}
+			\begin{tikzcd}[ampersand replacement=\&]
+				\Rogers[\sigma]{r-1} \ar[r] \& 
+				\Courant[\sigma]{r-1} \ar[r] \&
+				\Courant[]{r}
+			\end{tikzcd}
+		\end{displaymath}
+	\end{claimblock}
+	\vfill
+
+	\begin{claimblock}
+		\centering
+		We rely on an algebraic framework that explains the \emph{existence} and \emph{\underline{naturality}} of the morphism introduced in \cite{Miti}.
+	\end{claimblock}
+	\vfill
+
+\end{frame}
+\note[itemize]{
+	\item 
+}
+%-----------------------------------------------------------%
 
 
 %-----------------------------------------------------------%

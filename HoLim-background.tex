@@ -32,14 +32,228 @@
 %===========================================================%
 
 
+
+
 %-----------------------------------------------------------%
-\subsection{Observables algebra}
+\subsection{Courant Algebroids}
+%-----------------------------------------------------------%
+%-----------------------------------------------------------%
+\begin{frame}{Courant Algebroids \& generalized Geometry}
 
-\subsection{Reminder: $L_\infty$-Algebras}
 
-\subsection{Higher Courant Algebroids}
+\end{frame}
+\note[itemize]{
+	\item   
+}
+%-----------------------------------------------------------%
 
-\subsection{Courant $L_\infty$-Algebras}
+%-----------------------------------------------------------%
+\begin{frame}{Higher Courant Algebroids}
+	\begin{defblock}[Higher Courant (Vinogradov) Algebroids]
+		\includestandalone[width=0.95\textwidth]{Pictures/Figure_vinogradov}	
+	\end{defblock}
+
+	\begin{itemize}
+		\item $(n=1) ~ \Rightarrow$ standard twisted \emph{Lie algebroid};
+		\item $(n=2) ~ \Rightarrow$ standard twisted \emph{Courant algebroid};
+	\end{itemize}
+
+\end{frame}
+\note[itemize]{
+\item Att, questa definizione sarebbe lo standard twisted. E' possibile trovare in letteratura definizioni piu' generali corrispondenti alla nozione di Courant algebroid in astratto.
+}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}{Vinogradov $L_\infty$-algebra}
+	Vin. alg.oids are $NQ$-manifolds ($L_\infty$-algebroids).
+	$\quad\Rightarrow\quad$ 
+	Associated $L_\infty$-algebra.
+
+	\begin{defblock}[Vinogradov $L_\infty$-algebra \cite{Zambon2012}]
+		\includestandalone[width=0.95\textwidth]{Pictures/Figure_vinogradov-Linfty}	
+	\end{defblock}
+	\vfill
+	\only<2->{
+		\tikz[overlay,remember picture]
+		{
+			\node[rounded corners,
+                 fill=gray!1,draw=gray!30,anchor=base]            
+            	 (base) at ($(current page.south)+(0,.5)$) [rotate=-0,text width=10cm,align=center] { \footnotesize{\color{gray}{
+            	 $e_i = \pair{X_i}{\alpha_i} \in \mathfrak{X}(M)\oplus \Omega^{n-1}(M)$ 
+            	 \quad~,\qquad
+            	 $f_i \in \bigoplus_{k=0}^{n-2}\Omega^k(M)$.
+            	 }}};
+		}			
+	}
+
+\end{frame}
+\note[itemize]{
+	\item The actions of non vanishing multi-brackets (up to permutations of the entries) on arbitrary vectors
+are given in the slide.
+	\item $\mu_2 \left(e_1,e_2\right) 	= [e_1,e_2]_\omega 
+			= \pair{[X_1,X_2]}{\dd \langle e_1, e_2\rangle_- 
+			+ (\iota_{X_1}\dd\alpha_2 - \iota_{X_2}\dd\alpha_1 + \iota_{X_1}\iota_{X_2}\omega)}$
+	\item $				\mu_2 \left(e_1,f_2\right) = -\mu_2(f_2,e_1) = 
+				\frac{1}{2} \mathcal{L}_{X_1} f_2 = \langle e_1, \dd f_2 \rangle_-$
+	\item $k$-ary bracket for $k \ge 3$ an \emph{odd} integer:	 
+		\begin{equation}\label{eq:VinoMultibrakAllaZambon_1}
+			\begin{split}
+				\mu_k(\varv_0,\cdots,\varv_{k-1})
+				=&
+				\left(\sum_{i=0}^{k-1} {(-)^{i-1}\mu_k(f_i+\alpha_i,X_0,\dots,\widehat{X_i},\dots,X_{k-1})}\right)
+				+\\
+				&+(-)^{\frac{k+1}{2}} \cdot k \cdot B_{k-1} \cdot 
+				\iota_{X_{k-1}}	\dots \iota_{X_{0}} \omega			
+				~;
+			\end{split}
+		\end{equation}
+		where 
+		\begin{equation}\label{eq:VinoMultibrakAllaZambon_2}
+			\begin{split}
+			\mu_k&(f_0+\alpha_0,X_1,\dots,X_{n-1}) =
+			\\
+			&=
+			~c_k
+			\sum_{1\le i<j\le k-1}(-1)^{i+j+1}\iota_{X_{k-1}}\dots   
+  			\widehat{\iota_{X_{j}}}\dots \widehat{\iota_{X_{i}}}\dots
+				\iota_{X_{1}} ~ [f_0+\alpha_0,X_i,X_j]_3~.
+			\end{split}
+		\end{equation}			
+In the above formula,		$[\cdot,\cdot,\cdot]_3 = -T_0$ denotes the ternary bracket %$\mu_3$ 
+associated to the untwisted ($\omega=0$) Vinogradov Algebroid, and $c_k$ is a numerical constant
+		\begin{equation}\label{eq:UglyCoefficient}
+			c_k= (-)^{\frac{k+1}{2}}\frac{12~B_{k-1}}{(k-1)(k-2)}.
+		\end{equation}
+}
+%-----------------------------------------------------------%
+
+
+%-----------------------------------------------------------%
+\begin{frame}{Zambon's construction}
+	Consider the graded manifold $T^*[r]T[1]M$.
+	\vfill
+
+	$C^\infty(T^*[r]T[1]M)$ is a \emph{$r$-Poisson algebra} (associative multiplication, degree $r$ Poisson bracket $\lbrace \cdot,\cdot\rbrace$)\footnote{Canonical Poisson bracket on the shifted cotangent bundle}
+	\vfill
+
+	$\mathcal{C}_r := C^\infty(T^*[r]T[1]M)[r]$ is a graded Lie algebra.
+	\vfill
+
+	$\mathcal{C}_r$ contains all differntial forms on $M$ since:
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&,column sep = large]
+			T^*[r]T[1]M \ar[r, two heads,] \& T[1]M \&[-2.5em] \\[-.5em]
+			C^\infty(T^*[r]T[1]M) \& C^\infty(T[1]M) \ar[l,hook]\ar[r,phantom,"\cong"] \& \Omega(M) 
+ 		\end{tikzcd}
+	\end{displaymath}
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+	There exists a distinguished element $\mathcal{S}$ of degree $r+1$ in $C^\infty(T^*[r]T[1]M)$ such that $\mathcal{C}_r$ such that $\lbrace \mathcal{S},\mathcal{S}\rbrace =0 $, lifting the \emph{de Rham} differential of $M$ to $C^\infty(T^*[r]T[1]M)$ given by 
+	$$ \delta := \lbrace \mathcal{S},\cdot \rbrace$$
+	\vfill
+
+	$\mathcal{S}$ has degree $1$ in $\mathcal{C}_r$ (MC element) therefore $(\mathcal{C}_r,\lbrace \cdot,\cdot\rbrace,\delta)$ is a dg Lie algebra.
+	\vfill
+
+	Consider the embedding: $$ \mathcal{C}_r^{\geq 0} \hookrightarrow \mathcal{C}_r$$
+	\begin{enumerate}
+		\item \cite{Getzler1991} construct a canonical $L_\infty$-algebra structure on $\mathcal{C}_r^{<0}\cong \frac{\mathcal{C}_r }{\mathcal{C}_r^{\geq 0}}$ (via \emph{derived brackets});
+		\item \cite{Fiorenza2006} construct a canonical $L_\infty$-algebra associated with any dg Lie algebra morphism $\g \to \mathfrak{h}$ (via \emph{mapping cones});
+		\item \cite{Pridham2010a} showed that the $L_\infty$-algebra  of 2. is a \emph{model for the homotopy fiber $\hofib(\g \to \mathfrak{h})$}.
+		\item \cite{Bandiera2015} showed that 1. is a model for the homotopy fiber $\hofib(\mathcal{C}_r^{\geq 0} \hookrightarrow \mathcal{C}_r)$.
+	\end{enumerate}
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}[fragile,shrink]{Details of the mapping cone construction}
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&,
+			/tikz/execute at end picture={
+    			\node  (large) [label=right:{\it dglas},draw,rectangle, draw,dashed, fit=(A1) (A2)] {};
+    			\node (large2) [label=right:{\it dgvspaces},rectangle, draw,dashed, fit=(B1) (B2)] {};}] 
+			|[alias=A1]| TW(f) \ar[dr] \ar[rr] \ar[drr,phantom,near start,"\lrcorner"]\& \& 0 \ar[d] \\
+			\& X \arrow[r,""{name=U, below, draw=red}] \& |[alias=A2]| Y  \\
+			\\
+			\& X \ar[r,""{name=D, draw=red}] \arrow[from=U, to=D, rightsquigarrow]\& |[alias=B2]| Y  \\
+			|[alias=B1]| MapCoCone(f) \ar[ur] \ar[rr] \ar[rru,phantom,near start,"\urcorner"]\& \& 0 \ar[u]
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+	\begin{enumerate}
+		\item $TW(f)$ Thom-Whitney of $X\to Y$, is a model for the homotopy fiber of $X\to Y$ in dglas \cite[Def 6.1.4]{Manetti2022b};
+		\item forgetting the Lie structure, $MapCoCone(f)$ is a model for the homotopy fiber of $X\to Y$ in dgvspaces \cite[Def.5.1.3]{Manetti2022b};
+		\item $TW(f)$ and $MapCoCone(f)$ are quasi isomorphic as dgspaces \cite[Cor. 6.1.7]{Manetti2022b}.
+		\item Via homotopy transfer one gets an $L_\infty$-structure on $MapCoCone(f)$.
+		\item the corresponding $L_\infty$-algebra is quasi-isomorphic to $TW(f)$ hence is a model for the homotopy fiber of the dgla map $X\to Y$.
+	\end{enumerate}
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}{What to read out of Pridham2010a}
+	nell'articolo di Pridham i risultati di interesse sono il Lemma 3.24, la Proposizione 4.42 e il Corollario 4.57 (numerazione dell'ultima versione arXiv)
+
+\end{frame}
+%-----------------------------------------------------------%
+
+
+
+%-----------------------------------------------------------%
+\begin{frame}
+	Consider $\mathcal{C}_r^{\geq 0}[-1] \hookrightarrow \mathcal{C}_r[-1]$
+	\vfill
+
+	Observe that $\mathcal{C}_r^{<0} = C^\infty(T^*[r]T[1]M)^{<r}=$
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\Omega^0 \ar[r,"\d"]\&
+			\Omega^1 \ar[r,"\d"]\&
+			\Omega^2 \ar[r,"\d"]\&
+			\cdots \ar[r,"\d"]\&
+			\Omega^{r-2} \ar[r,"{(\d,0)}"]\&
+			\Omega^{r-1}\ar[d,phantom,"\oplus"]\\[-.7em]
+			\&\&\&\&\&\X
+ 		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
+			\& \text{\small (deg $1-r$)} \& \cdots \& \&\text{\small (deg $-1$)} \& \text{\small (deg $0$)} \\[-.5em]
+			\Rogers[\sigma]{r-1}   \ar[r,phantom,":="]
+			\&
+			\Omega^0 \ar[r,"{\d}"] \ar[d,"id"]
+			\&
+			\Omega^1 \ar[r,"{\d}"] \ar[d,"id"]
+			\&
+			\cdots
+			\&
+			\Omega^{r-2} \ar[r,"{(0,\d)}"] \ar[d,"id"]
+			\& \Ham_{\sigma}^{(r-1)} \ar[d,hook]
+			\\
+			\Courant[\sigma]{r-1} \ar[r,phantom,":="]
+			\&
+			\Omega^0 \ar[r,"{\d}"]
+			\&
+			\Omega^1 \ar[r,"{\d}"] 
+			\&
+			\cdots
+			\&
+			\Omega^{r-2} \ar[r,"{(0,\d)}"]
+			\& \Gamma(E^{(1)})
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+
+	\cite{Miti2021} proved that the vertical arrows are the linear part of a $L_\infty$-morphism $\Rogers[\sigma]{r-1} \to \Courant[\sigma]{r-1}$.
+\end{frame}
+%-----------------------------------------------------------%
+
 
 
 

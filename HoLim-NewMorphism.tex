@@ -36,10 +36,325 @@
 
 
 %-----------------------------------------------------------%
-\subsection{Reminder: Cone construction and homotopy fibers}
+\begin{frame}{a more exotic morphism}
+	For $r=1,2$ we have:
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
+			\Courant[\sigma]{0} \ar[r,phantom,":="] \ar[d]
+			\&[1em]
+			0 \ar[r] \ar[d]
+			\& \Omega^0\oplus \X \ar[d,"{(\d,\id)}"]
+			\\
+			\Courant{1} \ar[r,phantom,":="] 
+			\&
+			\Omega^0 \ar[r,"{(\d,0)}"] 
+			\& 
+			\Omega^1\oplus \X
+		\end{tikzcd}
+	\end{displaymath}
+	\cite{Zambon2012} proved that  the vertical arrows are the linear part of a $L_\infty$-morphism $\Courant[\sigma]{0} \to \Courant[\sigma]{1}$.
+	\vfill
+
+	More generally we have a morphism of chain complexes:
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
+			\Courant[\sigma]{r-1} %\ar[r,phantom,":="] \ar[d]
+			\&[1em]
+			0 \ar[r] \ar[d]
+			\& \Omega^0 \ar[d,"\d"] \ar[r]
+			\& \Omega^1 \ar[d,"\d"] \ar[r]
+			\& \cdots \ar[r]
+			\& \Omega^{r-2} \ar[d,"\d"] \ar[r,"{(\d,0)}"]
+			\&[.5em]  \Omega^{r-1} \oplus \X \ar[d,"{(\d,\id)}"]
+			\\
+			\Courant{r} %\ar[r,phantom,":="]
+			\& \Omega^0 \ar[r]
+			\& \Omega^1 \ar[r]
+			\& \Omega^2 \ar[r]
+			\& \cdots \ar[r]
+			\& \Omega^{r-2} \ar[r,"{(\d,0)}"]
+			\&\Omega^{r-1} \oplus \X
+		\end{tikzcd}
+	\end{displaymath}
+	Is this the linear part of a $L_\infty$-morphism $\Courant[\sigma]{r-1} \to \Courant{r}$?
+	\vfill
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+	Yes! (Fiorenza-Miti 2025)
+	\vfill
+
+	\begin{block}{Idea:}
+		We want to exhibit a morphism:
+		\begin{displaymath}
+			\begin{tikzcd}[ampersand replacement=\&]
+				\hofib(\mathcal{C}_{r,\sigma}^{\geq 0} \hookrightarrow \mathcal{C}_{r,\sigma}) \ar[d]
+				\\
+				\hofib(\mathcal{C}_{r+1}^{\geq 0} \hookrightarrow \mathcal{C}_{r+1})
+			\end{tikzcd}
+		\end{displaymath}
+		This should be naturally induced by a (homotopy) commutative diagram of dg-Lie algebars (or $L\infty$-algebras):
+		\begin{displaymath}
+			\begin{tikzcd}[ampersand replacement=\&]
+				\mathcal{C}_{r,\sigma}^{\geq 0} \ar[r,hook] \ar[d ]
+				\& \mathcal{C}_{r,\sigma} \ar[d, ]
+				\\
+				\mathcal{C}_{r+1}^{\geq 0} \ar[r,hook] \& \mathcal{C}_{r+1} 
+			\end{tikzcd}
+		\end{displaymath}
+	\end{block}
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+  Inside $\mathcal{C}_r$ there is a smaller, mora manageble, dg-Lie subalgebra with the same negative part.
+  \vfill
+
+  Consider the $2$-terms dg-Lie algebra $\Cartan \subseteq \Der(\Omega(M))$ given by:
+  \begin{displaymath}
+	\begin{tikzcd}[ampersand replacement=\&,row sep = small]
+		\text{\tiny (deg $-1$)} \& \text{\tiny (deg $0$)}\&[2em]
+		\\[-.7em]
+		\iota_{\X} \ar[r,"\delta"] \& \Lie_{\X} \ar[r,phantom,";"] \& \delta:= [\d, \cdot]
+	\end{tikzcd}
+  \end{displaymath}
+  \vfill
+
+  $\Omega$ is a module for $\Der(\Omega)$ and so it is a module for $\Cartan$.
+  \\
+  By shifting degrees, $\Omega[r]$ is a module for $\Cartan$.
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+	We can form the dg-Lie algebra
+	$$ \g_r := \Cartan \ltimes \Omega[r]$$
+	\vfill
+
+	Observe that any $\sigma \in \Omega^{r+1}_{\mathrm{cl}}(M)$ is a MC (degree 1) element of $\g_r$.
+	\vfill
+	
+	We can consider the twisted dg-Lie algebra $(\g_{r,\sigma}, \d_\sigma, \lbrace \cdot,\cdot\rbrace_\sigma)$ with:
+	\begin{displaymath}
+		\d_\sigma (\omega) = \d \omega~, \qquad
+		\d_\sigma (\iota_X) = \Lie_X \iota_X \sigma~, \qquad
+		\d_\sigma(\Lie_X) = -\Lie_X\sigma
+	\end{displaymath}
+	\vfill
+
+	We have
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\g_{r,\sigma}^{~\geq 0} \ar[r,hook] \ar[d,hook] \&
+			\g_{r,\sigma} \ar[d,hook] \ar[r,two heads] \&[1em]
+			\g_{r,\sigma}^{~< 0} \ar[d,equal] \\
+			\mathcal{C}_{r,\sigma}^{~\geq 0} \ar[r,hook] \&
+			\mathcal{C}_{r,\sigma} \ar[r,two heads] \&
+			\mathcal{C}_{r,\sigma}^{~< 0}
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+
+	Therefore $\mathcal{C}_{r,\sigma}^{~< 0}[-1] = \g_{r,\sigma}^{~<0}[-1]$ as $L_\infty$-algebras with the derived brackets.
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+  So we can replace $\mathcal{C}_{r,\sigma}, \mathcal{C}_{r+1}$ with $\g_{r,\sigma}, \g_{r+1}$ in the previous commuative square:
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\g_{r,\sigma}^{~\geq 0} \ar[r,hook] \ar[d, ]
+			\& \g_{r,\sigma} \ar[d, ]
+			\\
+			\g_{r+1}^{~\geq 0} \ar[r,hook] \& \g_{r+1}
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+
+	Moreover, if this has to be true for any $\sigma \in \Omega^{r+1}_{\mathrm{cl}}(M)$, it has to be true for $\sigma = 0$. So let begin with the simpler situation
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\g_{r}^{~\geq 0} \ar[r,hook] \ar[d, ]
+			\& \g_{r} \ar[d, ]
+			\\
+			\g_{r+1}^{~\geq 0} \ar[r,hook] \& \g_{r+1}
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+	Let us consider the right-hand vertical arrow:
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+		The vertical arrows forms a morphism of cochain complexes $\Phi_1:\g_{r,\sigma}\to \g_{r+1}$:
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&, column sep = small]
+			0\ar[r]\ar[d] \&
+			\Omega^0 \ar[r] \ar[d,"\d"] \&
+			\Omega^1 \ar[r] \ar[d,"\d"] \&
+			\Omega^2 \ar[r] \&
+			\cdots \ar[r] \&
+			\Omega^{r-1}\oplus \iota_{\X} \ar[d,"\d\oplus \id"] \ar[r] \&
+			\Omega^{r}\oplus \Lie_{\X} \ar[r]\ar[d,"\d\oplus\id"] \&
+			\Omega^{r+1} \ar[d,"\d"] \ar[r,phantom,"\cdots"] \& \phantom{.}
+			\\
+			\Omega^{0} \ar[r] \&
+			\Omega^{1} \ar[r] \&
+			\Omega^{2} \ar[r] \&
+			\cdots \& \cdots \ar[r] \&
+			\Omega^{r}\oplus\iota_{\X} \ar[r] \&
+			\Omega^{r+1}\oplus \Lie_{\X} \ar[r] \&
+			\Omega^{r+2} \ar[r,phantom,"\cdots"]  \& \phantom{.}
+		\end{tikzcd}
+	\end{displaymath}
+	%
+	\vfill
+
+	Is $\Phi_1$ a dg-Lie algebra morphism?
+	$$ \Phi_1\big(\lbrace a, b \rbrace\big) \overset{?}{=} \big\lbrace \Phi_1(a), \Phi_1(b) \big\rbrace$$
+	\vfill
+
+	No: the de Rham differential does not commute with the contractions:
+	$$ \Phi_1\big(\lbrace \iota_X, \omega \rbrace\big) \neq \big\lbrace \Phi_1(\iota_X), \Phi_1(\omega)\big\rbrace~.$$
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+	Let us try and cure this by setting
+	\begin{align*}
+		\Phi_2(\iota_X,\omega) &=~ \iota_X \omega \\
+		\Phi_2(\omega,\iota_X) &=~ \pm \iota_X \omega \\
+		\Phi_2(a,b) &=~ 0 \qquad \text{in all other cases}
+	\end{align*}
+	\vfill
+
+	$\Phi= (\Phi_1,\Phi_2,0,\dots)$ is a $L_\infty$-morphism $\g_r \to \g_{r+1}$!
+	\vfill
+
+	Does it maps $\g_{r,\sigma}^{~\geq 0}$ to $\g_{r+1}^{~\geq 0}$? Yes!\footnote{ We need to check that $\Phi_2(a,b)\in \g_{r+1}^{~\geq 0}$ when $|a|=|b|=0$. this is true since for these elements $\Phi_2(a,b)=0$.}
+	\vfill
+
+	So we have a strictly commutative diagram of $L_\infty$-morphisms:
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\g_{r,\sigma}^{~\geq 0} \ar[r,hook] \ar[d, "\Phi \vert_{\geq 0}"']
+			\& \g_{r,\sigma} \ar[d, "\Phi"]
+			\\
+			\g_{r+1}^{~\geq 0} \ar[r,hook] \& \g_{r+1}
+		\end{tikzcd}
+	\end{displaymath}
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+  What for arbitrary $\sigma \in \Omega^{r+1}_{\mathrm{cl}}(M)$?
+  We use $\sigma$ to twist everything:
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\g_{r,\sigma}^{~\geq 0} \ar[r,hook] \ar[d, "\Phi_\sigma \vert_{\geq 0}"']
+			\& \g_{r,\sigma} \ar[d, "\Phi_\sigma"]
+			\\
+			\g_{r+1,\Phi(\sigma)}^{~\geq 0} \ar[r,hook] \& \g_{r+1,\Phi(\sigma)}
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+	Where:
+	\begin{align*}
+		\big(\Phi_\sigma \big)_j (\cdots) 
+		&=~
+		\sum_{k=0}^\infty \frac{\Phi_{k+j}}{k!} (\overbrace{\sigma,\cdots,\sigma}^{\text{\tiny $k$ copies}},\cdots)
+		\\
+		\Phi(\sigma) &=~ \sum_{k=0}^\infty \frac{\Phi_k(\sigma,\cdots,\sigma)}{k!} = \d(\sigma) + \frac{1}{2}\cdot 0 = 0
+	\end{align*}
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+	So
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\g_{r,\sigma}^{~\geq 0} \ar[r,hook] \ar[d, "\Phi_\sigma \vert_{\geq 0}"']
+			\& \g_{r,\sigma} \ar[d, "\Phi_\sigma"]
+			\\
+			\g_{r+1 }^{~\geq 0} \ar[r,hook] \& \g_{r+1 }
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+	\begin{block}{Details}
+		\begin{itemize}
+			\item we have to check that $\Phi_\sigma$ preseves the positive part. This is immediate since $(\Phi_\sigma)_2 = \Phi_2$.
+			\item Moreover, we have 
+			$$ (\Phi_\sigma)_1 \big\vert_{\geq 0} = \Phi_1 \big\vert_{\geq 0} + \frac{1}{2}\cancel{\Phi_2(\sigma,\cdot)\big\vert_{\geq 0}} = \Phi_1\big\vert_{\geq 0} $$
+		\end{itemize}
+	\end{block}
+	\vfill
+	
+\end{frame}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}{The \cite{Miti2021} $L_\infty$-morphism revisited}
+	We have the following:
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\Rogers[\sigma]{r-1} \ar[d] \ar[r] \&
+			\X_{\ham,\sigma} \ar[r,"\iota_{\dots}\sigma"] \ar[d,"\Lie"]\&
+			(\Omega^0\to\Omega^1\to\cdots\to\Omega^{r-1}\to \d \Omega^{r-1}) \ar[d,hook] 
+			\\
+			\Courant[\sigma]{r-1} \ar[r] \&
+			\g_{r+1,\sigma}^{~\geq 0} \ar[r,hook] \ar[ur,Rightarrow]\& 
+			\g_{r+1,\sigma}
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+
+	Since \cite{Fiorenza2014a} shows that:
+	\begin{itemize}
+		\item[$\bullet$] $\iota_{\ldots}\sigma$ (multicontractions with $\sigma$) is a $L_\infty$-morphism
+		\item[$\bullet$] $\Rogers[\sigma]{r-1} =\hofib(\iota_{\ldots}\sigma)$\footnote{Is it better to say that is a model of the homotopy fiber?}
+	\end{itemize}
+	\vfill
+
+	The homotopy is given by $$ e^{\iota} * \Lie = \iota_{\ldots}\sigma$$
+	which is basically Cartan's magic formula for multivector fields\footnote{Twisting the differential, i.e. changing $\d$ in $\d_\sigma$, the multicontractions $\iota_{x_1\wedge\cdots\wedge x_k}\sigma$ appear.}
+	$$[\d, \iota_{x_1\wedge\cdots\wedge x_k}] = \Lie_{x_1\wedge\cdots\wedge x_k}$$
+
+\end{frame}
+%-----------------------------------------------------------%
 
 
-\subsection{TOOOOTOdo}
+
+%-----------------------------------------------------------%
+\begin{frame}{Conclusion:}
+
+	\vfill
+
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\Rogers[\sigma]{r-1} \ar[d] \ar[r] \&
+			\X_{\ham,\sigma} \ar[r,"\iota_{\dots}\sigma"] \ar[d,"\Lie"]\&
+			(\Omega^0\to\Omega^1\to\cdots\to\Omega^{r-1}\to \d \Omega^{r-1}) \ar[d,hook] 
+			\\
+			\Courant[\sigma]{r-1} \ar[r] \ar[d]\&
+			\g_{r+1,\sigma}^{~\geq 0} \ar[r,hook] \ar[ur,Rightarrow] \ar[d,"\Phi\big\vert_{\geq 0}"]\& 
+			\g_{r+1,\sigma} \ar[d,"\Phi"]
+			\\
+			\Courant{r} \ar[r] \&
+			\g_{r}^{\geq 0} \ar[r,hook]\&
+			\g_{r}
+		\end{tikzcd}
+	\end{displaymath}
+\end{frame}
+%-----------------------------------------------------------%
 
 
 
