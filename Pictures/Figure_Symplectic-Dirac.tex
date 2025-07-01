@@ -1,0 +1,29 @@
+%+-----------------------------------------------------+
+%| Diagram: Dirac Structures
+%| Author: Antonio Miti & ChatGpt
+%| Description: A simple diagram illustrating 
+%|				the graph of a 2-form
+%|
+%+-----------------------------------------------------+
+
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=1.4,>=latex]
+  % Axes
+  \draw[->] (-0.2, 0) -- (3.2, 0) node[right] {$TM$};
+  \draw[->] (0, -0.2) -- (0, 1.6) node[above] {$T^*M$};
+
+  % Curve
+  \draw[thick, blue, domain=0.3:3, smooth, variable=\x] 
+    plot ({\x}, {0.5 + 0.25*sin(3*\x r) + 0.05*\x});
+
+  % Label slightly higher
+  \node[blue] at (2.3,1.15) {\small$\text{graph}(\sigma^\flat)$};
+
+\end{tikzpicture}
+
+\end{document}

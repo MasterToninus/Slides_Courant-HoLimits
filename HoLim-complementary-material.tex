@@ -80,17 +80,206 @@
 %-------------------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Symplectic Manifolds}
 %-------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\begin{frame}[fragile]{Lie $\infty$-algebra of Observables (higher observables) }
+	Let be $(M,\omega)$ a $n$-plectic manifold.
+	  	\vfill
+	\begin{defblock}[$L_\infty$-algebra of observables ~\emph{(Rogers)} \cite{Rogers2010}]
+		\medskip
+		\hspace{.25em} Is a cochain-complex $(L,\{\cdot\}_1)$ \\
+		\vspace{-1em}
+		\begin{center}
+			\includestandalone[width=0.95\textwidth]{Pictures/Frame_Observables}
+		\end{center}
+		\onslide<2->{
+			\bigskip
+			\hspace{.25em} with $n$ (skew-symmetric) multibrackets $(2 \leq k \leq n+1)$\\
+			\vspace{-1em}
+			\onslide<3->{
+				\begin{center}
+					\includestandalone{Pictures/Equation_Multibracket}	
+				\end{center}
+			}
+			\medskip
+		}
+		%
+	\end{defblock}
+%	\onslide<3->{
+%		\emph{Higher analogue} of the \emph{Poisson algebra structure} associated to a symplectic mfd.
+%	\vfill
+%	\begin{columns}
+%		\hfill
+%		\begin{column}{.11\linewidth}	
+%			If $n>1$:
+%			
+%		\end{column}	
+%		\begin{column}{.8\linewidth}
+%		\begin{itemize}
+%			\item[\xmark] \textcolor{red}{we lose} :\quad multiplication of observables, Jacobi equation;
+%			%\\ \hspace*{4.25em} full-fledged Jacobi equation;
+%			\item[\cmark] \textcolor{green}{we gain} :\quad brackets with arities different than two,\\
+%			\hspace*{4.25em}
+%			 Jacobi equation \emph{up to homotopies}.
+%		\end{itemize}		
+%		\end{column}		
+%	\end{columns}
+%	}
+  \end{frame}
+%-------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-%------------------------------------------------------------------------------------------------
-\begin{frame}{Geometry of symmetries}\label{frame:geometrysymmetries}
-	...		
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\begin{frame}[t, fragile]{Research Framework:  \textbf{multisymplectic geometry}} %Fragile -->workaround tikzcd
+	\begin{center}
+		$-$ \emph{multisymplectic means \textbf{going higher} in the degree of $\omega$} $-$
+	\end{center}
+	\pause
+	\begin{defblock}[$n$-plectic manifold ~\emph{(Cantrijn, Ibort, De Le\'on)} \cite{Cantrun2017}]
+		\includestandalone[width=0.95\textwidth]{./Pictures/Figure_multisym}	
+	\end{defblock}
+	%
+	\vfill
+	%
+	%
+	\pause
+	\begin{block}{Examples:}
+		\begin{itemize}
+			\item[$\bullet$] 1-plectic $=$ symplectic
+			\item[$\bullet$] Any oriented $(n+1)$-dimensional manifold is $n$-plectic w.r.t. the volume form.
+			\item[$\bullet$] The multicotangent bundle $\Lambda^n T^\ast Q$ is naturally $n$-plectic.
+		\end{itemize}
+	\end{block}			 
+%
+	\pause
+	\begin{block}{Historical motivation}
+		Mechanics: geometrical foundations of \textit{(first-order)} field theories.
+		\begin{itemize}
+		 \item[•] Kijowski, W. Tulczyjew \cite{Kijowski1979}; %(1979)
+		 \item[•] Cariñena, Crampin, Ibort \cite{Carinena1991b};% (1991)
+		 \item[•] Gotay, Isenberg, Marsden, Montgomery \cite{Gimmsy1};%(1998)
+		 \\ $\cdots$
+		\end{itemize}
+	\end{block}
 \end{frame}
-\note[itemize]{
-	\item
-}
-%------------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+\begin{frame}{Observables in \textbf{multisymplectic geometry}}
+	%
+	\begin{defblock}[Hamiltonian $(n-1)$-forms]
+		\begin{displaymath}
+			\Omega^{n-1}_{ham}(M,\omega) 	:=
+			\biggr\{ \sigma \in  \Omega^{n-1}(M) \; \biggr\vert \; 
+				\exists \vHam_\sigma \in \mathfrak{X}(M) ~:~ 
+				\tikz[baseline,remember picture]{\node[rounded corners,
+                        fill=orange!5,draw=orange!30,anchor=base]            
+            			(target) {$d \sigma = -\iota_{\vHam_\sigma} \omega$ };
+            	}				
+				~\biggr\} 
+			\end{displaymath}
+	\end{defblock}
+	%
+	\onslide<2>{
+		\tikz[overlay,remember picture]
+		{
+			\node[rounded corners,
+                 fill=orange!5,draw=orange!30,anchor=base]
+            	 (base) at ($(current page.north east)-(2,1)$) [rotate=-0,text width=3.5cm,align=center] {\footnotesize{\textcolor{red}{Hamilton-DeDonder-Weyl \\equation}}};
+		}	
+		\begin{tikzpicture}[overlay,remember picture]
+		    	\path[->] (base.south east) edge[bend left,red](target.east);
+	    \end{tikzpicture}
+	}
+	%
+	\vspace{-1em}
+	\pause
+	\begin{columns}[T]
+		\setlength{\belowdisplayskip}{5pt}
+		\begin{column}{.50\linewidth}
+			%
+			\centering \it
+			$-$ symplectic case $-$
+			\onslide<3->{
+			\begin{thmblock}[Observables Poisson algebra]
+				$C^\infty(M,\omega)$ endowed with
+				\vspace{-.5em}
+				\begin{displaymath}
+					\lbrace \sigma_1, \sigma_2 \rbrace =			
+					~ - \iota_{\vHam_1}\iota_{\vHam_2} \omega 
+					~= \mathcal{L}_{\vHam_1} \sigma_2
+				\end{displaymath}			
+				forms a Poisson algebra.
+			\end{thmblock}
+			}
+			%
+			\onslide<4->{
+			\vspace{1em}
+			\begin{itemize}
+				\item[\cmark] Skew-symmetric;
+				\item[\cmark] multiplication of observables;
+				\item[\cmark] Leibniz Rule;
+				\item[\cmark] Jacobi equation;
+			\end{itemize}		
+			}		
+		\end{column}	
+		%
+		\onslide<1->{\vrule{}}
+		%
+		\begin{column}{.50\linewidth}
+			\centering \it
+			$-$ $n$-plectic case $-$
+			\onslide<5->{			
+			\begin{thmblock}[Observables $L_\infty$-algebra]
+				$\Omega^{n-1}_{ham}(M,\omega)$ endowed with
+				\vspace{-.5em}
+				\begin{displaymath}
+					\lbrace \sigma_1, \sigma_2 \rbrace =			
+					~ - \iota_{\vHam_1}\iota_{\vHam_2} \omega 
+				\end{displaymath}			
+				can be extended to a \\ $L_\infty-algebra$.
+			\end{thmblock}
+			}
+			%
+			\onslide<6->{
+			\begin{itemize}
+				\item[\cmark] Skew-symmetric;
+				\item[\xmark] multiplication of observables;
+				\item[\xmark] Jacobi equation;
+				%\\ \hspace*{4.25em} full-fledged Jacobi equation;
+				\item[\smark] Jacobi equation \emph{up to homotopies}.
+			\end{itemize}			
+			}
+		\end{column}	
+	\end{columns}
+\end{frame}
+%-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+%-----------------------------------------------------------%
+\begin{frame}[fragile,shrink]{Details of the mapping cone construction \cite{Fiorenza2006}}
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&,
+			/tikz/execute at end picture={
+    			\node  (large) [label=right:{\it dglas},draw,rectangle, draw,dashed, fit=(A1) (A2)] {};
+    			\node (large2) [label=right:{\it dgvspaces},rectangle, draw,dashed, fit=(B1) (B2)] {};}] 
+			|[alias=A1]| TW(f) \ar[dr] \ar[rr] \ar[drr,phantom,near start,"\lrcorner"]\& \& 0 \ar[d] \\
+			\& X \arrow[r,""{name=U, below, draw=red}] \& |[alias=A2]| Y  \\
+			\\
+			\& X \ar[r,""{name=D, draw=red}] \arrow[from=U, to=D, rightsquigarrow]\& |[alias=B2]| Y  \\
+			|[alias=B1]| MapCoCone(f) \ar[ur] \ar[rr] \ar[rru,phantom,near start,"\urcorner"]\& \& 0 \ar[u]
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+	\begin{enumerate}
+		\item $TW(f)$ Thom-Whitney of $X\to Y$, is a model for the homotopy fiber of $X\to Y$ in dglas \cite[Def 6.1.4]{Manetti2022b};
+		\item forgetting the Lie structure, $MapCoCone(f)$ is a model for the homotopy fiber of $X\to Y$ in dgvspaces \cite[Def.5.1.3]{Manetti2022b};
+		\item $TW(f)$ and $MapCoCone(f)$ are quasi isomorphic as dgspaces \cite[Cor. 6.1.7]{Manetti2022b}.
+		\item Via homotopy transfer one gets an $L_\infty$-structure on $MapCoCone(f)$.
+		\item the corresponding $L_\infty$-algebra is quasi-isomorphic to $TW(f)$ hence is a model for the homotopy fiber of the dgla map $X\to Y$.
+	\end{enumerate}
+\end{frame}
+%-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
 \ifstandalone

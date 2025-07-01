@@ -1,0 +1,48 @@
+%+------------------------------------------------------------------------+
+%| Diagram with Overlays: Definition of Lie n-algebra of observables in a diagram
+%| Author: Antonio miti
+%+------------------------------------------------------------------------+
+
+
+\documentclass[beamer]{standalone}
+\usepackage{tikz-cd}
+\usetikzlibrary{shapes.geometric,fit} %Ellissi attorno ai nodi
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\tikzset{%
+    symbol/.style={%
+        ,draw=none
+        ,every to/.append style={%
+            edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+    }
+}
+\tikzset{
+   dashrect/.style={,rectangle,draw,dashed,inner sep=0pt,black!60!green,fit={#1}}
+}
+
+\begin{document}
+%\begin{standaloneframe}[fragile]
+\begin{tikzcd}[column sep= small,row sep=small]
+	0 \ar[r,] &[-.5em]
+	L^{1-n}\ar[symbol=\coloneqq,d] \ar[r,"\{\cdot\}_1"] &
+	\ldots \ar[r,"\{\cdot\}_1"] &
+	L^{2-k} \ar[symbol=\coloneqq,d] \ar[r,"\{\cdot\}_1"] &
+	\ldots \ar[r,"\{\cdot\}_1"] &
+	L^{-1}\ar[symbol=\coloneqq,d] \ar[r,"\{\cdot\}_1"] & 
+	L^0\ar[symbol=\coloneqq,d]\ar[r] &[-1.5em]
+	0 
+	\\
+	%
+	& 
+	\Omega^0(M) \ar["d",r] &
+	\ldots \ar["d",r] &
+	\only<1>{\Omega^{n+1-k}(M)}\only<2->{\phantom{\Omega^{n+1-k}(M)}} \ar["d",r] &
+	\ldots\ar["d",r] &
+	\Omega^{n-2}(M) \ar["d",r] &
+	\only<1>{\Omega^{n-1}_{\textrm{Ham}}(M,\sigma)}\only<2->{\phantom{\Omega^{n-1}_{\textrm{Ham}}(M,\sigma)} 
+	\arrow[lll,black!60!green,to path={ node[rectangle,dashed,draw]{$\Omega^{n-1}_{\textrm{Ham}}(M,\sigma)$} -- +(0,-4ex) -| node[draw,ellipse,fill=white,scale=0.65,pos=0.25]{$\{\cdot,\ldots,\cdot\}_k$}(\tikztotarget)node[rectangle,dashed,draw]{$\Omega^{n+1-k}(M)$}}]}
+	&
+	\\
+\end{tikzcd}
+%\end{standaloneframe}
+\end{document}

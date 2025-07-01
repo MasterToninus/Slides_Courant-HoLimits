@@ -1,0 +1,55 @@
+%+------------------------------------------------------------------------+
+%| Frame: Multisymplectic Manifold Definition
+%| Author: Antonio miti
+%+------------------------------------------------------------------------+
+
+\documentclass[border=3pt]{standalone}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usetikzlibrary{arrows,shapes}
+
+
+\begin{document}
+% For every picture that defines or uses external nodes, you'll have to
+% apply the 'remember picture' style. To avoid some typing, we'll apply
+% the style to all pictures.
+\tikzstyle{every picture}+=[remember picture]
+
+% By default all math in TikZ nodes are set in inline mode. Change this to
+% displaystyle so that we don't get small fractions.
+\everymath{\displaystyle}
+
+	\begin{minipage}[c]{0.25\textwidth}
+			\begin{displaymath}
+				 \big(
+				 \tikz[baseline]{
+				            \node[fill=blue!20,anchor=base] (t1)
+				            {$ M$};
+				        } 
+					,
+					 \tikz[baseline]{
+				            \node[fill=blue!20,anchor=base] (t2)
+				            {$ \sigma$};
+					}
+				\big)
+			\end{displaymath}	
+	\end{minipage}
+	\begin{minipage}[t]{0.75\textwidth}
+		\tikzstyle{na} = [baseline=-.5ex]
+		%
+		\tikz[na] \node[scale=0.5,coordinate,fill=blue!20,draw,circle] (n1) {};		    
+		   		 Smooth Mfd.
+		 \\
+		 \tikz[na]\node [scale=0.5,coordinate,fill=blue!20,draw,circle] (n2) {};	    
+		    		non-degenerate, closed, $(n+1)$-form.
+	\end{minipage}
+
+% Now it's time to draw some edges between the global nodes. Note that we
+% have to apply the 'overlay' style.
+\begin{tikzpicture}[overlay]
+        \path[->] (n1) edge [bend right] (t1);
+        \path[->] (n2) edge [bend left] (t2);
+       % \path[->] (n3) edge [out=0, in=-90] (t3);
+\end{tikzpicture}
+
+\end{document}

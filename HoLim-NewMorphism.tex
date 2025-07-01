@@ -31,7 +31,56 @@
 \begin{document}
 %===========================================================%
 
+%-----------------------------------------------------------%
+\begin{frame}
+	Consider $\mathcal{C}_r^{\geq 0}[-1] \hookrightarrow \mathcal{C}_r[-1]$
+	\vfill
 
+	Observe that $\mathcal{C}_r^{<0} = C^\infty(T^*[r]T[1]M)^{<r}=$
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\Omega^0 \ar[r,"\d"]\&
+			\Omega^1 \ar[r,"\d"]\&
+			\Omega^2 \ar[r,"\d"]\&
+			\cdots \ar[r,"\d"]\&
+			\Omega^{r-2} \ar[r,"{(\d,0)}"]\&
+			\Omega^{r-1}\ar[d,phantom,"\oplus"]\\[-.7em]
+			\&\&\&\&\&\X
+ 		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
+			\& \text{\small (deg $1-r$)} \& \cdots \& \&\text{\small (deg $-1$)} \& \text{\small (deg $0$)} \\[-.5em]
+			\Rogers[\sigma]{r-1}   \ar[r,phantom,":="]
+			\&
+			\Omega^0 \ar[r,"{\d}"] \ar[d,"id"]
+			\&
+			\Omega^1 \ar[r,"{\d}"] \ar[d,"id"]
+			\&
+			\cdots
+			\&
+			\Omega^{r-2} \ar[r,"{(0,\d)}"] \ar[d,"id"]
+			\& \Ham_{\sigma}^{(r-1)} \ar[d,hook]
+			\\
+			\Courant[\sigma]{r-1} \ar[r,phantom,":="]
+			\&
+			\Omega^0 \ar[r,"{\d}"]
+			\&
+			\Omega^1 \ar[r,"{\d}"] 
+			\&
+			\cdots
+			\&
+			\Omega^{r-2} \ar[r,"{(0,\d)}"]
+			\& \Gamma(E^{(1)})
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+
+	\cite{Miti2021} proved that the vertical arrows are the linear part of a $L_\infty$-morphism $\Rogers[\sigma]{r-1} \to \Courant[\sigma]{r-1}$.
+\end{frame}
+%-----------------------------------------------------------%
 
 
 

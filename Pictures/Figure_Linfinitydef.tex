@@ -1,0 +1,76 @@
+%+------------------------------------------------------------------------+
+%| Frame: Lie infinity algebra Definition
+%| Author: Antonio miti
+%+------------------------------------------------------------------------+
+
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usetikzlibrary{arrows,shapes}
+\usepackage{amsfonts,amsmath}
+\usepackage{xcolor}
+
+
+\begin{document}
+	\tikzstyle{every picture}+=[remember picture]
+	\everymath{\displaystyle}
+	\tikzstyle{na} = [baseline=-.5ex]
+	\begin{minipage}[c]{\linewidth}
+		\begin{minipage}[t]{0.3\linewidth}
+			\vspace{-.5em}
+			\begin{displaymath}
+								 \Big(
+								 \tikz[baseline]{
+								            \node[fill=blue!20,anchor=base] (t1)
+								            {$ L$};
+								        } 
+									,
+									 \tikz[baseline]{
+								            \node[fill=blue!20,anchor=base] (t2)
+								            {$ \lbrace \mu_k \rbrace_{k \in \mathbb{N}} $};
+									}
+								\Big)
+				\end{displaymath}
+				%	
+		\end{minipage}
+		%
+		\begin{minipage}[t]{0.7\linewidth}
+		   \tikz[na] \node[scale=0.5,coordinate,fill=blue!20,draw,circle] (n1) {};		    
+				 $\mathbb{Z}$-Graded vector space 
+				 \quad
+				 $L = \bigoplus_{i\in\mathbb{Z}} L_i$	
+			\\
+			\tikz[na]\node [scale=0.5,coordinate,fill=blue!20,draw,circle] (n2) {};	    
+				  	Family of homogenous skew-multilinear maps 
+				  	\\(\emph{multi-brackets}) 
+				  	\quad
+				  	$\mu_k : \wedge^k L \rightarrow L[k-2]$
+		\end{minipage}
+		
+		\begin{minipage}[t]{\linewidth}
+		\footnotetext{
+		satisfying \emph{"Higher Jacobi"} relations 
+		~(	$\forall m\geq 1$ and $x_i$ homogeneous elements in $L$)
+			\begin{displaymath}
+			0 = \sum_{\substack{i+j=m+1\\ \sigma \in ush(i,m-i)}} 
+			\kern-1em		
+			{\color{gray}(-)^{i(j+1)}	(-)^\sigma \epsilon (\sigma; x) }
+			~
+			\mu_j\biggr( \mu_i \Big(x_{\sigma_1},\dots, x_{\sigma_i}\Big), x_{\sigma_{i+1}},\dots, x_{\sigma_m}\biggr)
+			\end{displaymath}
+		}	
+		\end{minipage}
+	\end{minipage}
+
+
+
+
+% Now it's time to draw some edges between the global nodes. Note that we
+% have to apply the 'overlay' style.
+\begin{tikzpicture}[overlay]
+        \path[->] (n1) edge [bend right] (t1);
+        \path[->] (n2) edge [bend left] (t2);
+       % \path[->] (n3) edge [out=0, in=-90] (t3);
+\end{tikzpicture}
+
+\end{document}

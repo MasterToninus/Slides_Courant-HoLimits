@@ -1,0 +1,19 @@
+%+------------------------------------------------------------------------+
+%| Diagram: Definition of Lie n-algebra of observables in a diagram
+%| Author: Antonio miti
+%+------------------------------------------------------------------------+
+
+
+\documentclass[tikz]{standalone}
+\usepackage{tikz-cd}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\RequirePackage[cal=boondox,scr=boondoxo]{mathalfa}
+
+\begin{document}
+	\begin{tikzcd}[column sep= small,row sep=0ex]
+		\{\cdot,\dots,\cdot\}_k ~\colon&[-1em] \left(\Omega^{n-1}_{\textrm{Ham}}(M,\sigma)\right)^{\otimes k} 	\arrow[r]& 				\Omega^{n+1-k}(M) \\[-1ex]
+		& \sigma_1\otimes\dots\otimes\sigma_k 	\ar[r, mapsto]& 	(-)^{k+1}
+		\iota_{\mathscr{v}_{\sigma_1}}\cdots\iota_{\mathscr{v}_{\sigma_k}}\sigma 
+	\end{tikzcd}
+\end{document}

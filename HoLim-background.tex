@@ -32,20 +32,135 @@
 %===========================================================%
 
 
+%------------------------------------------------------------------------------------------------
+\begin{frame}{Reminder: $L_\infty$ Algebras}
 
+		\emph{
+			$L_\infty$-algebra is the notion that one obtains from a Lie algebra when one requires the Jacobi identity to be satisfied only up to a higher coherent chain homotopy.
+		}
+		\\
+		\vspace{.5em}
+		\begin{defblock}[$L_\infty$-algebra ~\emph{(Lada, Markl)} ~\cite{Lada1995}]
+			\includestandalone{Pictures/Figure_Linfinitydef}
+		\end{defblock}	
+		%
+		%
+	\pause
+%	\vfill
+%	\begin{thmblock}[Rogers \cite{Rogers2010}]
+%		The \emph{higher observable algebra} $L_{\infty}(M,\omega)$ 	forms an honest $L_\infty$ algebra.
+%		\footnotetext{ Take $\mu_1 = \text{d}$, $\mu_k=\lbrace\dots\rbrace_k$, $L$ is a shifted truncation of the de Rham complex.}
+%	\end{thmblock}
+
+	\begin{itemize}
+		\item<2-> You can construct a coalgebra out of $L$ 
+			{\small \color{UniGreen} (the reduced cofree coalgebra $S^{\geq 1}(L[1]),\Delta)$)}.
+		\item<3-> You can assemble all $\mu_k$ to get a coderivation $Q_\mu$
+				{\small \color{UniGreen} (the unique lift to a coderivation of the decalage of $ \mu=	\mu_1+\mu_2 + \dots$ }.
+		\item<4-> Higher Jacobi is tantamount to having $Q_\mu ^2 = 0$.
+
+	\end{itemize}
+\end{frame}
+\note[itemize]{
+	\item $L_\infty$-algebra is the notion obtained from a Lie algebra requiring that the Jacobi identity is satisfied only up to a higher coherent chain homotopy.
+	\item The Lie-n algebra mentioned before is a $L_\infty$ algebra with underlying graded vector space concentrated in degrees $0,1...n$.
+	
+	\item Definition. We say that a permutation $\sigma \in S_n$ is a $(j,n-j)$-unshuffle, $0\leq j \le1 n$  if $\sigma(1)< \dots < \sigma(j)$ and $\sigma(j+1)<\dots<\sigma(n)$.
+	\\
+	You can also say that $\sigma$ is a $(j,n-j)$-unshuffle if $\sigma(i)< \sigma(i+1)$ when $i\neq j$.
+
+	\item 	Alternatively, the Jacobiators can be also denoted as $$\displaystyle J_m=\sum_{i+j=m+1} 	\mu_i \triangleleft \mu_j = 0$$
+	employing the so-called \emph{ Richardson-Nijenhuis product}
+		 $$\mu_i\circ \mu_j := (-)^{i(j+1)}\frac{1}{j!(i-1)!}\mu_i \triangleleft \mu_j\otimes \mathbb{1}_{i-1} \circ \mathcal{A}~,$$
+		 where $\mathcal{A}$ denotes the (graded) total skew-symmetrizator.
+		 
+	\item see frame extra-\ref{Frame:unwapping-Jacobi} for a slightly demystification of the higher Jacobi equations.
+
+	\item more precisely this statement is a proposition/definition
+
+}
+%------------------------------------------------------------------------------------------------
 
 %-----------------------------------------------------------%
 \subsection{Courant Algebroids}
 %-----------------------------------------------------------%
 %-----------------------------------------------------------%
-\begin{frame}{Courant Algebroids \& generalized Geometry}
+\begin{frame}{Courant Algebroids \& Generalized Geometry}
 
+\begin{columns}
+  \column{0.6\textwidth}
+   \begin{block}{Why should we care about Courant algebroids $E^{(1)}$?}
+    \begin{itemize}
+      \item[\ding{43}] Generalize \textbf{Lie algebroids}, \textbf{Poisson}, and \textbf{symplectic} structures.
+      
+      \item[\ding{72}] Encode \textbf{Dirac structures} as isotropic subbundles of $E^{(1)}= TM \oplus T^*M $, closed under the Courant bracket.
+      
+      \item[\ding{42}] Key in \textbf{generalized  complex geometry} (Hitchin–Gualtieri).
+      
+      \item[\ding{118}] Applications in Physics \& dynamics:
+      \begin{itemize}
+        \item Constrained mechanics \& nonholonomic systems;
+        \item T-duality, Poisson–Lie duality (string theory);                         
+        \item Supergravity via generalized Ricci-flatness.
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+
+  \column{0.4\textwidth}
+  \begin{exblock}[Symplectic as Dirac]
+	Let \color{blue}{$\sigma \in \Omega^2$}.
+	\medskip
+
+	\color{black}Graph of \color{blue}$ \sigma^\flat: TM \to T^*M$ \color{black} subbundle of $E^{(1)}$
+
+	\medskip
+    \includestandalone[width=\textwidth]{Pictures/Figure_Symplectic-Dirac}
+	\medskip
+
+	When $\sigma$ is closed, the graph is a Dirac structure.
+
+  \end{exblock}
+
+\end{columns}
 
 \end{frame}
 \note[itemize]{
-	\item   
+	\item   Courant algebroids have become pivotal in both differential geometry and theoretical physics because they unify and generalize diverse structures while providing a natural language for modern physical theories. Originally introduced by Dorfman and Courant to geometrize Dirac’s theory of constraints and as the “double” of Lie bialgebroids, a Courant algebroid extends a Lie algebroid by incorporating a nondegenerate symmetric pairing and a Leibniz (Dorfman) bracket.
+	\item They are the foundational objects in \emph{generalized geometry}: for example, the standard exact Courant algebroid \( TM \oplus T^*M \) underpins Hitchin–Gualtieri’s generalized complex geometry, and its automorphism group naturally combines diffeomorphisms with \( B \)-field (Kalb–Ramond) gauge transformations.
+	\item A central concept in this framework is that of a \emph{Dirac structure}, which generalizes both symplectic and Poisson structures and plays a fundamental role in the study of mechanical systems with constraints. A Dirac structure is defined as a maximally isotropic subbundle of \( TM \oplus T^*M \) that is involutive under the Courant bracket. It provides a geometric setting to describe both holonomic and nonholonomic constraints, and to derive the equations of motion using tools such as the Dirac bracket. Symplectic and Poisson structures are special cases of Dirac structures: symplectic forms yield Dirac structures as their graphs, while Poisson structures define them via characteristic distributions. Moreover, Dirac structures naturally arise in both the Lagrangian and Hamiltonian formulations of mechanics, and can be viewed as instances of Lie algebroids.
+	\item On the physics side, Courant algebroids and Dirac structures provide a powerful geometric language for incorporating fluxes and dualities in string theory. They underpin current algebras of the string \(\sigma\)-model, encode T-duality and Poisson–Lie T-duality, and have been used to reformulate the equations of 10D supergravity as conditions of generalized Ricci-flatness.
+	\item Sources: \\
+- T. Courant, "Dirac manifolds", Trans. Amer. Math. Soc. (1990), \hyperref[https://empg.maths.ed.ac.uk/Activities/GCY/Courant.pdf]{PDF link} \\
+- I. Dorfman, \textit{Dirac structures and integrability of nonlinear evolution equations} (1987), \hyperref[https://www.sciencedirect.com/science/article/abs/pii/0375960187902015]{ScienceDirect} \\
+- M. Gualtieri, \textit{Generalized complex geometry}, Oxford DPhil thesis (2004), \hyperref[https://arxiv.org/abs/math/0401221]{arXiv:math/0401221} \\
+- Y. Kosmann-Schwarzbach, \textit{Courant algebroids: A short history}, \hyperref[https://arxiv.org/abs/1212.0559]{arXiv:1212.0559}
+	\item Dirac structure for \texorpdfstring{$p = 1$}{p = 1}]
+Let \( L \subseteq TM \oplus T^*M \) be a subbundle.
+\begin{itemize}
+  \item \( L \) is \emph{isotropic} if for all sections \( X_1 + \alpha_1,\, X_2 + \alpha_2 \in \Gamma(L) \),
+  \[
+  \langle X_1 + \alpha_1,\; X_2 + \alpha_2 \rangle = \frac{1}{2}\left( \iota_{X_2} \alpha_1 + \iota_{X_1} \alpha_2 \right) = 0.
+  \]
+
+  \item \( L \) is \emph{involutive} if for all sections \( X_1 + \alpha_1,\, X_2 + \alpha_2 \in \Gamma(L) \),
+  \[
+  \llbracket X_1 + \alpha_1,\; X_2 + \alpha_2 \rrbracket \in \Gamma(L),
+  \]
+  where the \emph{Dorfman bracket} is defined by
+  \[
+  \llbracket X_1 + \alpha_1,\; X_2 + \alpha_2 \rrbracket := [X_1, X_2] + \mathcal{L}_{X_1}\alpha_2 - \iota_{X_2} d\alpha_1.
+  \]
+
+  \item \( L \) is \emph{Lagrangian} if
+  \[
+  L = L^\perp := \left\{ e \in TM \oplus T^*M \mid \langle e, L \rangle = 0 \right\}.
+  \]
+  In this case, we say that \( L \) is an \emph{almost Dirac structure}.
+
+  \item \( L \) is a \emph{Dirac structure} if it is both Lagrangian and involutive.
 }
-%-----------------------------------------------------------%
+
+
 
 %-----------------------------------------------------------%
 \begin{frame}{Higher Courant Algebroids}
@@ -65,10 +180,10 @@
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}{Vinogradov $L_\infty$-algebra}
-	Vin. alg.oids are $NQ$-manifolds ($L_\infty$-algebroids).
-	$\quad\Rightarrow\quad$ 
-	Associated $L_\infty$-algebra.
+\begin{frame}{Higher Courant $L_\infty$-algebra}
+	Hig.Cou.alg.oids $\sim$ $NQ$-manifolds  ($L_\infty$-algebroids).
+	$~\Rightarrow~$ 
+	associated $L_\infty$-algebra.
 
 	\begin{defblock}[Vinogradov $L_\infty$-algebra \cite{Zambon2012}]
 		\includestandalone[width=0.95\textwidth]{Pictures/Figure_vinogradov-Linfty}	
@@ -129,130 +244,91 @@ associated to the untwisted ($\omega=0$) Vinogradov Algebroid, and $c_k$ is a nu
 %-----------------------------------------------------------%
 
 
+
 %-----------------------------------------------------------%
-\begin{frame}{Zambon's construction}
-	Consider the graded manifold $T^*[r]T[1]M$.
-	\vfill
-
-	$C^\infty(T^*[r]T[1]M)$ is a \emph{$r$-Poisson algebra} (associative multiplication, degree $r$ Poisson bracket $\lbrace \cdot,\cdot\rbrace$)\footnote{Canonical Poisson bracket on the shifted cotangent bundle}
-	\vfill
-
-	$\mathcal{C}_r := C^\infty(T^*[r]T[1]M)[r]$ is a graded Lie algebra.
-	\vfill
-
-	$\mathcal{C}_r$ contains all differntial forms on $M$ since:
-	\begin{displaymath}
+\begin{frame}[t]{Details on the  \texorpdfstring{\cite{Zambon2012}} ~~construction}\label{frame:VinoDetails}
+	%
+	\begin{enumerate}[<+-| alert@+>]
+		\item Consider the \emph{Graded manifold}
+		 $\mathbf{Q = T^\ast[r] T[1] M}$~;
+		 \vfill
+		\item $Q$ is a (shifted) contangent bundle,
+		\\ $\Rightarrow$  
+		$C^\infty(Q)$ is a \emph{$r$-Poisson algebra} {\small (associative multiplication, degree $r$ Poisson bracket $\lbrace \cdot,\cdot\rbrace$)}
+		\vfill
+		\item $C^\infty(Q)$ contains all differential forms on $M$ since:
+		\vspace{-1em}
+		\begin{displaymath}
 		\begin{tikzcd}[ampersand replacement=\&,column sep = large]
-			T^*[r]T[1]M \ar[r, two heads,] \& T[1]M \&[-2.5em] \\[-.5em]
-			C^\infty(T^*[r]T[1]M) \& C^\infty(T[1]M) \ar[l,hook]\ar[r,phantom,"\cong"] \& \Omega(M) 
+			Q= T^*[r]T[1]M \ar[r, two heads,] \& T[1]M \&[-2.5em] \\[-1.5em]
+			C^\infty(Q) \& C^\infty(T[1]M) \ar[l,hook]\ar[r,phantom,"\cong"] \& \Omega(M) 
  		\end{tikzcd}
-	\end{displaymath}
-\end{frame}
-%-----------------------------------------------------------%
+		\end{displaymath}
+		\vfill
+		
+		\item 	There exists a distinguished element $\mathcal{S}$ of degree $r$+$1$ in $C^\infty(Q)$ such that $\lbrace \mathcal{S},\mathcal{S}\rbrace =0 $.\\
+		It lifts the \emph{de Rham} differential  to $C^\infty(Q)$ as $ \delta := \lbrace \mathcal{S},\cdot \rbrace$;
+		\vfill
 
-%-----------------------------------------------------------%
-\begin{frame}
-	There exists a distinguished element $\mathcal{S}$ of degree $r+1$ in $C^\infty(T^*[r]T[1]M)$ such that $\mathcal{C}_r$ such that $\lbrace \mathcal{S},\mathcal{S}\rbrace =0 $, lifting the \emph{de Rham} differential of $M$ to $C^\infty(T^*[r]T[1]M)$ given by 
-	$$ \delta := \lbrace \mathcal{S},\cdot \rbrace$$
-	\vfill
-
-	$\mathcal{S}$ has degree $1$ in $\mathcal{C}_r$ (MC element) therefore $(\mathcal{C}_r,\lbrace \cdot,\cdot\rbrace,\delta)$ is a dg Lie algebra.
-	\vfill
-
-	Consider the embedding: $$ \mathcal{C}_r^{\geq 0} \hookrightarrow \mathcal{C}_r$$
-	\begin{enumerate}
-		\item \cite{Getzler1991} construct a canonical $L_\infty$-algebra structure on $\mathcal{C}_r^{<0}\cong \frac{\mathcal{C}_r }{\mathcal{C}_r^{\geq 0}}$ (via \emph{derived brackets});
-		\item \cite{Fiorenza2006} construct a canonical $L_\infty$-algebra associated with any dg Lie algebra morphism $\g \to \mathfrak{h}$ (via \emph{mapping cones});
-		\item \cite{Pridham2010a} showed that the $L_\infty$-algebra  of 2. is a \emph{model for the homotopy fiber $\hofib(\g \to \mathfrak{h})$}.
-		\item \cite{Bandiera2015} showed that 1. is a model for the homotopy fiber $\hofib(\mathcal{C}_r^{\geq 0} \hookrightarrow \mathcal{C}_r)$.
-	\end{enumerate}
-\end{frame}
-%-----------------------------------------------------------%
-
-%-----------------------------------------------------------%
-\begin{frame}[fragile,shrink]{Details of the mapping cone construction}
-	\begin{displaymath}
-		\begin{tikzcd}[ampersand replacement=\&,
-			/tikz/execute at end picture={
-    			\node  (large) [label=right:{\it dglas},draw,rectangle, draw,dashed, fit=(A1) (A2)] {};
-    			\node (large2) [label=right:{\it dgvspaces},rectangle, draw,dashed, fit=(B1) (B2)] {};}] 
-			|[alias=A1]| TW(f) \ar[dr] \ar[rr] \ar[drr,phantom,near start,"\lrcorner"]\& \& 0 \ar[d] \\
-			\& X \arrow[r,""{name=U, below, draw=red}] \& |[alias=A2]| Y  \\
-			\\
-			\& X \ar[r,""{name=D, draw=red}] \arrow[from=U, to=D, rightsquigarrow]\& |[alias=B2]| Y  \\
-			|[alias=B1]| MapCoCone(f) \ar[ur] \ar[rr] \ar[rru,phantom,near start,"\urcorner"]\& \& 0 \ar[u]
-		\end{tikzcd}
-	\end{displaymath}
-	\vfill
-	\begin{enumerate}
-		\item $TW(f)$ Thom-Whitney of $X\to Y$, is a model for the homotopy fiber of $X\to Y$ in dglas \cite[Def 6.1.4]{Manetti2022b};
-		\item forgetting the Lie structure, $MapCoCone(f)$ is a model for the homotopy fiber of $X\to Y$ in dgvspaces \cite[Def.5.1.3]{Manetti2022b};
-		\item $TW(f)$ and $MapCoCone(f)$ are quasi isomorphic as dgspaces \cite[Cor. 6.1.7]{Manetti2022b}.
-		\item Via homotopy transfer one gets an $L_\infty$-structure on $MapCoCone(f)$.
-		\item the corresponding $L_\infty$-algebra is quasi-isomorphic to $TW(f)$ hence is a model for the homotopy fiber of the dgla map $X\to Y$.
-	\end{enumerate}
-\end{frame}
-%-----------------------------------------------------------%
-
-%-----------------------------------------------------------%
-\begin{frame}{What to read out of Pridham2010a}
-	nell'articolo di Pridham i risultati di interesse sono il Lemma 3.24, la Proposizione 4.42 e il Corollario 4.57 (numerazione dell'ultima versione arXiv)
-
-\end{frame}
-%-----------------------------------------------------------%
-
-
-
-%-----------------------------------------------------------%
-\begin{frame}
-	Consider $\mathcal{C}_r^{\geq 0}[-1] \hookrightarrow \mathcal{C}_r[-1]$
-	\vfill
-
-	Observe that $\mathcal{C}_r^{<0} = C^\infty(T^*[r]T[1]M)^{<r}=$
-	\begin{displaymath}
-		\begin{tikzcd}[ampersand replacement=\&]
+		\item Shifting the grading by $r$ we get $\mathcal{C}_r := C^\infty(Q)[r]$
+		\\
+		$(\mathcal{C}_r,\lbrace \cdot,\cdot\rbrace,\delta)$ is an honest \textbf{dg Lie algebra}.
+		\item Applying \cite{Getzler1991} \emph{derived brackets costruction} to the DGLA $\mathcal{C}_r$, one gets a $L_\infty[1]$- algebra on the non-negative truncation
+		%
+		\vspace{-1em}
+		\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
+			\mathcal{C}_r^{<0} \ar[r,phantom,"="]\&[1em] 
 			\Omega^0 \ar[r,"\d"]\&
 			\Omega^1 \ar[r,"\d"]\&
 			\Omega^2 \ar[r,"\d"]\&
-			\cdots \ar[r,"\d"]\&
+			\cdots \ar[r,"\d"]\&[1em]
 			\Omega^{r-2} \ar[r,"{(\d,0)}"]\&
-			\Omega^{r-1}\ar[d,phantom,"\oplus"]\\[-.7em]
-			\&\&\&\&\&\X
+			\Omega^{r-1}\oplus\X
  		\end{tikzcd}
-	\end{displaymath}
-	\vfill
+		\end{displaymath}
 
-	\begin{displaymath}
-		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
-			\& \text{\small (deg $1-r$)} \& \cdots \& \&\text{\small (deg $-1$)} \& \text{\small (deg $0$)} \\[-.5em]
-			\Rogers[\sigma]{r-1}   \ar[r,phantom,":="]
-			\&
-			\Omega^0 \ar[r,"{\d}"] \ar[d,"id"]
-			\&
-			\Omega^1 \ar[r,"{\d}"] \ar[d,"id"]
-			\&
-			\cdots
-			\&
-			\Omega^{r-2} \ar[r,"{(0,\d)}"] \ar[d,"id"]
-			\& \Ham_{\sigma}^{(r-1)} \ar[d,hook]
-			\\
-			\Courant[\sigma]{r-1} \ar[r,phantom,":="]
-			\&
-			\Omega^0 \ar[r,"{\d}"]
-			\&
-			\Omega^1 \ar[r,"{\d}"] 
-			\&
-			\cdots
-			\&
-			\Omega^{r-2} \ar[r,"{(0,\d)}"]
-			\& \Gamma(E^{(1)})
-		\end{tikzcd}
-	\end{displaymath}
-	\vfill
 
-	\cite{Miti2021} proved that the vertical arrows are the linear part of a $L_\infty$-morphism $\Rogers[\sigma]{r-1} \to \Courant[\sigma]{r-1}$.
+	\end{enumerate}
+
+
 \end{frame}
+\note[itemize]{
+	\item consider graded coordinates on $Q\sim (x^i,v_i, P_i, p_i)$ with
+			$$ |x^i|=0,~ |v^i|=1,~ |P_i|=n, ~ |p_i|=n-1 ~;$$
+	\item The degree $n+1$ function $\mathcal{S}= \sum_i v_i P_i$ encoding the de Rham differential satisfies
+	$\{\mathcal{S},\mathcal{S}\}=0$. 
+	Hence
+			 $$ (\mathcal{C}[n],\delta=\{\mathcal{S},\cdot\},\{\cdot,\cdot\}) \qquad \text{is a DGLA}~;$$
+}
 %-----------------------------------------------------------%
+
+
+
+%-----------------------------------------------------------%
+\begin{frame}{Higher Courant $L_\infty$-algebra as \textbf{Homotopy Fiber}}
+	\begin{propblock}[${\Courant[\sigma]{r}}$ is a \emph{model for the homotopy fiber}] of the dgla embedding $\qquad \mathcal{C}_r^{\geq 0} \hookrightarrow \mathcal{C}_r$~.
+	\end{propblock}
+	\begin{proofblock}
+\begin{enumerate}[(1)]
+		\item \cite{Getzler1991} construct a canonical $L_\infty$-algebra structure on $\mathcal{C}_r^{<0}\cong \frac{\mathcal{C}_r }{\mathcal{C}_r^{\geq 0}}$ (via \emph{derived brackets});
+		\item \cite{Fiorenza2006} construct a canonical $L_\infty$-algebra associated with any dg Lie algebra morphism $\g \to \mathfrak{h}$ (via \emph{mapping cones});
+		\item \cite{Pridham2010a} showed that the $L_\infty$-algebra  of $(2)$ is a \emph{model for the homotopy fiber $\hofib(\g \to \mathfrak{h})$}.
+		\item \cite{Bandiera2015} showed that $(1)$ is a model for the homotopy fiber $\hofib(\mathcal{C}_r^{\geq 0} \hookrightarrow \mathcal{C}_r)$.
+	\end{enumerate}
+	\end{proofblock}
+ 
+\end{frame}
+\note[itemize]{
+	\item Nell'articolo di Pridham i risultati di interesse sono il Lemma 3.24, la Proposizione 4.42 e il Corollario 4.57 (numerazione dell'ultima versione arXiv)
+	\item 
+}
+%-----------------------------------------------------------%
+
+
+
+
+
 
 
 

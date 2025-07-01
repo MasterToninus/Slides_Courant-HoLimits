@@ -29,7 +29,7 @@
 \RequirePackage{amsmath, amssymb}
 \RequirePackage{tikz}
 \usetikzlibrary{decorations.pathmorphing}
-\usetikzlibrary{arrows,shapes,calc}
+\usetikzlibrary{arrows,shapes,calc,fit}
 \RequirePackage{tikz-cd}
 \RequirePackage{graphicx, animate}
 \RequirePackage{hyperref}
@@ -38,7 +38,7 @@
 \RequirePackage{wasysym}
 %\usepackage{enumitem} %option in itemize
 \RequirePackage{xcolor}
-\RequirePackage{pifont}
+\RequirePackage{pifont} % For fun symbols
 \RequirePackage{empheq}
 \RequirePackage[font=scriptsize]{caption}
 \RequirePackage{cancel}
@@ -52,7 +52,9 @@
 
 
 \RequirePackage[export]{adjustbox}
-\RequirePackage[mode=buildnew,subpreambles=true]{standalone}
+%\RequirePackage[mode=buildnew,subpreambles=true]{standalone}
+\RequirePackage{standalone}
+
 \RequirePackage{textpos,eso-pic}
 
 
@@ -140,4 +142,18 @@
 	\end{frame}
 	\note{}	
 	\fi
+}
+
+
+
+%- TIKZ Macros -----------------------------------------------------------------------------------
+\tikzset{%
+    symbol/.style={%
+        ,draw=none
+        ,every to/.append style={%
+            edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+    }
+}
+\tikzset{
+   dashrect/.style={,rectangle,draw,dashed,inner sep=0pt,black!60!green,fit={#1}}
 }
