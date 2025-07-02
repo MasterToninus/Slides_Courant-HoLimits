@@ -32,61 +32,20 @@
 %===========================================================%
 
 %-----------------------------------------------------------%
-\begin{frame}
-	Consider $\mathcal{C}_r^{\geq 0}[-1] \hookrightarrow \mathcal{C}_r[-1]$
-	\vfill
-
-	Observe that $\mathcal{C}_r^{<0} = C^\infty(T^*[r]T[1]M)^{<r}=$
-	\begin{displaymath}
-		\begin{tikzcd}[ampersand replacement=\&]
-			\Omega^0 \ar[r,"\d"]\&
-			\Omega^1 \ar[r,"\d"]\&
-			\Omega^2 \ar[r,"\d"]\&
-			\cdots \ar[r,"\d"]\&
-			\Omega^{r-2} \ar[r,"{(\d,0)}"]\&
-			\Omega^{r-1}\ar[d,phantom,"\oplus"]\\[-.7em]
-			\&\&\&\&\&\X
- 		\end{tikzcd}
-	\end{displaymath}
-	\vfill
-
-	\begin{displaymath}
-		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
-			\& \text{\small (deg $1-r$)} \& \cdots \& \&\text{\small (deg $-1$)} \& \text{\small (deg $0$)} \\[-.5em]
-			\Rogers[\sigma]{r-1}   \ar[r,phantom,":="]
-			\&
-			\Omega^0 \ar[r,"{\d}"] \ar[d,"id"]
-			\&
-			\Omega^1 \ar[r,"{\d}"] \ar[d,"id"]
-			\&
-			\cdots
-			\&
-			\Omega^{r-2} \ar[r,"{(0,\d)}"] \ar[d,"id"]
-			\& \Ham_{\sigma}^{(r-1)} \ar[d,hook]
-			\\
-			\Courant[\sigma]{r-1} \ar[r,phantom,":="]
-			\&
-			\Omega^0 \ar[r,"{\d}"]
-			\&
-			\Omega^1 \ar[r,"{\d}"] 
-			\&
-			\cdots
-			\&
-			\Omega^{r-2} \ar[r,"{(0,\d)}"]
-			\& \Gamma(E^{(1)})
-		\end{tikzcd}
-	\end{displaymath}
-	\vfill
-
-	\cite{Miti2021} proved that the vertical arrows are the linear part of a $L_\infty$-morphism $\Rogers[\sigma]{r-1} \to \Courant[\sigma]{r-1}$.
-\end{frame}
+\subsection{From twisted to untwisted higher Courant algebras}
 %-----------------------------------------------------------%
 
-
-
 %-----------------------------------------------------------%
-\begin{frame}{a more exotic morphism}
-	For $r=1,2$ we have:
+\begin{frame}{From twisted to untwisted higher Courant algebras (1)}
+	%
+	\begin{block}{Goal:}
+		Exhibit an $L_\infty$-morphism
+		$$ \Courant[\sigma]{r-1} \to \Courant{r}$$
+	\end{block}
+	\vfill \pause	
+
+	\begin{exblock}[Lower case: For $r=1,2$ we have:]
+	
 	\begin{displaymath}
 		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
 			\Courant[\sigma]{0} \ar[r,phantom,":="] \ar[d]
@@ -102,8 +61,18 @@
 		\end{tikzcd}
 	\end{displaymath}
 	\cite{Zambon2012} proved that  the vertical arrows are the linear part of a $L_\infty$-morphism $\Courant[\sigma]{0} \to \Courant[\sigma]{1}$.
+	\end{exblock}
 	\vfill
+	
+\end{frame}
+\note[itemize]
+{
+	\item 
+}
 
+%-----------------------------------------------------------%
+\begin{frame}{From twisted to untwisted higher Courant algebras (2)}
+	%
 	More generally we have a morphism of chain complexes:
 	\begin{displaymath}
 		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
@@ -121,22 +90,29 @@
 			\& \Omega^1 \ar[r]
 			\& \Omega^2 \ar[r]
 			\& \cdots \ar[r]
-			\& \Omega^{r-2} \ar[r,"{(\d,0)}"]
-			\&\Omega^{r-1} \oplus \X
+			\& \Omega^{r-1} \ar[r,"{(\d,0)}"]
+			\&\Omega^{r} \oplus \X
 		\end{tikzcd}
 	\end{displaymath}
-	Is this the linear part of a $L_\infty$-morphism $\Courant[\sigma]{r-1} \to \Courant{r}$?
+
+	\vfill\pause
+
+	\begin{thmblock}[{[Fiorenza-M. 2025]}]
+		The above chain complex morphism is the linear part of a $L_\infty$-morphism $$\Courant[\sigma]{r} \to \Courant{r+1}~.$$
+	\end{thmblock}
+
 	\vfill
 \end{frame}
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}
-	Yes! (Fiorenza-Miti 2025)
+\begin{frame}{Idea of the proof:}
+	%
+	Recall that $$\Courant[\sigma]{r-1} = \hofib(\mathcal{C}_{r,\sigma}^{\geq 0} \hookrightarrow \mathcal{C}_{r,\sigma}) $$
+	\pause
 	\vfill
 
-	\begin{block}{Idea:}
-		We want to exhibit a morphism:
+	We want to exhibit a morphism:
 		\begin{displaymath}
 			\begin{tikzcd}[ampersand replacement=\&]
 				\hofib(\mathcal{C}_{r,\sigma}^{\geq 0} \hookrightarrow \mathcal{C}_{r,\sigma}) \ar[d]
@@ -144,7 +120,10 @@
 				\hofib(\mathcal{C}_{r+1}^{\geq 0} \hookrightarrow \mathcal{C}_{r+1})
 			\end{tikzcd}
 		\end{displaymath}
-		This should be naturally induced by a (homotopy) commutative diagram of dg-Lie algebars (or $L\infty$-algebras):
+	\pause
+	\vfill
+
+	This should be naturally\footnote{By the universal property of homotopy limits.} induced by a (homotopy) commutative diagram of dg-Lie algebras (or $L\infty$-algebras):
 		\begin{displaymath}
 			\begin{tikzcd}[ampersand replacement=\&]
 				\mathcal{C}_{r,\sigma}^{\geq 0} \ar[r,hook] \ar[d ]
@@ -153,16 +132,22 @@
 				\mathcal{C}_{r+1}^{\geq 0} \ar[r,hook] \& \mathcal{C}_{r+1} 
 			\end{tikzcd}
 		\end{displaymath}
-	\end{block}
+	
 \end{frame}
+\note[itemize]
+{
+	\item 
+	\item 
+}
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}
+\begin{frame}{A technical lemma (1)}
   Inside $\mathcal{C}_r$ there is a smaller, mora manageble, dg-Lie subalgebra with the same negative part.
-  \vfill
+  \vfill \pause
 
-  Consider the $2$-terms dg-Lie algebra $\Cartan \subseteq \Der(\Omega(M))$ given by:
+  \begin{defblock}[Cartan dg-Lie algebra]
+  	Is a $2$-terms dg-Lie algebra $\Cartan \subseteq \Der(\Omega)$ given by:
   \begin{displaymath}
 	\begin{tikzcd}[ampersand replacement=\&,row sep = small]
 		\text{\tiny (deg $-1$)} \& \text{\tiny (deg $0$)}\&[2em]
@@ -170,32 +155,47 @@
 		\iota_{\X} \ar[r,"\delta"] \& \Lie_{\X} \ar[r,phantom,";"] \& \delta:= [\d, \cdot]
 	\end{tikzcd}
   \end{displaymath}
-  \vfill
+  \end{defblock}
+  \vfill \pause
 
   $\Omega$ is a module for $\Der(\Omega)$ and so it is a module for $\Cartan$.
   \\
-  By shifting degrees, $\Omega[r]$ is a module for $\Cartan$.
+  $\Rightarrow$\quad By shifting degrees, $\Omega[r]$ is a module for $\Cartan$.
+  \vfill 
+
 \end{frame}
+\note[itemize]
+{
+	\item 
+	\item 
+}
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}
-	We can form the dg-Lie algebra
-	$$ \g_r := \Cartan \ltimes \Omega[r]$$
-	\vfill
+\begin{frame}{A technical lemma (2)}
+	  \begin{defblock}[The \emph{small} dgla]
+		We can form the dg-Lie algebra
+		$$ \g_r := \Cartan \ltimes \Omega[r]$$
+		\pause
+		\smallskip
 
-	Observe that any $\sigma \in \Omega^{r+1}_{\mathrm{cl}}(M)$ is a MC (degree 1) element of $\g_r$.
-	\vfill
-	
-	We can consider the twisted dg-Lie algebra $(\g_{r,\sigma}, \d_\sigma, \lbrace \cdot,\cdot\rbrace_\sigma)$ with:
+		Observe that any $\sigma \in \Omega^{r+1}_{\mathrm{cl}})$ is a MC (degree 1) element of $\g_r$.
+		\pause
+		\smallskip
+		
+		We can consider the twisted dg-Lie algebra $(\g_{r,\sigma}, \d_\sigma, \lbrace \cdot,\cdot\rbrace_\sigma)$ with:
 	\begin{displaymath}
 		\d_\sigma (\omega) = \d \omega~, \qquad
-		\d_\sigma (\iota_X) = \Lie_X \iota_X \sigma~, \qquad
+		\d_\sigma (\iota_X) = \Lie_X + \iota_X \sigma~, \qquad
 		\d_\sigma(\Lie_X) = -\Lie_X\sigma
 	\end{displaymath}
-	\vfill
+	\end{defblock}
+	\vfill\onslide<4->{
 
-	We have
+	\begin{lemblock}[{$\hofib(\mathcal{C}_{r,\sigma}^{\geq 0} \hookrightarrow \mathcal{C}_{r,\sigma}) \cong \hofib(\g_{r,\sigma}^{~\geq 0} \hookrightarrow \g_{r,\sigma})$}]
+
+			We have\footnote{the left square is in DGLAs, the right one is in dg vectors spaces}:
+			\vspace{-1em}
 	\begin{displaymath}
 		\begin{tikzcd}[ampersand replacement=\&]
 			\g_{r,\sigma}^{~\geq 0} \ar[r,hook] \ar[d,hook] \&
@@ -206,9 +206,11 @@
 			\mathcal{C}_{r,\sigma}^{~< 0}
 		\end{tikzcd}
 	\end{displaymath}
-	\vfill
 
-	Therefore $\mathcal{C}_{r,\sigma}^{~< 0}[-1] = \g_{r,\sigma}^{~<0}[-1]$ as $L_\infty$-algebras with the derived brackets.
+	Therefore $\mathcal{C}_{r,\sigma}^{~< 0}[-1] = \g_{r,\sigma}^{~<0}[-1]$ as $L_\infty$-algebras with the \cite{Getzler1991} derived brackets.
+	\end{lemblock}
+	}
+
 \end{frame}
 %-----------------------------------------------------------%
 
@@ -349,6 +351,64 @@
 	
 \end{frame}
 %-----------------------------------------------------------%
+
+
+%-----------------------------------------------------------%
+\subsection{From Rogers to Courant algebras}
+%-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}
+	Consider $\mathcal{C}_r^{\geq 0}[-1] \hookrightarrow \mathcal{C}_r[-1]$
+	\vfill
+
+	Observe that $\mathcal{C}_r^{<0} = C^\infty(T^*[r]T[1]M)^{<r}=$
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\Omega^0 \ar[r,"\d"]\&
+			\Omega^1 \ar[r,"\d"]\&
+			\Omega^2 \ar[r,"\d"]\&
+			\cdots \ar[r,"\d"]\&
+			\Omega^{r-2} \ar[r,"{(\d,0)}"]\&
+			\Omega^{r-1}\ar[d,phantom,"\oplus"]\\[-.7em]
+			\&\&\&\&\&\X
+ 		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
+			\& \text{\small (deg $1-r$)} \& \cdots \& \&\text{\small (deg $-1$)} \& \text{\small (deg $0$)} \\[-.5em]
+			\Rogers[\sigma]{r-1}   \ar[r,phantom,":="]
+			\&
+			\Omega^0 \ar[r,"{\d}"] \ar[d,"id"]
+			\&
+			\Omega^1 \ar[r,"{\d}"] \ar[d,"id"]
+			\&
+			\cdots
+			\&
+			\Omega^{r-2} \ar[r,"{(0,\d)}"] \ar[d,"id"]
+			\& \Ham_{\sigma}^{(r-1)} \ar[d,hook]
+			\\
+			\Courant[\sigma]{r-1} \ar[r,phantom,":="]
+			\&
+			\Omega^0 \ar[r,"{\d}"]
+			\&
+			\Omega^1 \ar[r,"{\d}"] 
+			\&
+			\cdots
+			\&
+			\Omega^{r-2} \ar[r,"{(0,\d)}"]
+			\& \Gamma(E^{(1)})
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+
+	\cite{Miti2021} proved that the vertical arrows are the linear part of a $L_\infty$-morphism $\Rogers[\sigma]{r-1} \to \Courant[\sigma]{r-1}$.
+\end{frame}
+%-----------------------------------------------------------%
+
+
 
 %-----------------------------------------------------------%
 \begin{frame}{The \cite{Miti2021} $L_\infty$-morphism revisited}
