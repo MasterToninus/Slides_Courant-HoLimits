@@ -48,8 +48,8 @@
 
 %- T1tle P4g3 -------------------------------------------------------------------------------------------
 \title{A canonical morphism between \\ twisted and untwisted higher Courant \texorpdfstring{$L_\infty$}{Lie infinity} algebras} 
-\subtitle{\href{https://www.mat.uniroma2.it/~kowalzig/ws.html}{Geometry \& Topology in Rome}}
-\author[AMM]{\href{www.antoniomiti.it}{Antonio Michele Miti}}
+\subtitle{}
+\author[AMM]{\href{www.antoniomiti.it}{\textbf{Antonio Michele MITI}} \\ \small(j.w. Domenico FIORENZA)}
 %\institute[UCSC and KU Leuven]{
 %  \begin{tabular}[h]{ccc}
 %      Università Cattolica del Sacro Cuore & $\qquad$ & KU Leuven \\
@@ -76,42 +76,14 @@
 \date[Template_21] % (optional, should be abbreviation of conference name)
 {	
 	{\vskip 1ex}
-	Roma,
+	\href{https://www.mat.uniroma2.it/~kowalzig/ws.html}{Geometry \& Topology in Rome}
 	\\
 	July 4, 2025
 }
 
 
 
-
-
-\newcommand{\thankyouslide}[0]{
-	\ifHandout
-
-	\else
-		\addtocounter{framenumber}{-1}
-		\begin{frame}{}
-		\label{frame:thankyouslide}
-			\vfill
-		  \centering 
-		  {\Huge\color{red} 
-		  \emph{Thank you for your attention!}}
-			\vfill
-			%
-			\centering
-			\fbox{
-				Picture or Take-away message.
-				% 		\includegraphics[width=.4\textwidth]{Pictures/thesis-cover}
-			}
-		\end{frame}
-		\note[itemize]{
-			\item
-		}
-	\fi
-}
-
-
-
+ 
 
 
 
@@ -142,7 +114,7 @@
 	    	\node[        
 	    		text width = 3.5cm
 			]
-	        		at ($(current page.south west)+(1.5,1.)$) [rotate=0] {
+	        		at ($(current page.south west)+(2.0,1.0)$) [rotate=0] {
 
 					\href{https://dipartimenti.unicatt.it/dmf-home?rdeLocaleAttr=it}{\includegraphics[width=\textwidth]{./Logos/Eu-h2020}}
  		
@@ -190,7 +162,34 @@ This is joint work with Domenico Fiorenza.
 
 
 %-------------------------------------------------------------------------------------------------------------------------------------------------
-	\thankyouslide
+	\addtocounter{framenumber}{-1}
+		\begin{frame}{Conclusion:}
+			\vfill
+		  \centering 
+		  \onslide<2->{\Huge\color{red} 
+		  \emph{Thank you for your attention!}\normalsize \color{black}}
+			\vfill
+			%
+			\centering
+				\begin{displaymath}
+					\begin{tikzcd}[ampersand replacement=\&]
+						\Rogers[\sigma]{r-1} \ar[d] \ar[r] \&
+						\X_{\ham,\sigma} \ar[r,"\iota_{\dots}\sigma"] \ar[d,"\Lie"]\&
+						(\Omega^0\to\Omega^1\to\cdots\to\Omega^{r-1}\to \d \Omega^{r-1}) \ar[d,hook] 
+						\\
+						\Courant[\sigma]{r-1} \ar[r] \ar[d]\&
+						\g_{r+1,\sigma}^{~\geq 0} \ar[r,hook] \ar[ur,Rightarrow] \ar[d,"\Phi\big\vert_{\geq 0}"]\& 
+						\g_{r+1,\sigma} \ar[d,"\Phi"]
+						\\
+						\Courant{r} \ar[r] \&
+						\g_{r}^{\geq 0} \ar[r,hook]\&
+						\g_{r}
+				\end{tikzcd}
+			\end{displaymath}
+		\end{frame}
+		\note[itemize]{
+			\item
+		}
 %------------------------------------------------------------------------------------------------
 
 

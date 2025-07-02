@@ -136,6 +136,7 @@
 
 %-----------------------------------------------------------%
 \outline
+\checkpoint
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
@@ -144,7 +145,7 @@
 \begin{frame}{(Pre)-symplectic Case}
 	$M$ manifold; $\sigma \in \Omega^2_{\mathrm{cl}}$ closed 2-form;
 	\footnote{We omit to write $(M)$ when considering differential forms $\Omega(M)$ and vector fields $\X(M)$}
-	\vfill
+	\vfill\pause
 
 	\begin{defblock}[Hamiltonian vector fields $\X_{\sigma,\ham} \subseteq \X$]
 		\begin{displaymath}
@@ -152,7 +153,7 @@
 		\end{displaymath}
 		\blfootnote{i.e. $\exists f \in \Omega^0$ s.t. $\iota_X \sigma + \d f=0$}
 	\end{defblock}
-	\vfill
+	\vfill\pause
 
 	\begin{defblock}[Hamiltonian pairs ]
 		\begin{displaymath}
@@ -160,7 +161,7 @@
 	\subseteq \X\oplus \Omega^0 = \Gamma(E^{(0)})
 		\end{displaymath}
 	\end{defblock}
-	\vfill
+	\vfill\pause
 
 	\begin{defblock}[Standard Lie algebroid]
 		Vector bundle
@@ -187,9 +188,9 @@
 		\begin{equation}\label{eq:Bracket-HamPairs}
 		\big\{ (X,f), (Y,g)\big\} = \big( [X,Y], \sigma(X,Y)\big)
 		\end{equation}
-	\blfootnote{rmk: $\sigma(X,Y)$ is an Hamiltonian 1-form for $[X,Y]$!}
+	\blfootnote{Note: $\sigma(X,Y)$ is an Hamiltonian 1-form for $[X,Y]$!}
 	\end{lemblock}
-	\vfill
+	\vfill\pause
 
 	\begin{remblock}["Observables" Poisson algebra]
 		Cleary $\Ham^{(0)}_\sigma \twoheadrightarrow \X_{\sigma,\ham}$ \small (forgetting the chosen primitive function) \normalsize
@@ -197,7 +198,7 @@
 		if $\sigma$ is non-degenerate, then $\Ham^{(0)}_\sigma \cong \Omega^0$ and \eqref{eq:Bracket-HamPairs} is the usual \emph{Poisson bracket}.
 		\footnote{Note: $\sigma(X,Y) = \iota_Y \iota_X \sigma = -\iota_Y \d f = \iota_X \d g \qquad \forall(X,f), (Y,g) \in \Ham^{(0)}_\sigma$.}
 	\end{remblock}	 
-	\vfill
+	\vfill\pause
  
 	\begin{lemblock}[$\Gamma(E^{(0)}) = \X\oplus \Omega^0$ carries a Lie algebra structure:]
 		\begin{equation}\label{eq:Bracket-LieAlgoid}
@@ -225,7 +226,7 @@
 			\end{tikzcd}
 		\end{displaymath}
 	\end{notblock}
-	\vfill
+	\vfill\pause
 
 
 	\seprule
@@ -236,6 +237,7 @@
 					\item[$\bullet$] $\sigma$ is a degree $r+1$ closed form,
 					\item[$\bullet$] $\Rogers[\sigma]{r},\Courant[\sigma]{r}$ are Lie algebras.
 				\end{itemize}
+				\pause
 			\item Let us now move from $r=1$ to $r=2$.
 		\end{itemize}
 	\end{upshotblock}
@@ -250,14 +252,14 @@
 %-----------------------------------------------------------%
 \begin{frame}{2-plectic case}
 	Fix a closed 3-form $\sigma \in \Omega^3_{\mathrm{cl}}$;
-	\vfill
+	\vfill\pause
 
 	\begin{defblock}[Hamiltonian vector fields  \emph{(same as before!)}]
 		\begin{displaymath}
 			\X_{\sigma,\ham} = \{ X \in \X \mid \iota_X \sigma ~~\textrm{is exact}\}
 		\end{displaymath}
 	\end{defblock}
-	\vfill
+	\vfill\pause
 
 	\begin{defblock}[Hamiltonian pairs \emph{(same as before!)}]
 		\begin{displaymath}
@@ -265,33 +267,39 @@
 	\subseteq \X\oplus \Omega^1 = \Gamma(E^{(1)})
 		\end{displaymath}
 	\end{defblock}
-	\vfill
+	\vfill\pause
 
 	\begin{defblock}[Standard Courant algebroid]
 		Vector bundle
 		\begin{displaymath}
 			E^{(0)} = TM \oplus \R = TM \oplus \wedge^0 T^* M \to M
 		\end{displaymath}
+		\pause
 		... with a \emph{binary bracket} on sections and a \emph{anchor map} \small(see below)\normalsize.
 	\end{defblock}	
 
 \end{frame}
+\note[itemize]
+{
+	\item .
+}
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
 \begin{frame}[fragile]{2-plectic case: algebraic structures}
 	\begin{itemize}
-		\item \emph{do $\Ham^{(1)}_\sigma$ and $E^{(1)}$ carry a Lie algebra structure?}
+		\item \emph{do $\Ham^{(1)}_\sigma$ and $E^{(1)}$ carry a Lie algebra structure?}\pause
 			\begin{itemize}
-				\item[$\bullet$] $\Gamma(E^{(1)})$ has a canonical antisymmetric bracket (called \emph{Courant bracket});
-				\item[$\bullet$] Same for $\Ham^{(1)}_\sigma$ (generalizing \eqref{eq:Bracket-HamPairs} to 1-forms)
+				\item[$\bullet$] $\Gamma(E^{(1)})$ has a canonical antisymmetric bracket (called \emph{Courant bracket});\pause
+				\item[$\bullet$] Same for $\Ham^{(1)}_\sigma$ (generalizing \eqref{eq:Bracket-HamPairs} to 1-forms).\pause
 			\end{itemize}
-		\item They do \underline{not} satisfy the Jacobi identity on the nose but only \emph{"up to homotopy"}. $\Rightarrow$ there could be a $L_\infty$-algebra lying around.
+		\item They do \underline{not} satisfy the Jacobi identity on the nose but only \emph{"up to homotopy"}.\pause
+		 $\Rightarrow$ \underline{there could be a $L_\infty$-algebra lying around!}
 	\end{itemize}	
 	\vfill
 
 	%
-	\begin{propblock}
+	\begin{propblock}[(Rogers 2013)]
 		\vspace{-2em}
 		\begin{displaymath}
 			\begin{tikzcd}[ampersand replacement=\&]
@@ -310,9 +318,13 @@
 		\end{displaymath}
 
 
-	\cite{Rogers2013}: Vertical arrows are the linear part of a $L_\infty$-morphism $$\Rogers[\sigma]{1} \to \Courant[\sigma]{1}~.$$
+	Vertical arrows are the linear part of a $L_\infty$-morphism $ \Rogers[\sigma]{1} \to \Courant[\sigma]{1} $.
 	\end{propblock}
 \end{frame}
+\note[itemize]
+{
+	\item .
+}
 %-----------------------------------------------------------%
 
 
@@ -326,7 +338,7 @@
 \begin{frame}{Going higher!}
 	%
 	Fix a closed $(r$+$1)$-form $\sigma \in \Omega^{r+1}_{\mathrm{cl}}$~;
-	\vfill
+	\vfill\pause
 
 	\begin{defblock}[Hamiltonian vector fields  \emph{(same as before!)}]
 		\small \color{gray}
@@ -334,7 +346,7 @@
 			\X_{\sigma,\ham} = \{ X \in \X \mid \iota_X \sigma ~~\textrm{is exact}\}
 		\end{displaymath}
 	\end{defblock}
-	\vfill
+	\vfill\pause
 
 	\begin{defblock}[Hamiltonian pairs \emph{(same as before!)}]
 		\small \color{gray}
@@ -344,7 +356,7 @@
 		\subseteq \X\oplus \Omega^{r-1} = \Gamma(E^{(r-1)})
 		\end{displaymath}
 	\end{defblock}
-	\vfill
+	\vfill\pause
 
 	\begin{defblock}[Higher Courant (Vinogradov) algebroid ]
 		Vector bundle
@@ -396,9 +408,9 @@
 	\vspace{2em}
 
 	\begin{itemize}
-		\item \cite{Rogers2010} endows $\Rogers[\sigma]{r-1}$ with a $L_\infty$-algebra structure.
-		\item \cite{Zambon2012} endows $\Courant[\sigma]{r-1}$ with a $L_\infty$-algebra structure.
-		\item The vertical arrows give a morphism of cochain complexes.
+		\item \cite{Rogers2010} endows $\Rogers[\sigma]{r-1}$ with a $L_\infty$-algebra structure.\pause
+		\item \cite{Zambon2012} endows $\Courant[\sigma]{r-1}$ with a $L_\infty$-algebra structure.\pause
+		\item The vertical arrows give a morphism of cochain complexes.\pause
 		\item \cite{Miti2024} shows that the vertical arrows are the linear part of a $L_\infty$-morphism
 			$$\Rogers[\sigma]{r-1} \to \Courant[\sigma]{r-1}~.$$
 	\end{itemize}
