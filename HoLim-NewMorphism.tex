@@ -76,7 +76,7 @@
 	More generally we have a morphism of chain complexes:
 	\begin{displaymath}
 		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
-			\Courant[\sigma]{r-1} %\ar[r,phantom,":="] \ar[d]
+			\Courant[\sigma]{r-1} \ar[r,phantom,":="] %\ar[d]
 			\&[1em]
 			0 \ar[r] \ar[d]
 			\& \Omega^0 \ar[d,"\d"] \ar[r]
@@ -85,7 +85,7 @@
 			\& \Omega^{r-2} \ar[d,"\d"] \ar[r,"{(\d,0)}"]
 			\&[.5em]  \Omega^{r-1} \oplus \X \ar[d,"{(\d,\id)}"]
 			\\
-			\Courant{r} %\ar[r,phantom,":="]
+			\Courant{r} \ar[r,phantom,":="]
 			\& \Omega^0 \ar[r]
 			\& \Omega^1 \ar[r]
 			\& \Omega^2 \ar[r]
@@ -129,7 +129,7 @@
 
 	This should be naturally\footnote{By the universal property of homotopy limits.} induced by a (homotopy) commutative diagram of dg-Lie algebras (or $L\infty$-algebras):
 		\begin{displaymath}
-			\begin{tikzcd}[ampersand replacement=\&]
+			\begin{tikzcd}[ampersand replacement=\&,column sep = large]
 				\mathcal{C}_{r,\sigma}^{\geq 0} \ar[r,hook] \ar[d ]
 				\& \mathcal{C}_{r,\sigma} \ar[d, ]
 				\\
@@ -183,7 +183,7 @@
 		\pause
 		\smallskip
 
-		Observe that any $\sigma \in \Omega^{r+1}_{\mathrm{cl}})$ is a MC (degree 1) element of $\g_r$.
+		Observe that any $\sigma \in \Omega^{r+1}_{\mathrm{cl}}$ is a MC (degree 1) element of $\g_r$.
 		\pause
 		\smallskip
 		
@@ -228,7 +228,7 @@
 	\begin{upshotblock}
 	  Replace $\mathcal{C}_{r,\sigma}, \mathcal{C}_{r+1}$ with $\g_{r,\sigma}, \g_{r+1}$ in the previous commuative square:
 		\begin{displaymath}
-			\begin{tikzcd}[ampersand replacement=\&]
+			\begin{tikzcd}[ampersand replacement=\&, column sep = large]
 				\g_{r,\sigma}^{~\geq 0} \ar[r,hook] \ar[d, ]
 				\& \g_{r,\sigma} \ar[d, ]
 				\\
@@ -253,7 +253,7 @@
 \begin{frame}{THM proof: untwisted case (1)}
 	Consider the simpler situation $\sigma=0$:
 	\begin{displaymath}
-		\begin{tikzcd}[ampersand replacement=\&]
+		\begin{tikzcd}[ampersand replacement=\&, column sep = large]
 			\g_{r}^{~\geq 0} \ar[r,hook] \ar[d, ]
 			\& \g_{r} \ar[d,"\Phi_1"]
 			\\
@@ -322,7 +322,7 @@
 	\begin{upshotblock}
 		We have a strictly commutative diagram of $L_\infty$-morphisms:
 		\begin{displaymath}
-			\begin{tikzcd}[ampersand replacement=\&]
+			\begin{tikzcd}[ampersand replacement=\&, column sep = large]
 				\g_{r,\sigma}^{~\geq 0} \ar[r,hook] \ar[d, "\Phi \vert_{\geq 0}"']
 				\& \g_{r} \ar[d, "\Phi"]
 				\\
@@ -389,7 +389,7 @@
 \begin{frame}{The \cite{Miti2024} $L_\infty$-morphism revisited (1)}
 	Recall:
 	\begin{displaymath}
-		\g_{r,\sigma}^{<0} = \left(
+		\g_{r,\sigma}^{<0} := \left(
 		\begin{tikzcd}[ampersand replacement=\&]
 			\Omega^0 \ar[r,"\d"]\&
 			\Omega^1 \ar[r,"\d"]\&

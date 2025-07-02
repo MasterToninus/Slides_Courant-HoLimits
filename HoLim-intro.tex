@@ -90,7 +90,7 @@
     		\onslide<4->{
 	 		 \tikz[baseline]{
 	            \node[draw=green!40,anchor=base,text width=5cm] (s3)
-	            {any closed differential form $$\omega\in\Omega^{n+2}(M)$$ can be use to \emph{twist} the binary bracket on $\Gamma(E^{(n)})$.};
+	            {any closed differential form $$\sigma\in\Omega^{r+2}(M)$$ can be use to \emph{twist} the binary bracket on $\Gamma(E^{(r)})$.};
 	         }
 		}		   	
 		\end{column}
@@ -100,9 +100,9 @@
 	            \node[draw=red!40,anchor=base,text width=5cm] (s4)
 	            {\textbf{Higher Courant algebroids}\\
 					smooth vector bundles
-				$$ E^{(n)}= TM \oplus \wedge^{n}T^\ast M \to M$$
-
-				 	the space of global sections $\Gamma(E^{(n)})$ forms an $L_\infty$-algebra!
+				$$ E^{(r)}= TM \oplus \wedge^{r}T^\ast M \to M$$
+				\medskip
+				 	s.t. the space of global sections $\Gamma(E^{(r)})$ forms an $L_\infty$-algebra!
 				};
 	           }	
 			}
@@ -237,7 +237,7 @@
 					\item[$\bullet$] $\sigma$ is a degree $r+1$ closed form,
 					\item[$\bullet$] $\Rogers[\sigma]{r},\Courant[\sigma]{r}$ are Lie algebras.
 				\end{itemize}
-				\pause
+				\pause\medskip
 			\item Let us now move from $r=1$ to $r=2$.
 		\end{itemize}
 	\end{upshotblock}
@@ -272,7 +272,7 @@
 	\begin{defblock}[Standard Courant algebroid]
 		Vector bundle
 		\begin{displaymath}
-			E^{(0)} = TM \oplus \R = TM \oplus \wedge^0 T^* M \to M
+			E^{(1)} = TM \oplus \wedge^1 T^* M \to M
 		\end{displaymath}
 		\pause
 		... with a \emph{binary bracket} on sections and a \emph{anchor map} \small(see below)\normalsize.
@@ -402,7 +402,7 @@
 			\cdots
 			\&
 			\Omega^{r-2} \ar[r,"{(0,\d)}"]
-			\& \Gamma(E^{(1)})
+			\& \Gamma(E^{(r-1)})
 		\end{tikzcd}
 	\end{displaymath}
 	\vspace{2em}
