@@ -232,19 +232,19 @@
 	\seprule
 	\begin{upshotblock}
 		\begin{itemize}
-			\item this was the $r=1$ case :
+			\item this was the $r=0$ case :
 				\begin{itemize}
-					\item[$\bullet$] $\sigma$ is a degree $r+1$ closed form,
+					\item[$\bullet$] $\sigma$ is a degree $r+2$ closed form,
 					\item[$\bullet$] $\Rogers[\sigma]{r},\Courant[\sigma]{r}$ are Lie algebras.
 				\end{itemize}
 				\pause\medskip
-			\item Let us now move from $r=1$ to $r=2$.
+			\item Let us now move from $r=0$ to $r=1$.
 		\end{itemize}
 	\end{upshotblock}
 
 \end{frame}
 \note[itemize]{
-	\item 
+	\item Lie algebras are $L_\infty$-algebras concentrated in degree 0!
 }%------------------------------------------------------------%	
 	\subsection{2-plectic Case}
 %-----------------------------------------------------------%
@@ -263,7 +263,7 @@
 
 	\begin{defblock}[Hamiltonian pairs \emph{(same as before!)}]
 		\begin{displaymath}
-			\Ham^{(1)}_\sigma = \{(X,\omega) \mid \iota_X \sigma + \d f = 0 \}
+			\Ham^{(1)}_\sigma = \{(X,\alpha) \mid \iota_X \sigma + \d \alpha = 0 \}
 	\subseteq \X\oplus \Omega^1 = \Gamma(E^{(1)})
 		\end{displaymath}
 	\end{defblock}
@@ -272,7 +272,7 @@
 	\begin{defblock}[Standard Courant algebroid]
 		Vector bundle
 		\begin{displaymath}
-			E^{(1)} = TM \oplus \wedge^1 T^* M \to M
+			E^{(1)} = TM \oplus  T^* M \to M
 		\end{displaymath}
 		\pause
 		... with a \emph{binary bracket} on sections and a \emph{anchor map} \small(see below)\normalsize.
@@ -286,7 +286,7 @@
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}[fragile]{2-plectic case: algebraic structures}
+\begin{frame}{2-plectic case: algebraic structures}
 	\begin{itemize}
 		\item \emph{do $\Ham^{(1)}_\sigma$ and $E^{(1)}$ carry a Lie algebra structure?}\pause
 			\begin{itemize}
@@ -318,7 +318,7 @@
 		\end{displaymath}
 
 
-	Vertical arrows are the linear part of a $L_\infty$-morphism $ \Rogers[\sigma]{1} \to \Courant[\sigma]{1} $.
+	Vertical arrows are the linear part of a $L_\infty$-morphism $$\Rogers[\sigma]{1} \to \Courant[\sigma]{1}~.$$
 	\end{propblock}
 \end{frame}
 \note[itemize]
@@ -337,7 +337,7 @@
 %-----------------------------------------------------------%
 \begin{frame}{Going higher!}
 	%
-	Fix a closed $(r$+$1)$-form $\sigma \in \Omega^{r+1}_{\mathrm{cl}}$~;
+	Fix a closed $(r$+$2)$-form $\sigma \in \Omega^{r+2}_{\mathrm{cl}}$~;
 	\vfill\pause
 
 	\begin{defblock}[Hamiltonian vector fields  \emph{(same as before!)}]
@@ -351,9 +351,9 @@
 	\begin{defblock}[Hamiltonian pairs \emph{(same as before!)}]
 		\small \color{gray}
 		\begin{displaymath}
-			\Ham^{(r-1)}_\sigma = 
-		\{ (X,\omega) \mid \iota_X \sigma + \d \omega  = 0 \}
-		\subseteq \X\oplus \Omega^{r-1} = \Gamma(E^{(r-1)})
+			\Ham^{(r)}_\sigma = 
+		\{ (X,\alpha) \mid \iota_X \sigma + \d \alpha  = 0 \}
+		\subseteq \X\oplus \Omega^{r} = \Gamma(E^{(r)})
 		\end{displaymath}
 	\end{defblock}
 	\vfill\pause
@@ -361,7 +361,7 @@
 	\begin{defblock}[Higher Courant (Vinogradov) algebroid ]
 		Vector bundle
 		\begin{displaymath}
-			E^{(r-1)} = TM \oplus \wedge^{r-1} T^* M \to M
+			E^{(r)} = TM \oplus \wedge^{r} T^* M \to M
 		\end{displaymath}
 		... with a \emph{binary bracket} on sections and a \emph{anchor map} \small(see below)\normalsize.
 	\end{defblock}		
@@ -381,8 +381,8 @@
 		\vspace{-1em}
 		\begin{displaymath}
 		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
-			\& \text{\small (deg $1-r$)} \& \cdots \& \&\text{\small (deg $-1$)} \& \text{\small (deg $0$)} \\[-.5em]
-			\Rogers[\sigma]{r-1}   \ar[r,phantom,":="]
+			\& \text{\small (deg $-r$)} \& \cdots \& \&\text{\small (deg $-1$)} \& \text{\small (deg $0$)} \\[-.5em]
+			\Rogers[\sigma]{r}   \ar[r,phantom,":="]
 			\&
 			\Omega^0 \ar[r,"{\d}"] \ar[d,"id"]
 			\&
@@ -390,10 +390,10 @@
 			\&
 			\cdots
 			\&
-			\Omega^{r-2} \ar[r,"{(0,\d)}"] \ar[d,"id"]
-			\& \Ham_{\sigma}^{(r-1)} \ar[d,hook]
+			\Omega^{r-1} \ar[r,"{(0,\d)}"] \ar[d,"id"]
+			\& \Ham_{\sigma}^{(r)} \ar[d,hook]
 			\\
-			\Courant[\sigma]{r-1} \ar[r,phantom,":="]
+			\Courant[\sigma]{r} \ar[r,phantom,":="]
 			\&
 			\Omega^0 \ar[r,"{\d}"]
 			\&
@@ -401,18 +401,18 @@
 			\&
 			\cdots
 			\&
-			\Omega^{r-2} \ar[r,"{(0,\d)}"]
-			\& \Gamma(E^{(r-1)})
+			\Omega^{r-1} \ar[r,"{(0,\d)}"]
+			\& \Gamma(E^{(r)})
 		\end{tikzcd}
 	\end{displaymath}
 	\vspace{2em}
 
 	\begin{itemize}
-		\item \cite{Rogers2010} endows $\Rogers[\sigma]{r-1}$ with a $L_\infty$-algebra structure.\pause
-		\item \cite{Zambon2012} endows $\Courant[\sigma]{r-1}$ with a $L_\infty$-algebra structure.\pause
+		\item \cite{Rogers2010} endows $\Rogers[\sigma]{r}$ with a $L_\infty$-algebra structure.\pause
+		\item \cite{Zambon2012} endows $\Courant[\sigma]{r}$ with a $L_\infty$-algebra structure.\pause
 		\item The vertical arrows give a morphism of cochain complexes.\pause
 		\item \cite{Miti2024} shows that the vertical arrows are the linear part of a $L_\infty$-morphism
-			$$\Rogers[\sigma]{r-1} \to \Courant[\sigma]{r-1}~.$$
+			$$\Rogers[\sigma]{r} \to \Courant[\sigma]{r}~.$$
 	\end{itemize}
 
 	\end{propblock}
@@ -433,8 +433,8 @@
 		\item \cite{Miti2024} explicitly contructs a morphism of $L_\infty$-algebras
 		\begin{displaymath}
 			\begin{tikzcd}[ampersand replacement=\&]
-				\Rogers[\sigma]{r-1} \ar[r] \& 
-				\Courant[\sigma]{r-1} \ar[r,phantom] \&
+				\Rogers[\sigma]{r} \ar[r] \& 
+				\Courant[\sigma]{r} \ar[r,phantom] \&
 				\phantom{\Courant[]{r}}
 			\end{tikzcd}
 		\end{displaymath}
@@ -446,9 +446,9 @@
 		\vspace{-.5em}
 		\begin{displaymath}
 			\begin{tikzcd}[ampersand replacement=\&]
-				\Rogers[\sigma]{r-1} \ar[r] \& 
-				\Courant[\sigma]{r-1} \ar[r] \&
-				\Courant[]{r}
+				\Rogers[\sigma]{r} \ar[r] \& 
+				\Courant[\sigma]{r} \ar[r] \&
+				\Courant[]{r+1}
 			\end{tikzcd}
 		\end{displaymath}
 	\end{claimblock}
@@ -462,7 +462,9 @@
 
 \end{frame}
 \note[itemize]{
-	\item 
+	\item Observe that in principle one can go on
+	$$\Rogers[\sigma]{r}\to \Courant[\sigma]{r} \to \Courant{r+1} \to \Courant{r+2} \to \dots $$
+	However, we will se that the thre rightomost arrows are "essentially" given by de Rham derivative in the linear part, hence they compose to $0$. More precisely, the image of the composition is $\Cartan$. see below.
 }
 %-----------------------------------------------------------%
 

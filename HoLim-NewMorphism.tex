@@ -45,7 +45,7 @@
 	\vfill \pause	
 
 	\begin{exblock}[Lowest case ]
-	For $r=1,2$ we have:
+	For $r=0,1$ we have:
 	\begin{displaymath}
 		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
 			\Courant[\sigma]{0} \ar[r,phantom,":="] \ar[d]
@@ -98,7 +98,7 @@
 	\vfill\pause
 
 	\begin{thmblock}[{[Fiorenza-M. 2025]}]
-		The above chain complex morphism is the linear part of a $L_\infty$-morphism $$\Courant[\sigma]{r} \to \Courant{r+1}~.$$
+		The above chain complex morphism is the linear part of a $L_\infty$-morphism $$\Courant[\sigma]{r-1} \to \Courant{r}~.$$
 	\end{thmblock}
 
 	\vfill
@@ -147,7 +147,7 @@
 
 %-----------------------------------------------------------%
 \begin{frame}{A technical lemma (1)}
-  Inside $\mathcal{C}_r$ there is a smaller, mora manageble, dg-Lie subalgebra with the same negative part.
+  \textbf{RMK:} Inside $\mathcal{C}_r$ there is a more manageble, dg-Lie subalgebra with the same negative part.
   \vfill \pause
 
   \begin{defblock}[Cartan dg-Lie algebra]
@@ -162,9 +162,12 @@
   \end{defblock}
   \vfill \pause
 
-  $\Omega$ is a module for $\Der(\Omega)$ and so it is a module for $\Cartan$.
-  \\
-  $\Rightarrow$\quad By shifting degrees, $\Omega[r]$ is a module for $\Cartan$.
+  \begin{itemize}
+	\item[$\bullet$] $\Omega$ is a module for $\Der(\Omega)$ and so it is a module for $\Cartan$.
+	\begin{itemize}
+		\item[$\Rightarrow$] \quad By shifting degrees, $\Omega[r]$ is a module for $\Cartan$. 
+	\end{itemize}
+  \end{itemize}
   \vfill 
 
 \end{frame}
@@ -183,7 +186,7 @@
 		\pause
 		\smallskip
 
-		Observe that any $\sigma \in \Omega^{r+1}_{\mathrm{cl}}$ is a MC (degree 1) element of $\g_r$.
+		Observe that any $\sigma \in \Omega^{r+2}_{\mathrm{cl}}$ is a MC (degree 1) element of $\g_r$.
 		\pause
 		\smallskip
 		
@@ -219,7 +222,9 @@
 \end{frame}
 \note[itemize]
 {
-	\item .
+	\item Recall $\Der(\Omega)$ clearly acts on $\Omega[r]$ as derivations ($\Omega$ is an algebra w.r.t. $\wedge$). In particular this is true for $\Cartan$.
+	\item Being a $\Cartan$ module means to be equipped with such an action.
+	\item A general approach to module is to define them as an algebra structure on the direct sum $\Omega[r] \oplus \Cartan$ such that the product of an elment in $\Cartan$ with an element in $\Omega$ is the module action and the action of $\Omega$ on $\Omega$ is trivial. this is what we mean with by semidirect product $\ltimes$. (see remark 2.13 in \url{https://arxiv.org/pdf/2506.00234}).
 }
 %-----------------------------------------------------------%
 
@@ -241,7 +246,7 @@
 	\end{upshotblock}
 	\vfill
 
-	Moreover, if this has to be true for any $\sigma \in \Omega^{r+1}_{\mathrm{cl}}$, it has to be true for $\sigma = 0$.... 
+	Moreover, if this has to be true for any $\sigma \in \Omega^{r+2}_{\mathrm{cl}}$, it has to be true for $\sigma = 0$.... 
 \end{frame}
 \note[itemize]
 {
@@ -339,9 +344,9 @@
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}{THM proof: twisted case}
-  What for arbitrary $\sigma \in \Omega^{r+1}_{\mathrm{cl}}$? $\quad\Rightarrow \quad$
-  Use $\sigma$ to twist everything:
+\begin{frame}{THM proof: twisted case (1)}
+  What for arbitrary $\sigma \in \Omega^{r+2}_{\mathrm{cl}}$? $\quad\Rightarrow \quad$
+  Use $\sigma$ to twist the previous square:
   \vfill \pause	
 
 	\begin{displaymath}
@@ -349,7 +354,7 @@
 			\g_{r,\sigma}^{~\geq 0} \ar[r,hook] \ar[d, "\Phi_\sigma \vert_{\geq 0}"']
 			\& \g_{r,\sigma} \ar[d, "\Phi_\sigma"]
 			\\
-			\g_{r+1\only<1-3>{,\Phi(\sigma)}}^{~\geq 0} \ar[r,hook] \& \g_{r+1,\only<1-3>{\Phi(\sigma)}}
+			\g_{r+1{,\Phi(\sigma)}}^{~\geq 0} \ar[r,hook] \& \g_{r+1,{\Phi(\sigma)}}
 		\end{tikzcd}
 	\end{displaymath}
 	\vfill\pause
@@ -361,13 +366,13 @@
 		\sum_{k=0}^\infty \frac{\Phi_{k+j}}{k!} (\overbrace{\sigma,\cdots,\sigma}^{\text{\tiny $k$ copies}},\cdots)
 		\\
 		\onslide<4->{
-		\Phi(\sigma) &=~ \sum_{k=0}^\infty \frac{\Phi_k(\sigma,\cdots,\sigma)}{k!} = \d(\sigma) + \frac{1}{2}\cdot 0 = 0}
+		\Phi(\sigma) &=~ \sum_{k=0}^\infty \frac{\Phi_k(\sigma,\cdots,\sigma)}{k!} }
 	\end{align*}
 	\vfill
 
 	\only<4->{
 	\blfootnote{
-		We have to check that $\Phi_\sigma$ preseves the positive part. This is immediate since $(\Phi_\sigma)_2 = \Phi_2$.\\ 
+		One has to check that $\Phi_\sigma$ preseves the positive part. This is immediate since $(\Phi_\sigma)_2 = \Phi_2$.\\ 
 		Moreover, we have 
 			$$ (\Phi_\sigma)_1 \big\vert_{\geq 0} = \Phi_1 \big\vert_{\geq 0} + \frac{1}{2}\cancel{\Phi_2(\sigma,\cdot)\big\vert_{\geq 0}} = \Phi_1\big\vert_{\geq 0} $$
 	}
@@ -380,6 +385,41 @@
 }
 %-----------------------------------------------------------%
 
+%-----------------------------------------------------------%
+\begin{frame}{THM proof: twisted case (2)}
+  \textcolor{gray}{ What for arbitrary $\sigma \in \Omega^{r+2}_{\mathrm{cl}}$? $\quad\Rightarrow \quad$
+  Use $\sigma$ to twist everything:}
+  \vfill
+
+	\begin{displaymath}
+		\begin{tikzcd}[ampersand replacement=\&]
+			\g_{r,\sigma}^{~\geq 0} \ar[r,hook] \ar[d, "\Phi_\sigma \vert_{\geq 0}"']
+			\& \g_{r,\sigma} \ar[d, "\Phi_\sigma"]
+			\\
+			\g_{r+1\only<1-2>{,\cancel{\Phi(\sigma)}}}^{~\geq 0} \ar[r,hook] \& \g_{r+1,\only<1-2>{\cancel{\Phi(\sigma)}}}
+		\end{tikzcd}
+	\end{displaymath}
+	\vfill
+
+	Notably, we have:
+	\begin{align*}
+		\Phi(\sigma) &=~  \d(\sigma) + \frac{1}{2}\cdot 0 = 0
+	\end{align*}
+	\vfill \pause
+
+	Hence, we get:
+	$$ \Courant[\sigma]{r-1} = \hofib(\g_{r,\sigma}^{~\geq 0} \hookrightarrow \g_{r,\sigma}) \to \hofib(\g_{r+1}^{~\geq 0} \hookrightarrow \g_{r+1}) = \Courant{r}$$
+
+		\begin{flushright}
+			\qedsymbol
+		\end{flushright}
+
+\end{frame}
+\note[itemize]
+{
+	\item .
+}
+%-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
 \subsection{From Rogers to Courant algebras}

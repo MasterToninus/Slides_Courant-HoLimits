@@ -30,7 +30,7 @@
 %===========================================================%
 \begin{document}
 %===========================================================%
-\checkpoint
+%\checkpoint
 %-----------------------------------------------------------%
 \subsection{Lie infinity algebras}
 %-----------------------------------------------------------%
@@ -55,10 +55,10 @@
 %	\end{thmblock}
 
 	\begin{itemize}
-		\item<2-> You can construct a coalgebra out of $L$ 
+		\item<2-> You can construct a coalgebra out of $L$ \\
 			{\small \color{UniGreen} (the reduced cofree coalgebra $S^{\geq 1}(L[1]),\Delta)$)}.
-		\item<3-> You can assemble all $\mu_k$ to get a coderivation $Q_\mu$
-				{\small \color{UniGreen} (the unique lift to a coderivation of the decalage of $ \mu=	\mu_1+\mu_2 + \dots$ }.
+		\item<3-> You can assemble all $\mu_k$ to get a coderivation $Q_\mu$\\
+				{\small \color{UniGreen} (the unique lift to a coderivation of the decalage of $ \mu=	\mu_1+\mu_2 + \dots$) }.
 		\item<4-> Higher Jacobi is tantamount to having $Q_\mu ^2 = 0$.
 
 	\end{itemize}
@@ -169,13 +169,13 @@ Let \( L \subseteq TM \oplus T^*M \) be a subbundle.
 	\end{defblock}
 
 	\begin{itemize}
-		\item $(n=1) ~ \Rightarrow$ standard twisted \emph{Lie algebroid};
-		\item $(n=2) ~ \Rightarrow$ standard twisted \emph{Courant algebroid};
+		\item $(r=0) ~ \Rightarrow$ standard twisted \emph{Lie algebroid};
+		\item $(r=1) ~ \Rightarrow$ standard twisted \emph{Courant algebroid};
 	\end{itemize}
 
 \end{frame}
 \note[itemize]{
-\item Att, questa definizione sarebbe lo standard twisted. E' possibile trovare in letteratura definizioni piu' generali corrispondenti alla nozione di Courant algebroid in astratto.
+	\item Note: this definition is the standard twisted case. In the literature, it is possible to find more general definitions corresponding to the abstract notion of Courant algebroid.
 }
 %-----------------------------------------------------------%
 
@@ -199,9 +199,9 @@ Let \( L \subseteq TM \oplus T^*M \) be a subbundle.
 			\node[rounded corners,
                  fill=gray!1,draw=gray!30,anchor=base]            
             	 (base) at ($(current page.south)+(0,.5)$) [rotate=-0,text width=10cm,align=center] { \footnotesize{\color{gray}{
-            	 $e_i = \pair{X_i}{\alpha_i} \in \mathfrak{X}(M)\oplus \Omega^{n-1}(M)$ 
+            	 $e_i = \pair{X_i}{\alpha_i} \in \mathfrak{X} \oplus \Omega^{r} $ 
             	 \quad~,\qquad
-            	 $f_i \in \bigoplus_{k=0}^{n-2}\Omega^k(M)$.
+            	 $f_i \in \bigoplus_{k=0}^{r-1}\Omega^k$.
             	 }}};
 		}			
 	}
@@ -256,25 +256,25 @@ associated to the untwisted ($\omega=0$) Vinogradov Algebroid, and $c_k$ is a nu
 		 \vfill
 		\item $Q$ is a (shifted) contangent bundle,
 		\\ $\Rightarrow$  
-		$C^\infty(Q)$ is a \emph{$r$-Poisson algebra} {\small (associative multiplication, degree $r$ Poisson bracket $\lbrace \cdot,\cdot\rbrace$)}
+		$C^\infty(Q)$ is a \emph{$r$-Poisson algebra} \\ {\small (associative multiplication, degree $-r$ Poisson bracket $\lbrace \cdot,\cdot\rbrace$)}
 		\vfill
 		\item $C^\infty(Q)$ contains all differential forms on $M$ since:
 		\vspace{-1em}
 		\begin{displaymath}
 		\begin{tikzcd}[ampersand replacement=\&,column sep = large]
-			Q= T^*[r]T[1]M \ar[r, two heads,] \& T[1]M \&[-2.5em] \\[-1.5em]
+			Q= T^*[r]T[1]M \ar[r, two heads,] \& T[1]M \&[-2.5em] \\[-1.75em]
 			C^\infty(Q) \& C^\infty(T[1]M) \ar[l,hook]\ar[r,phantom,"\cong"] \& \Omega(M) 
  		\end{tikzcd}
 		\end{displaymath}
 		\vfill
 		
 		\item 	There exists a distinguished element $\mathcal{S}$ of degree $r$+$1$ in $C^\infty(Q)$ such that $\lbrace \mathcal{S},\mathcal{S}\rbrace =0 $.\\
-		It lifts the \emph{de Rham} differential  to $C^\infty(Q)$ as $ \delta := \lbrace \mathcal{S},\cdot \rbrace$;
+		$\Rightarrow$   It lifts the \emph{de Rham} differential  to $C^\infty(Q)$ as $ \delta := \lbrace \mathcal{S},\cdot \rbrace$;
 		\vfill
 
 		\item Shifting the grading by $r$ we get $\mathcal{C}_r := C^\infty(Q)[r]$
 		\\
-		$(\mathcal{C}_r,\lbrace \cdot,\cdot\rbrace,\delta)$ is an honest \textbf{dg Lie algebra}.
+		$\Rightarrow$   $(\mathcal{C}_r,\lbrace \cdot,\cdot\rbrace,\delta)$ is an honest \textbf{dg Lie algebra}.
 		\item Applying \cite{Getzler1991} \emph{derived brackets costruction} to the DGLA $\mathcal{C}_r$, one gets a $L_\infty[1]$- algebra on the non-negative truncation
 		%
 		\vspace{-1em}
@@ -296,9 +296,10 @@ associated to the untwisted ($\omega=0$) Vinogradov Algebroid, and $c_k$ is a nu
 
 \end{frame}
 \note[itemize]{
+	\item For the definition of $r$-Poisson algebra see \url{https://arxiv.org/pdf/1811.07395}.
 	\item consider graded coordinates on $Q\sim (x^i,v_i, P_i, p_i)$ with
-			$$ |x^i|=0,~ |v^i|=1,~ |P_i|=n, ~ |p_i|=n-1 ~;$$
-	\item The degree $n+1$ function $\mathcal{S}= \sum_i v_i P_i$ encoding the de Rham differential satisfies
+			$$ |x^i|=0,~ |v^i|=1,~ |P_i|=r, ~ |p_i|=r-1 ~;$$
+	\item The degree $r+1$ function $\mathcal{S}= \sum_i v_i P_i$ encoding the de Rham differential satisfies
 	$\{\mathcal{S},\mathcal{S}\}=0$. 
 	Hence
 			 $$ (\mathcal{C}[n],\delta=\{\mathcal{S},\cdot\},\{\cdot,\cdot\}) \qquad \text{is a DGLA}~;$$
@@ -327,11 +328,14 @@ associated to the untwisted ($\omega=0$) Vinogradov Algebroid, and $c_k$ is a nu
 		\item \cite{Pridham2010a} showed that the $L_\infty$-algebra  of $(2)$ is a \emph{model for the homotopy fiber $\hofib(\g \to \mathfrak{h})$}.
 		\item \cite{Bandiera2015} showed that $(1)$ is a model for the homotopy fiber $\hofib(\mathcal{C}_r^{\geq 0} \hookrightarrow \mathcal{C}_r)$.
 	\end{enumerate}
+		\begin{flushright}
+			\qedsymbol
+		\end{flushright}
 	\end{proofblock}
  
 \end{frame}
 \note[itemize]{
-	\item Nell'articolo di Pridham i risultati di interesse sono il Lemma 3.24, la Proposizione 4.42 e il Corollario 4.57 (numerazione dell'ultima versione arXiv)
+	\item In Pridham's paper, the relevant results are Lemma 3.24, Proposition 4.42, and Corollary 4.57 (numbering from the latest arXiv version).
 	\item 
 }
 %-----------------------------------------------------------%

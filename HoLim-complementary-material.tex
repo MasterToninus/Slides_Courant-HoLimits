@@ -77,58 +77,13 @@
 
 
 
-%-------------------------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------%
 \subsection{Symplectic Manifolds}
-%-------------------------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------%
  
-%-------------------------------------------------------------------------------------------------------------------------------------------------
-\begin{frame}[fragile]{Lie $\infty$-algebra of Observables (higher observables) }
-	Let be $(M,\omega)$ a $n$-plectic manifold.
-	  	\vfill
-	\begin{defblock}[$L_\infty$-algebra of observables ~\emph{(Rogers)} \cite{Rogers2010}]
-		\medskip
-		\hspace{.25em} Is a cochain-complex $(L,\{\cdot\}_1)$ \\
-		\vspace{-1em}
-		\begin{center}
-			\includestandalone[width=0.95\textwidth]{Pictures/Frame_Observables}
-		\end{center}
-		\onslide<2->{
-			\bigskip
-			\hspace{.25em} with $n$ (skew-symmetric) multibrackets $(2 \leq k \leq n+1)$\\
-			\vspace{-1em}
-			\onslide<3->{
-				\begin{center}
-					\includestandalone{Pictures/Equation_Multibracket}	
-				\end{center}
-			}
-			\medskip
-		}
-		%
-	\end{defblock}
-%	\onslide<3->{
-%		\emph{Higher analogue} of the \emph{Poisson algebra structure} associated to a symplectic mfd.
-%	\vfill
-%	\begin{columns}
-%		\hfill
-%		\begin{column}{.11\linewidth}	
-%			If $n>1$:
-%			
-%		\end{column}	
-%		\begin{column}{.8\linewidth}
-%		\begin{itemize}
-%			\item[\xmark] \textcolor{red}{we lose} :\quad multiplication of observables, Jacobi equation;
-%			%\\ \hspace*{4.25em} full-fledged Jacobi equation;
-%			\item[\cmark] \textcolor{green}{we gain} :\quad brackets with arities different than two,\\
-%			\hspace*{4.25em}
-%			 Jacobi equation \emph{up to homotopies}.
-%		\end{itemize}		
-%		\end{column}		
-%	\end{columns}
-%	}
-  \end{frame}
-%-------------------------------------------------------------------------------------------------------------------------------------------------
 
-%-------------------------------------------------------------------------------------------------------------------------------------------------
+
+%-----------------------------------------------------------%
 \begin{frame}[t, fragile]{Research Framework:  \textbf{multisymplectic geometry}} %Fragile -->workaround tikzcd
 	\begin{center}
 		$-$ \emph{multisymplectic means \textbf{going higher} in the degree of $\omega$} $-$
@@ -161,10 +116,10 @@
 		\end{itemize}
 	\end{block}
 \end{frame}
-%-------------------------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------%
 
 
-%-------------------------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------%
 \begin{frame}{Observables in \textbf{multisymplectic geometry}}
 	%
 	\begin{defblock}[Hamiltonian $(n-1)$-forms]
@@ -253,8 +208,34 @@
 		\end{column}	
 	\end{columns}
 \end{frame}
-%-------------------------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------%
 
+%-----------------------------------------------------------%
+\begin{frame}[fragile]{Lie $\infty$-algebra of Observables (higher observables) }
+	Let be $(M,\omega)$ a $n$-plectic manifold.
+	  	\vfill
+	\begin{defblock}[$L_\infty$-algebra of observables ~\emph{(Rogers)} \cite{Rogers2010}]
+		\medskip
+		\hspace{.25em} Is a cochain-complex $(L,\{\cdot\}_1)$ \\
+		\vspace{-1em}
+		\begin{center}
+			\includestandalone[width=0.95\textwidth]{Pictures/Frame_Observables}
+		\end{center}
+		\onslide<2->{
+			\bigskip
+			\hspace{.25em} with $n$ (skew-symmetric) multibrackets $(2 \leq k \leq n+1)$\\
+			\vspace{-1em}
+			\onslide<3->{
+				\begin{center}
+					\includestandalone{Pictures/Equation_Multibracket}	
+				\end{center}
+			}
+			\medskip
+		}
+		%
+	\end{defblock}
+  \end{frame}
+%-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
 \begin{frame}[fragile,shrink]{Details of the mapping cone construction \cite{Fiorenza2006}}
@@ -280,6 +261,94 @@
 	\end{enumerate}
 \end{frame}
 %-----------------------------------------------------------%
+
+%-----------------------------------------------------------%
+\begin{frame}[t]{The algebra of functions of $T[1]M$ is de Rham complex of $M$}
+	\begin{claimblock}
+		$$ C^\infty(T[1]M) \cong \Omega(M) ~.$$
+	\end{claimblock}
+	\begin{itemize}
+		\item[$\bullet$] By $T[1]M$ we mean the split \cite{Bonavolont2013} $\mathbb{N}$-graded manifold associated with the \emph{graded vector bundle} $TM[1]\to M$ whose fibers, concentrated in $deg -1$ are given by the tangent spaces shifted by $1$;
+		\vfill
+		\item[$\bullet$] The algebra of functions of a split graded manifold corresponding to the $\mathbb{N}$-graded vector bundle $E$ are by definition given by $$\Gamma(S(E^*)).$$
+		\vfill
+		\item[$\bullet$] Therefore the algebra of functions of $T[1]M$ is the space of sections of the symmetric algebra of the dual bundle $S(TM[1]^*)$. I.e.
+		\begin{displaymath}
+			C^\infty(T[1]M) = \Gamma(S(TM[1]^*)) = \Gamma(\Lambda(TM^*)) = \Omega(M)~.
+		\end{displaymath}
+	\end{itemize}
+	\begin{flushright}
+		\qedsymbol
+	\end{flushright}
+\end{frame}
+%-----------------------------------------------------------%
+
+\begin{frame}{Defining Graded Manifolds. (credits to \href{https://www.ryvkin.eu/}{L.Ryvkin})}
+	The following controvariant functos are fully faithful:
+	\begin{columns}
+		\begin{column}{.5\linewidth}
+			\begin{displaymath}
+				\lambdamorphism{\cat{Mfd}}{\cat{CAlg}}{M}{C^\infty(M)}
+			\end{displaymath}
+		\end{column}
+		\begin{column}{.5\linewidth}
+			\begin{displaymath}
+				\lambdamorphism{\cat{VecBun}}{C^\infty-\cat{Mod}}{E}{\Gamma(E^\star)}
+			\end{displaymath}
+		\end{column}
+	\end{columns}
+	\vfill
+
+	Consider
+	\begin{itemize}
+		\item[$\bullet$] $\cat{gCAlg}$ the caty. of $\mathbb{Z}$-graded commuative (asso. unital) algebras;
+		\item[$\bullet$] $\cat{dgCAlg}$ the caty. of differential $\mathbb{Z}$-graded commuative algebras:
+		\begin{displaymath}
+			\cat{dgCAlg} := \left \lbrace
+				(A,Q) ~\vert~
+				A \in \cat{gCAlg}, Q \in \Der_1(A), Q^2 = 0~.
+			\right\rbrace
+		\end{displaymath} 
+	\end{itemize}
+	\vfill
+
+	Let:
+	\begin{itemize}
+		\item[$\bullet$] $\cat{gVecBun}$ the caty. of $\mathbb{Z}$-graded vectord bundle (degree-wise finite dimensionaL);
+	\end{itemize}
+	\vfill
+
+	\begin{defblock}[Caty. of graded manifolds]
+		$\cat{gMfd}$ is the essential image\footnote{i.e. $\mathcal{M}\in \cat{gCAlg}^{op}$ s.t. $\exists E \in \cat{gVecBun}$ with $\mathcal{M}=\Gamma(S(E^*))$.} of the functor
+		\begin{displaymath}
+			\lambdamorphism{\cat{gVecBun}}{\cat{gCAlg}^{op}}{E}{\Gamma(S(E^*))}
+		\end{displaymath}
+	\end{defblock}
+\end{frame}
+
+\begin{frame}{Examples of Graded Manifolds (credits to \href{https://www.ryvkin.eu/}{L.Ryvkin})}
+	For $ \mathcal{M}\in \cat{gCAlg}^{\mathrm{op}}$, we call $C^\infty(\mathcal{M})$ the corresponding object in $\cat{gCAlg}$
+
+	\begin{exblock}[ of graded manifolds]
+		\begin{table}
+		\begin{tabular}{|l|l|l|}
+			\hline
+			\textbf{Graded Manifold} $\mathcal{M}$ & \textbf{Algebra of functions} $C^\infty(\mathcal{M})$
+			\\
+			\hline
+			$T[1]M$ & $\Omega(M)$ & $M$ manifold\\
+			$T^\ast[1]M$ & $\X^{\bullet}(M)$ & " \\
+			$A[1]$ & $\Gamma(\Lambda A^*) = \Gamma(S(A_{-1})^*)$ & $A\in \cat{VecBun}$ \\
+			$\g[1]$ & $\Lambda \g^*$ & $\g$ vec. space (e.g. Lie algebra) \\
+			$T[1]\g[1]$ & $S \g^* \otimes \Lambda \g^*$ & " \\
+			\hline
+		\end{tabular}
+		\end{table}		
+	\end{exblock}
+
+
+\end{frame}
+
 
 %-----------------------------------------------------------%
 \ifstandalone

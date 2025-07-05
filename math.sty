@@ -34,3 +34,36 @@
 \providecommand{\pair}[2]{\left({\stackanchor[5pt]{$#1$}{$#2$}}\right)}
 \newcommand{\dd}{\ensuremath{d}}
 \DeclareMathOperator{\cyc}{\scriptstyle\text{(cyc.)}}
+
+
+ 
+
+% Catys
+\newcommand{\cat}[1]{\mathtt{#1}}
+\newcommand{\morphism}[5]{%
+  \begin{tikzcd}[
+    column sep=2em,
+    row sep=-.5ex,
+    ampersand replacement=\&
+  ]
+  #1\colon~ \&[-3em]
+  #2\vphantom{#3} \arrow[r] \&
+  #3\vphantom{#2} \\
+  \&
+  #4\vphantom{#5} \arrow[r,mapsto] \&
+  #5\vphantom{#4} 
+  \end{tikzcd}%
+}
+\newcommand{\lambdamorphism}[4]{%
+  \begin{tikzcd}[
+    column sep=2em,
+    row sep=-.5ex,
+    ampersand replacement=\&
+  ]
+  #1\vphantom{#2} \arrow[r] \&
+  #2\vphantom{#1} 
+  \\
+  #3\vphantom{#4} \arrow[r,mapsto] \&
+  #4\vphantom{#3} 
+  \end{tikzcd}%
+}
