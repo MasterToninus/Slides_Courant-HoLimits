@@ -232,13 +232,13 @@
 	\seprule
 	\begin{upshotblock}
 		\begin{itemize}
-			\item this was the $r=1$ case :
+			\item this was the $r=0$ case :
 				\begin{itemize}
-					\item[$\bullet$] $\sigma$ is a degree $r+1$ closed form,
+					\item[$\bullet$] $\sigma$ is a degree $r+2$ closed form,
 					\item[$\bullet$] $\Rogers[\sigma]{r},\Courant[\sigma]{r}$ are Lie algebras.
 				\end{itemize}
 				\pause\medskip
-			\item Let us now move from $r=1$ to $r=2$.
+			\item Let us now move from $r=0$ to $r=1$.
 		\end{itemize}
 	\end{upshotblock}
 
@@ -246,7 +246,7 @@
 \note[itemize]{
 	\item 
 }%------------------------------------------------------------%	
-	\subsection{2-plectic Case}
+	\subsection{$r=1$: the 2-plectic Case}
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
@@ -272,7 +272,7 @@
 	\begin{defblock}[Standard Courant algebroid]
 		Vector bundle
 		\begin{displaymath}
-			E^{(1)} = TM \oplus \wedge^1 T^* M \to M
+			E^{(1)} = TM \oplus  T^* M \to M
 		\end{displaymath}
 		\pause
 		... with a \emph{binary bracket} on sections and a \emph{anchor map} \small(see below)\normalsize.
@@ -318,7 +318,7 @@
 		\end{displaymath}
 
 
-	Vertical arrows are the linear part of a $L_\infty$-morphism $ \Rogers[\sigma]{1} \to \Courant[\sigma]{1} $.
+	Vertical arrows are the linear part of a $L_\infty$-morphism $$ \Rogers[\sigma]{1} \to \Courant[\sigma]{1} ~.$$
 	\end{propblock}
 \end{frame}
 \note[itemize]
@@ -462,7 +462,8 @@
 
 \end{frame}
 \note[itemize]{
-	\item 
+	\item in princple one would have $$ \dots \to \Courant[\sigma]{r-1} \to \Courant[]{r} \to \Courant[]{r+1}\to \dots$$
+	however the image of the last two arrows is basically $\Cartan$.
 }
 %-----------------------------------------------------------%
 
