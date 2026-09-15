@@ -1,483 +1,165 @@
-%- HandOut Flag -----------------------------------------------------------------------------------------
+%- HandOut Flag ---------------------------------------------------------------
 \makeatletter
 \@ifundefined{ifHandout}{%
   \expandafter\newif\csname ifHandout\endcsname
 }{}
 \makeatother
 
-%- D0cum3nt ----------------------------------------------------------------------------------------------
-\documentclass[beamer,10pt]{standalone}   
-%\documentclass[beamer,10pt,handout]{standalone}  \Handouttrue  
+\documentclass[beamer,10pt]{standalone}
 
 \ifHandout
-	\setbeameroption{show notes} %print notes   
+  \setbeameroption{show notes}
 \fi
 
-	
-%- Packages ----------------------------------------------------------------------------------------------
 \usepackage{custom-style}
 \usepackage{math}
-
-
-
-
-%--Beamer Style-----------------------------------------------------------------------------------------------
 \usetheme{toninus}
-\usepackage{animate}
-\usetikzlibrary{positioning, arrows}
-\usetikzlibrary{shapes}
+\usetikzlibrary{positioning,arrows,shapes}
 
-%===========================================================%
 \begin{document}
-%===========================================================%
 
+%-----------------------------------------------------------------------------
+\begin{frame}{From Poisson algebras to higher observables}
+  \begin{columns}[T]
+    \begin{column}{.46\textwidth}
+      \begin{block}{Symplectic geometry}
+        A symplectic form $\omega\in\Omega^2_{\mathrm{cl}}(M)$ assigns to
+        $f\in C^\infty(M)$ a Hamiltonian vector field
+        \[
+          \iota_{X_f}\omega=-\d f.
+        \]
+        The observables form the Poisson algebra
+        \[
+          \big(C^\infty(M),\{\cdot,\cdot\}_\omega\big).
+        \]
+      \end{block}
+    \end{column}
+    \pause
+    \begin{column}{.50\textwidth}
+      \begin{block}{Higher degree}
+        For $\sigma\in\Omega^{r+1}_{\mathrm{cl}}(M)$, Hamiltonian data are pairs
+        \[
+          (X,\alpha),\qquad \iota_X\sigma=-\d\alpha,
+          \qquad \alpha\in\Omega^{r-1}(M).
+        \]
+        Their brackets assemble into the observable
+        $L_\infty$-algebra $\Rogers[\sigma]{r-1}$.
+      \end{block}
+    \end{column}
+  \end{columns}
 
-%-----------------------------------------------------------%
-%-------------------------------------------------------------------------------------------------------------------------------------------------
-\begin{frame}[fragile]{Unpacking the title}
-\tikzstyle{every picture}+=[remember picture]
-	\begin{columns}
-    	\begin{column}{.45\textwidth}
-    		\onslide<5->{
-			\tikz[baseline]{
-		            \node[draw=orange!40,anchor=base,text width=5cm] (s1)
-		            {\textbf{Goal:}
-					is there a morphism 
-					\\ \emph{from:} the $L_\infty$-algebra associated with $E^{(r)}$ and the twist $\sigma$,
-					\\ \emph{to:} the $L_\infty$-algebra associated with $E^{(r+1)}$ without twist?};
-			}
-		}
-	\end{column}
-    	\begin{column}{.45\textwidth}
-    		\onslide<2->{
-			 \tikz[baseline]{
-		            \node[draw=blue!40,anchor=base, text width=5cm] (s2)
-		            {Higher generalization of Lie algebras where the Jacobi identity is allowed only "up to homotopies".};
-			}
-		}
-	\end{column}
-	\end{columns}
-
-	\vfill
-	%A canonical morphism between \\ twisted and untwisted higher Courant $L_\infty$-algebras
-	\begin{center}
-		\large
-		A
-		 \tikz[baseline]{
-		            \node[fill=orange!20,anchor=base] (t1)
-		            {Canonical morphism};
-			}
-		between \\
-		 \tikz[baseline]{
-		            \node[fill=green!20,anchor=base] (t3)
-		            {twisted};
-		        } 
-		and untwisted 
-		 \tikz[baseline]{
-	            \node[fill=red!20,anchor=base] (t4)
-	            {higher Courant};
-		}
-		 \tikz[baseline]{
-	            \node[fill=blue!20,anchor=base] (t2)
-	            {$L_\infty$-algebras};
-		}		
-	\end{center}
-
-	\vfill
-
-	\begin{columns}
-    	\begin{column}{.45\textwidth}
-    		\onslide<4->{
-	 		 \tikz[baseline]{
-	            \node[draw=green!40,anchor=base,text width=5cm] (s3)
-	            {any closed differential form $$\sigma\in\Omega^{r+2}(M)$$ can be use to \emph{twist} the binary bracket on $\Gamma(E^{(r)})$.};
-	         }
-		}		   	
-		\end{column}
-    	\begin{column}{.45\textwidth}
-    		\onslide<3->{
-				\tikz[baseline]{
-	            \node[draw=red!40,anchor=base,text width=5cm] (s4)
-	            {\textbf{Higher Courant algebroids}\\
-					smooth vector bundles
-				$$ E^{(r)}= TM \oplus \wedge^{r}T^\ast M \to M$$
-				\medskip
-				 	s.t. the space of global sections $\Gamma(E^{(r)})$ forms an $L_\infty$-algebra!
-				};
-	           }	
-			}
-		\end{column}
-	\end{columns}
-
-	\begin{tikzpicture}[overlay]
-        \path[->,draw=orange!40, line width=.5mm]<5-> (s1) edge [bend right] (t1);
-        \path[->,draw=blue!40, line width=.5mm]<2-> (s2) edge [bend left] (t2);
-        \path[->,draw=green!40, line width=.5mm]<4-> (s3) edge [bend left] (t3);
-        \path[->,draw=red!40, line width=.5mm]<3-> (s4) edge [bend right] (t4);
-	\end{tikzpicture}
-
-
+  \vfill\pause
+  \begin{claimblock}
+    Higher brackets replace the Poisson bracket and record the geometry of
+    observables together with its homotopies.
+  \end{claimblock}
 \end{frame}
 \note[itemize]{
-	\item we deal with the category of \emph{$L_\infty$-algebras}. These are a generalziation of dg-Lie algebras, where we ask the Jacobi identity to be satisfied up to exact terms. The corresponding primitives are given by certain higher brackets.
-	\item the (standard) higher Courant algebroid is part of a family of vector bundle over $M$. In degree 0 we have the standard Lie algebroid, in degree 1 the standard Courant algebroid an we can go higher in this sequence.
-	\item 
-	\item Conventions:
-	\\- $M$ and $G$ are connected,
-	\\- actions $\theta:G \curvearrowright M$ are always smooth
-	\\- $\xi,\eta\in\mathfrak{g}$,
-	\\- for $\mu\in\Omega^*(M,\mathfrak{g}^*)$ and $\xi\in\mathfrak{g}$, write
-			\[
-				\mu_\xi := \langle\mu,\xi\rangle \;{\color{black!50}\in\Omega^*(M)}
-			\]
-			for the ``$\xi$th component'' of $\mu$.
+  \item The symplectic case provides the starting point and fixes the sign convention.
+  \item For higher degree, functions are replaced by differential forms and the Jacobi identity holds up to coherent homotopies.
 }
-%-----------------------------------------------------------%
 
-%-----------------------------------------------------------%
-\outline
-\checkpoint
-%-----------------------------------------------------------%
+%-----------------------------------------------------------------------------
+\begin{frame}{Higher Courant algebras as ambient structures}
+  Fix an integer $r\geq 1$. The relevant standard higher Courant algebroid is
+  \[
+    E^{(r-1)}=TM\oplus\wedge^{r-1}T^*M.
+  \]
+  A closed form $\sigma\in\Omega^{r+1}_{\mathrm{cl}}(M)$ twists its bracket and
+  determines an $L_\infty$-algebra $\Courant[\sigma]{r-1}$.
 
-%-----------------------------------------------------------%
-\subsection{Symplectic Case}
-%-----------------------------------------------------------%
-\begin{frame}{(Pre)-symplectic Case}
-	$M$ manifold; $\sigma \in \Omega^2_{\mathrm{cl}}$ closed 2-form;
-	\footnote{\color{gray}We omit to write $(M)$ when considering differential forms $\Omega(M)$ and vector fields $\X(M)$ on $M$.}
-	\vfill\pause
-
-	\begin{defblock}[Hamiltonian vector fields $\X_{\sigma,\ham} \subseteq \X$]
-		\begin{displaymath}
-			\X_{\sigma,\ham} = \{ X \in \X \mid \iota_X \sigma ~~\textrm{is exact}\}
-		\end{displaymath}
-		\blfootnote{i.e. $\exists f \in \Omega^0$ s.t. $\iota_X \sigma + \d f=0$}
-	\end{defblock}
-	\vfill\pause
-
-	\begin{defblock}[Hamiltonian pairs ]
-		\begin{displaymath}
-			\Ham^{(0)}_\sigma = \{(X,f) \mid \iota_X \sigma + \d f = 0 \}
-	\subseteq \X\oplus \Omega^0 = \Gamma(E^{(0)})
-		\end{displaymath}
-	\end{defblock}
-	\vfill\pause
-
-	\begin{defblock}[Standard Lie algebroid]
-		Vector bundle
-		\begin{displaymath}
-			E^{(0)} = TM \oplus \R = TM \oplus \wedge^0 T^* M \to M
-		\end{displaymath}
-		... with a \emph{binary bracket} on sections and a \emph{anchor map} \small(see below)\normalsize.
-	\end{defblock}
+  \vfill\pause
+  \begin{columns}[T]
+    \begin{column}{.47\textwidth}
+      \begin{block}{Graphs of closed forms}
+        The graph
+        \[
+          \graph(\sigma)=
+          \{X-\iota_X\sigma\mid X\in TM\}
+        \]
+        is an isotropic involutive subbundle of $E^{(r)}$.
+      \end{block}
+    \end{column}
+    \begin{column}{.49\textwidth}
+      \begin{block}{Higher Dirac structures}
+        General isotropic involutive subbundles
+        \[
+          L\subset E^{(n)}
+        \]
+        extend the graph construction and carry their own observable
+        $L_\infty$-algebras.
+      \end{block}
+    \end{column}
+  \end{columns}
 \end{frame}
 \note[itemize]{
-	\item Ok, we mentioned a morphism. How does it look like in the lower case?
-	\item The story starts from presymplectic geometry.
-	\item out of the data $\sigma$ we define a subspace of vector fields. (actually a Lie subalgebra since $\iota_{[x,y]}=\Lie_x \iota_y - \iota_y \Lie_x$).
-	\item We don't need non degeneracy to have a Lie algebra, we just say that exists a primitive function without specifying it.
-	\item An improved notion is to consider Hamiltonian pairs where elements are a specification of a v.field together with an hamiltonian function.
-	\item the index $(0)$ appearing is to recall the degree of hamiltonian forms and suggests that we can go higher -> we can devise a pattern.
-	\item Hamiltonian forms can be seen as elements of the space of sections of certain vector bundle $E^{(0)}$.
-	\item Again index $(0)$ is to devise a pattern going toward courant algebroids and their higher generalizations.
-}%-----------------------------------------------------------%
-
-%-----------------------------------------------------------%
-\begin{frame}{(Pre)-symplectic Case: algebraic structures (1)}
-	\begin{lemblock}[$\Ham^{(0)}_\sigma$ carries a Lie algebra structure:]
-		\begin{equation}\label{eq:Bracket-HamPairs}
-		\big\{ (X,f), (Y,g)\big\} = \big( [X,Y], \sigma(X,Y)\big)
-		\end{equation}
-	\blfootnote{Note: $\sigma(X,Y)$ is an Hamiltonian 1-form for $[X,Y]$!}
-	\end{lemblock}
-	\vfill\pause
-
-	\begin{remblock}["Observables" Poisson algebra]
-		Cleary $\Ham^{(0)}_\sigma \twoheadrightarrow \X_{\sigma,\ham}$ \small (forgetting the chosen primitive function) \normalsize
-		\\
-		if $\sigma$ is non-degenerate, then $\Ham^{(0)}_\sigma \cong \Omega^0$ and \eqref{eq:Bracket-HamPairs} is the usual \emph{Poisson bracket}.
-		\footnote{Note: $\sigma(X,Y) = \iota_Y \iota_X \sigma = -\iota_Y \d f = \iota_X \d g \qquad \forall(X,f), (Y,g) \in \Ham^{(0)}_\sigma$.}
-	\end{remblock}	 
-	\vfill\pause
- 
-	\begin{lemblock}[$\Gamma(E^{(0)}) = \X\oplus \Omega^0$ carries a Lie algebra structure:]
-		\begin{equation}\label{eq:Bracket-LieAlgoid}
-			\big\{ (X,f), (Y,g)\big\} = \big( [X,Y],~ \Lie_X g - \Lie_Y f + \sigma(X,Y) \big)
-		\end{equation}
-	\end{lemblock}
-\end{frame}
-\note[itemize]{
-	\item 
-}%------------------------------------------------------------%
-
-%-----------------------------------------------------------%
-\begin{frame}{(Pre)-symplectic Case: algebraic structures (2)}	
-	\begin{notblock}
-		\begin{itemize}
-			\item[$\bullet$] $\Courant[\sigma]{0} := \X\oplus \Omega^{0}$ with its Lie algebra structure \eqref{eq:Bracket-LieAlgoid}
-			\item[$\bullet$] $\Rogers[\sigma]{0} := \Ham^{(0)}_\sigma$ with its Lie algebra structure \eqref{eq:Bracket-HamPairs}
-		\end{itemize}
-		%
-		\begin{displaymath}
-			\begin{tikzcd}[ampersand replacement=\&]
-				\Rogers[\sigma]{0}   \ar[r,two heads]\ar[d,hook]\& \X_{\sigma,\ham}
-				\\ 
-				\Courant[\sigma]{0}
-			\end{tikzcd}
-		\end{displaymath}
-	\end{notblock}
-	\vfill\pause
-
-
-	\seprule
-	\begin{upshotblock}
-		\begin{itemize}
-			\item this was the $r=0$ case :
-				\begin{itemize}
-					\item[$\bullet$] $\sigma$ is a degree $r+2$ closed form,
-					\item[$\bullet$] $\Rogers[\sigma]{r},\Courant[\sigma]{r}$ are Lie algebras.
-				\end{itemize}
-				\pause\medskip
-			\item Let us now move from $r=0$ to $r=1$.
-		\end{itemize}
-	\end{upshotblock}
-
-\end{frame}
-\note[itemize]{
-	\item Lie algebras are $L_\infty$-algebras concentrated in degree 0!
-}%------------------------------------------------------------%	
-	\subsection{$r=1$: the 2-plectic Case}
-%-----------------------------------------------------------%
-
-%-----------------------------------------------------------%
-\begin{frame}{2-plectic case}
-	Fix a closed 3-form $\sigma \in \Omega^3_{\mathrm{cl}}$;
-	\vfill\pause
-
-	\begin{defblock}[Hamiltonian vector fields  \emph{(same as before!)}]
-		\begin{displaymath}
-			\X_{\sigma,\ham} = \{ X \in \X \mid \iota_X \sigma ~~\textrm{is exact}\}
-		\end{displaymath}
-	\end{defblock}
-	\vfill\pause
-
-	\begin{defblock}[Hamiltonian pairs \emph{(same as before!)}]
-		\begin{displaymath}
-			\Ham^{(1)}_\sigma = \{(X,\alpha) \mid \iota_X \sigma + \d \alpha = 0 \}
-	\subseteq \X\oplus \Omega^1 = \Gamma(E^{(1)})
-		\end{displaymath}
-	\end{defblock}
-	\vfill\pause
-
-	\begin{defblock}[Standard Courant algebroid]
-		Vector bundle
-		\begin{displaymath}
-			E^{(1)} = TM \oplus  T^* M \to M
-		\end{displaymath}
-		\pause
-		... with a \emph{binary bracket} on sections and a \emph{anchor map} \small(see below)\normalsize.
-	\end{defblock}	
-
-\end{frame}
-\note[itemize]
-{
-	\item .
+  \item Closed forms enter twice: as twisting data for a higher Courant bracket and through their graphs as higher Dirac structures.
+  \item The second viewpoint motivates the final part of the talk.
 }
-%-----------------------------------------------------------%
 
-%-----------------------------------------------------------%
-\begin{frame}{2-plectic case: algebraic structures}
-	\begin{itemize}
-		\item \emph{do $\Ham^{(1)}_\sigma$ and $E^{(1)}$ carry a Lie algebra structure?}\pause
-			\begin{itemize}
-				\item[$\bullet$] $\Gamma(E^{(1)})$ has a canonical antisymmetric bracket (called \emph{Courant bracket});\pause
-				\item[$\bullet$] Same for $\Ham^{(1)}_\sigma$ (generalizing \eqref{eq:Bracket-HamPairs} to 1-forms).\pause
-			\end{itemize}
-		\item They do \underline{not} satisfy the Jacobi identity on the nose but only \emph{"up to homotopy"}.\pause
-		 $\Rightarrow$ \underline{there could be a $L_\infty$-algebra lying around!}
-	\end{itemize}	
-	\vfill
+%-----------------------------------------------------------------------------
+\begin{frame}{Two canonical morphisms}
+  The starting point is the sequence
+  \[
+    \Rogers[\sigma]{r-1}
+      \longrightarrow
+    \Courant[\sigma]{r-1}
+      \longrightarrow
+    \Courant{r}.
+  \]
 
-	%
-	\begin{propblock}[(Rogers 2013)]
-		\vspace{-2em}
-		\begin{displaymath}
-			\begin{tikzcd}[ampersand replacement=\&]
-				\& \text{\small (deg $-1$)} \& \text{\small (deg $0$)} \\[-2.5em]
-				\Rogers[\sigma]{1}   \ar[r,phantom,":="]
-				\&
-				\Omega^0 \ar[r,"{(0,\d)}"] \ar[d,"id"]
-				\& \Ham_{\sigma}^{(1)} \ar[d,hook]
-				\&[.7em] \parbox{9em}{\small carries a distinguished $L_\infty$-algebra structure \cite{Rogers2010}}
-				\\
-				\Courant[\sigma]{1} \ar[r,phantom,":="]
-				\& \Omega^0 \ar[r,"{(0,\d)}"]
-				\& \Gamma(E^{(1)}) \&
-				\parbox{9em}{\small forms a $L_2$-algebra with the courant bracket \cite{Roytenberg1998}}
-			\end{tikzcd}
-		\end{displaymath}
+  \vfill
+  \begin{itemize}
+    \item The first morphism embeds multisymplectic observables into the
+      corresponding higher Courant algebra \cite{Miti2024}.
+    \pause
+    \item Zambon asked whether the second morphism exists canonically in every
+      degree \cite{Zambon2012}.
+    \pause
+    \item The preprint \cite{Fiorenza2026} constructs it and explains both
+      arrows through homotopy fibers of morphisms between differential graded
+      Lie algebras.
+  \end{itemize}
 
-
-	Vertical arrows are the linear part of a $L_\infty$-morphism $$\Rogers[\sigma]{1} \to \Courant[\sigma]{1}~.$$
-	\end{propblock}
-\end{frame}
-\note[itemize]
-{
-	\item .
-}
-%-----------------------------------------------------------%
-
-
-
-
-
-%-----------------------------------------------------------%
-\subsection{$r$-plectic Case}
-%-----------------------------------------------------------%
-%-----------------------------------------------------------%
-\begin{frame}{Going higher!}
-	%
-	Fix a closed $(r$+$2)$-form $\sigma \in \Omega^{r+2}_{\mathrm{cl}}$~;
-	\vfill\pause
-
-	\begin{defblock}[Hamiltonian vector fields  \emph{(same as before!)}]
-		\small \color{gray}
-		\begin{displaymath}
-			\X_{\sigma,\ham} = \{ X \in \X \mid \iota_X \sigma ~~\textrm{is exact}\}
-		\end{displaymath}
-	\end{defblock}
-	\vfill\pause
-
-	\begin{defblock}[Hamiltonian pairs \emph{(same as before!)}]
-		\small \color{gray}
-		\begin{displaymath}
-			\Ham^{(r)}_\sigma = 
-		\{ (X,\alpha) \mid \iota_X \sigma + \d \alpha  = 0 \}
-		\subseteq \X\oplus \Omega^{r} = \Gamma(E^{(r)})
-		\end{displaymath}
-	\end{defblock}
-	\vfill\pause
-
-	\begin{defblock}[Higher Courant (Vinogradov) algebroid ]
-		Vector bundle
-		\begin{displaymath}
-			E^{(r)} = TM \oplus \wedge^{r} T^* M \to M
-		\end{displaymath}
-		... with a \emph{binary bracket} on sections and a \emph{anchor map} \small(see below)\normalsize.
-	\end{defblock}		
-	\vfill
-
+  \vfill\pause
+  \begin{upshotblock}
+    The homotopy-fiber description makes the morphisms natural and suggests a
+    path from graphs of closed forms to general higher Dirac structures.
+  \end{upshotblock}
 \end{frame}
 \note[itemize]{
-	\item 
+  \item The middle and right algebras have adjacent Courant degrees.
+  \item The first arrow is due to Miti--Zambon; the second is the main result of the submitted Fiorenza--Miti preprint.
+  \item The higher Dirac extension is ongoing work.
 }
-%-----------------------------------------------------------%
 
-
-%-----------------------------------------------------------%
-\begin{frame}{Going higher!~Algebraic structures}
-	%
-	\begin{propblock}
-		\vspace{-1em}
-		\begin{displaymath}
-		\begin{tikzcd}[ampersand replacement=\&,column sep = small]
-			\& \text{\small (deg $-r$)} \& \cdots \& \&\text{\small (deg $-1$)} \& \text{\small (deg $0$)} \\[-.5em]
-			\Rogers[\sigma]{r}   \ar[r,phantom,":="]
-			\&
-			\Omega^0 \ar[r,"{\d}"] \ar[d,"id"]
-			\&
-			\Omega^1 \ar[r,"{\d}"] \ar[d,"id"]
-			\&
-			\cdots
-			\&
-			\Omega^{r-1} \ar[r,"{(0,\d)}"] \ar[d,"id"]
-			\& \Ham_{\sigma}^{(r)} \ar[d,hook]
-			\\
-			\Courant[\sigma]{r} \ar[r,phantom,":="]
-			\&
-			\Omega^0 \ar[r,"{\d}"]
-			\&
-			\Omega^1 \ar[r,"{\d}"] 
-			\&
-			\cdots
-			\&
-			\Omega^{r-1} \ar[r,"{(0,\d)}"]
-			\& \Gamma(E^{(r)})
-		\end{tikzcd}
-	\end{displaymath}
-	\vspace{2em}
-
-	\begin{itemize}
-		\item \cite{Rogers2010} endows $\Rogers[\sigma]{r}$ with a $L_\infty$-algebra structure.\pause
-		\item \cite{Zambon2012} endows $\Courant[\sigma]{r}$ with a $L_\infty$-algebra structure.\pause
-		\item The vertical arrows give a morphism of cochain complexes.\pause
-		\item \cite{Miti2024} shows that the vertical arrows are the linear part of a $L_\infty$-morphism
-			$$\Rogers[\sigma]{r} \to \Courant[\sigma]{r}~.$$
-	\end{itemize}
-
-	\end{propblock}
-
+%-----------------------------------------------------------------------------
+\begin{frame}{Plan of the talk}
+  \begin{enumerate}
+    \item Higher Courant $L_\infty$-algebras and their homotopy-fiber models.
+    \vfill
+    \item The canonical morphism from the twisted degree-$(r-1)$ algebra to
+      the untwisted degree-$r$ algebra.
+    \vfill
+    \item The multisymplectic observable morphism in the same framework.
+    \vfill
+    \item Ongoing work on observable algebras of higher Dirac structures.
+  \end{enumerate}
 \end{frame}
 \note[itemize]{
-	\item 
+  \item The first three parts concern Fiorenza--Miti, arXiv:2602.14702.
+  \item The last part concerns ongoing work with Aditya Basu and Domenico Fiorenza.
+  \item Suggested pacing for a 60-minute slot: 12 minutes for background,
+    25 for the canonical morphism, 8 for observables, 8 for the higher Dirac
+    outlook, and 7 for the conclusion and questions.
 }
-%-----------------------------------------------------------%
 
-%-----------------------------------------------------------%
-\subsection{Goals}
-%-----------------------------------------------------------%
-
-%-----------------------------------------------------------%
-\begin{frame}{Goals}
-	\begin{itemize}
-		\item \cite{Miti2024} explicitly contructs a morphism of $L_\infty$-algebras
-		\begin{displaymath}
-			\begin{tikzcd}[ampersand replacement=\&]
-				\Rogers[\sigma]{r} \ar[r] \& 
-				\Courant[\sigma]{r} \ar[r,phantom] \&
-				\phantom{\Courant[]{r}}
-			\end{tikzcd}
-		\end{displaymath}
-	\end{itemize}
-	\vfill
-
-	\begin{claimblock}
-		\centering We can prove that we can go on:
-		\vspace{-.5em}
-		\begin{displaymath}
-			\begin{tikzcd}[ampersand replacement=\&]
-				\Rogers[\sigma]{r} \ar[r] \& 
-				\Courant[\sigma]{r} \ar[r] \&
-				\Courant[]{r+1}
-			\end{tikzcd}
-		\end{displaymath}
-	\end{claimblock}
-	\vfill
-
-	\begin{claimblock}
-		\centering
-		We rely on an algebraic framework that explains the \emph{existence} and \emph{\underline{naturality}} of the morphism introduced in \cite{Miti2024}.
-	\end{claimblock}
-	\vfill
-
-\end{frame}
-\note[itemize]{
-	\item Observe that in principle one can go on
-	$$\Rogers[\sigma]{r}\to \Courant[\sigma]{r} \to \Courant{r+1} \to \Courant{r+2} \to \dots $$
-	However, we will se that the thre rightomost arrows are "essentially" given by de Rham derivative in the linear part, hence they compose to $0$. More precisely, the image of the composition is $\Cartan$. see below.
-}
-%-----------------------------------------------------------%
-
-
-%-----------------------------------------------------------%
+%-----------------------------------------------------------------------------
 \ifstandalone
-% https://en.wikibooks.org/wiki/LaTeX/Bibliographies_with_biblatex_and_biber
-\begin{frame}[t,allowframebreaks]{Partial Bibliography}
-	\nocite{Miti2021}
-	\bibliographystyle{alpha}
-	\bibliography{bibfile}
+\begin{frame}[t,allowframebreaks]{Partial bibliography}
+  \bibliographystyle{alpha}
+  \bibliography{bibfile}
 \end{frame}
 \fi
-%-----------------------------------------------------------%
 
 \end{document}
