@@ -15,7 +15,7 @@
 \providecommand{\R}{\mathbb{R}}
 
 
-\providecommand{\vHam}{\mathscr{v}}
+\providecommand{\vHam}{\mathsf{v}}
 \providecommand{\vAct}{v}
 \providecommand{\action}{\curvearrowright}
 \providecommand{\ham}{\text{ham}}
@@ -25,13 +25,15 @@
 % Optional argument twist #1, mandatory argument degree #2
 \newcommand{\Courant}[2][]{\mathfrak{Courant}^{(#2)}_{~#1}}
 \newcommand{\Rogers}[2][]{\mathfrak{Rogers}^{(#2)}_{~#1}}
+\newcommand{\Zambon}[2][]{\mathfrak{Zambon}^{(#2)}_{~#1}}
 \newcommand{\Cartan}{\mathfrak{Cartan}}
 
 \providecommand{\hofib}{\mathrm{hofib}}
 \providecommand{\Der}{\mathrm{Der}}
 
 \providecommand{\pairing}{\langle\cdot,\cdot\rangle}
-\providecommand{\pair}[2]{\left({\stackanchor[5pt]{$#1$}{$#2$}}\right)}
+\providecommand{\pair}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\providecommand{\graph}{\operatorname{graph}}
 \newcommand{\dd}{\ensuremath{d}}
 \DeclareMathOperator{\cyc}{\scriptstyle\text{(cyc.)}}
 
