@@ -42,13 +42,11 @@
 \RequirePackage{empheq}
 \RequirePackage[font=scriptsize]{caption}
 \RequirePackage{cancel}
-\RequirePackage{stackengine}
-
-\RequirePackage[cal=boondox,scr=boondoxo]{mathalfa}
-% use mathscr for the v denoting hamiltonian vector fields. Avoid confusion with the infinitesimal action v!
-
-\RequirePackage{stmaryrd}
-\RequirePackage{fontawesome}
+% Lightweight double-bracket notation.  The previous version loaded
+% stmaryrd and fontawesome, although fontawesome was unused and stmaryrd
+% was needed only for these two delimiters.
+\providecommand{\llbracket}{\mathopen{[\mkern-3mu[}}
+\providecommand{\rrbracket}{\mathclose{]\mkern-3mu]}}
 
 
 \RequirePackage[export]{adjustbox}
@@ -62,7 +60,7 @@
 \providecommand{\cmark}{\textcolor{green}{\ding{51}}}%
 \providecommand{\xmark}{\textcolor{red}{\ding{55}}}%
 \providecommand{\smark}{\textcolor{orange}{\ding{43}}}%
-\providecommand{\vHam}{\mathscr{v}}
+\providecommand{\vHam}{\mathsf{v}}
 \providecommand{\vAct}{v}
 \providecommand{\action}{\curvearrowright}
 
