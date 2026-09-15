@@ -36,7 +36,7 @@
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}{From twisted to untwisted higher Courant algebras (1)}
+\begin{frame}{The degree-one case}
 	%
 	\begin{block}{Goal:}
 		Exhibit an $L_\infty$-morphism
@@ -60,7 +60,7 @@
 			\Omega^1\oplus \X
 		\end{tikzcd}
 	\end{displaymath}
-	\cite{Zambon2012} proved that  the vertical arrows are the linear part of a $L_\infty$-morphism $\Courant[\sigma]{0} \to \Courant[\sigma]{1}$.
+	\cite{Zambon2012} proved that the vertical arrows are the linear part of an $L_\infty$-morphism $\Courant[\sigma]{0} \to \Courant{1}$.
 	\end{exblock}
 	\vfill
 	
@@ -71,7 +71,7 @@
 }
 
 %-----------------------------------------------------------%
-\begin{frame}{From twisted to untwisted higher Courant algebras (2)}
+\begin{frame}{The canonical chain map}
 	%
 	More generally we have a morphism of chain complexes:
 	\begin{displaymath}
@@ -97,7 +97,7 @@
 
 	\vfill\pause
 
-	\begin{thmblock}[{[Fiorenza-M. 2025]}]
+	\begin{thmblock}[{[Fiorenza--Miti 2026, \cite{Fiorenza2026}]}]
 		The above chain complex morphism is the linear part of a $L_\infty$-morphism $$\Courant[\sigma]{r-1} \to \Courant{r}~.$$
 	\end{thmblock}
 
@@ -110,7 +110,7 @@
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}{Idea of the proof:}
+\begin{frame}{Homotopy fibers and naturality}
 	%
 	Recall that $$\Courant[\sigma]{r-1} = \hofib(\mathcal{C}_{r,\sigma}^{\geq 0} \hookrightarrow \mathcal{C}_{r,\sigma}) $$
 	\pause
@@ -146,8 +146,8 @@
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}{A technical lemma (1)}
-  \textbf{RMK:} Inside $\mathcal{C}_r$ there is a more manageble, dg-Lie subalgebra with the same negative part.
+\begin{frame}{The Cartan dg-Lie algebra}
+  Inside $\mathcal{C}_r$ there is a more manageable dg-Lie subalgebra with the same negative part.
   \vfill \pause
 
   \begin{defblock}[Cartan dg-Lie algebra]
@@ -179,14 +179,15 @@
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}{A technical lemma (2)}
+\begin{frame}{The small dg-Lie model}
+	\small
 	  \begin{defblock}[The \emph{small} dgla]
 		We can form the dg-Lie algebra
 		$$ \g_r := \Cartan \ltimes \Omega[r]$$
 		\pause
 		\smallskip
 
-		Observe that any $\sigma \in \Omega^{r+2}_{\mathrm{cl}}$ is a MC (degree 1) element of $\g_r$.
+		Observe that any $\sigma \in \Omega^{r+1}_{\mathrm{cl}}$ is a Maurer--Cartan element of degree $1$ in $\g_r$.
 		\pause
 		\smallskip
 		
@@ -229,9 +230,9 @@
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}{A technical lemma (3)}
+\begin{frame}{The reduced homotopy-fiber model}
 	\begin{upshotblock}
-	  Replace $\mathcal{C}_{r,\sigma}, \mathcal{C}_{r+1}$ with $\g_{r,\sigma}, \g_{r+1}$ in the previous commuative square:
+	  Replace $\mathcal{C}_{r,\sigma}, \mathcal{C}_{r+1}$ with $\g_{r,\sigma}, \g_{r+1}$ in the previous commutative square:
 		\begin{displaymath}
 			\begin{tikzcd}[ampersand replacement=\&, column sep = large]
 				\g_{r,\sigma}^{~\geq 0} \ar[r,hook] \ar[d, ]
@@ -246,7 +247,7 @@
 	\end{upshotblock}
 	\vfill
 
-	Moreover, if this has to be true for any $\sigma \in \Omega^{r+2}_{\mathrm{cl}}$, it has to be true for $\sigma = 0$.... 
+	The construction must in particular work in the untwisted case $\sigma=0$.
 \end{frame}
 \note[itemize]
 {
@@ -255,7 +256,7 @@
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}{THM proof: untwisted case (1)}
+\begin{frame}{The untwisted square}
 	Consider the simpler situation $\sigma=0$:
 	\begin{displaymath}
 		\begin{tikzcd}[ampersand replacement=\&, column sep = large]
@@ -268,8 +269,9 @@
 	\vfill \pause
 
 	\begin{itemize}[<+-|@alert@+>]
-		\item $\Phi_1:\g_{r,\sigma}\to \g_{r+1}$ is a morphism of cochain complexes:
+		\item $\Phi_1:\g_{r}\to \g_{r+1}$ is a morphism of cochain complexes:
 		\begin{displaymath}
+		\resizebox{\textwidth}{!}{$
 		\begin{tikzcd}[ampersand replacement=\&, column sep = small]
 			0\ar[r]\ar[d] \&
 			\Omega^0 \ar[r] \ar[d,"\d"] \&
@@ -288,6 +290,7 @@
 			\Omega^{r+1}\oplus \Lie_{\X} \ar[r] \&
 			\Omega^{r+2} \ar[r,phantom,"\cdots"]  \& \phantom{.}
 		\end{tikzcd}
+		$}
 		\end{displaymath}
 		\vfill
 
@@ -307,7 +310,7 @@
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}{THM proof: untwisted case (2)}
+\begin{frame}{The quadratic correction}
 	We can cure this discrepancy considering an higher term:
 	\begin{align*}
 		\Phi_2(\iota_X,\omega) &=~ \iota_X \omega \\
@@ -344,9 +347,8 @@
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}{THM proof: twisted case (1)}
-  What for arbitrary $\sigma \in \Omega^{r+2}_{\mathrm{cl}}$? $\quad\Rightarrow \quad$
-  Use $\sigma$ to twist the previous square:
+\begin{frame}{Twisting by a Maurer--Cartan element}
+  Let $\sigma \in \Omega^{r+1}_{\mathrm{cl}}$. Use $\sigma$ to twist the previous square:
   \vfill \pause	
 
 	\begin{displaymath}
@@ -360,7 +362,8 @@
 	\vfill\pause
 
 	Where:
-	\begin{align*}\small
+	{\small
+	\begin{align*}
 		\big(\Phi_\sigma \big)_j (\cdots) 
 		&=~
 		\sum_{k=0}^\infty \frac{\Phi_{k+j}}{k!} (\overbrace{\sigma,\cdots,\sigma}^{\text{\tiny $k$ copies}},\cdots)
@@ -368,11 +371,12 @@
 		\onslide<4->{
 		\Phi(\sigma) &=~ \sum_{k=0}^\infty \frac{\Phi_k(\sigma,\cdots,\sigma)}{k!} }
 	\end{align*}
+	}
 	\vfill
 
 	\only<4->{
 	\blfootnote{
-		One has to check that $\Phi_\sigma$ preseves the positive part. This is immediate since $(\Phi_\sigma)_2 = \Phi_2$.\\ 
+		One has to check that $\Phi_\sigma$ preserves the positive part. This is immediate since $(\Phi_\sigma)_2 = \Phi_2$.\\
 		Moreover, we have 
 			$$ (\Phi_\sigma)_1 \big\vert_{\geq 0} = \Phi_1 \big\vert_{\geq 0} + \frac{1}{2}\cancel{\Phi_2(\sigma,\cdot)\big\vert_{\geq 0}} = \Phi_1\big\vert_{\geq 0} $$
 	}
@@ -386,9 +390,8 @@
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}{THM proof: twisted case (2)}
-  \textcolor{gray}{ What for arbitrary $\sigma \in \Omega^{r+2}_{\mathrm{cl}}$? $\quad\Rightarrow \quad$
-  Use $\sigma$ to twist everything:}
+\begin{frame}{The canonical morphism}
+  \textcolor{gray}{Let $\sigma \in \Omega^{r+1}_{\mathrm{cl}}$ and twist the entire square.}
   \vfill
 
 	\begin{displaymath}
@@ -426,7 +429,7 @@
 %-----------------------------------------------------------%
 
 %-----------------------------------------------------------%
-\begin{frame}{The \cite{Miti2024} $L_\infty$-morphism revisited (1)}
+\begin{frame}{Multisymplectic observables}
 	Recall:
 	\begin{displaymath}
 		\g_{r,\sigma}^{<0} := \left(
@@ -466,7 +469,7 @@
 			\cdots
 			\&
 			\Omega^{r-2} \ar[r,"{(0,\d)}"]
-			\& \Gamma(E^{(1)})
+			\& \Gamma(E^{(r-1)})
 		\end{tikzcd}
 	\end{displaymath}
 	\vfill\pause
@@ -485,8 +488,8 @@
 
 
 %-----------------------------------------------------------%
-\begin{frame}{The \cite{Miti2024} $L_\infty$-morphism revisited (2)}
-	\begin{thmblock}[{[Fiorenza-M. 2025]}]
+\begin{frame}{The observable morphism as a homotopy-fiber map}
+	\begin{thmblock}[{[Fiorenza--Miti 2026, \cite{Fiorenza2026}]}]
 	\cite{Miti2024} morphism comes from an $L_\infty$ commutative square:
 	\begin{displaymath}
 		\begin{tikzcd}[ampersand replacement=\&]
@@ -495,8 +498,8 @@
 			(\Omega^0\to\Omega^1\to\cdots\to\Omega^{r-1}\to \d \Omega^{r-1}) \ar[d,hook] 
 			\\
 			\Courant[\sigma]{r-1} \ar[r] \&
-			\g_{r+1,\sigma}^{~\geq 0} \ar[r,hook] \ar[ur,Rightarrow]\& 
-			\g_{r+1,\sigma}
+			\g_{r,\sigma}^{~\geq 0} \ar[r,hook] \ar[ur,Rightarrow]\&
+			\g_{r,\sigma}
 		\end{tikzcd}
 	\end{displaymath}
 	\end{thmblock}

@@ -1,81 +1,66 @@
-# Slides: A Canonical Morphism between Twisted and Untwisted Higher Courant L∞ Algebras
+# Canonical L-infinity morphisms and homotopy fibers in higher Courant geometry
 
-60‑minute talk on canonical Lie ∞‑morphisms in higher Courant theory, based on joint work with Domenico Fiorenza.
+Beamer source for the 60-minute talk
 
-Slides for a contributed talk at the [Workshop on Lie ∞‑algebras and Higher Analogues of Dirac Structures and Courant Algebroids](https://www.mat.uniroma2.it/~kowalzig/ws.html) held on **July 4, 2025**.
+> **Canonical L-infinity morphisms and homotopy fibers in higher Courant geometry: from twisted algebroids to higher Dirac structures**
 
----
+presented at the **Geometry, Topology, and Physics (GPT) Seminar** on
+September 16, 2026, at 17:00 GST (GMT+4).
 
-**Place:** Sapienza University of Rome, Italy  
-**Date:** 04/07/2025  
-**Title:** A Canonical Morphism between Twisted and Untwisted Higher Courant L∞ Algebras  
-**Duration:** 60 minutes  
-**Audience:** Broad mathematical audience interested in higher geometry and homotopical algebra  
-**Collaborators:** Domenico Fiorenza  
+## Mathematical content
 
----
+The main part of the talk is based on joint work with Domenico Fiorenza:
 
-## Overview
+- [D. Fiorenza and A. M. Miti, *L-infinity morphisms between twisted Courant r-Lie algebras and untwisted Courant (r+1)-Lie algebroids*, arXiv:2602.14702](https://arxiv.org/abs/2602.14702).
 
-This repository contains the Beamer slides used for the presentation titled **"A Canonical Morphism between Twisted and Untwisted Higher Courant L∞ Algebras"**. The talk discusses:
+It covers:
 
-- Canonical Lie ∞‑morphisms between twisted and untwisted higher Courant algebras  
-- A general framework for constructing these morphisms in any degree `n`  
-- The underlying homotopical and geometrical structures  
-- A brief connection to observable Lie ∞‑algebras on pre‑n‑plectic manifolds (see [arXiv:2209.05836](https://arxiv.org/abs/2209.05836))
+- the homotopy-fiber model for higher Courant L-infinity algebras;
+- the canonical morphism from a twisted Courant algebra of degree `r-1` to the untwisted Courant algebra of degree `r`;
+- the homotopical interpretation of the morphism from multisymplectic observables to the corresponding higher Courant algebra.
 
----
+The final section presents ongoing work with Aditya Basu and Domenico Fiorenza on extending this perspective from graphs of closed forms to general higher Dirac structures. Statements in this section are explicitly marked as ongoing work.
 
-### 🔁 Previous Versions of This Talk
+## Repository structure
 
-- **Antonio Miti** at Metz: [IECL Univ. Lorraine event](https://iecl.univ-lorraine.fr/events/antonio-miti-rome-titre-a-venir/)  
-- **Domenico Fiorenza** at Mittag‑Leffler Institute (Stockholm): [Seminar announcement](https://www.mittag-leffler.se/seminar/domenico-fiorenza-title/)  
-- **Upcoming / Delivered in China**: *Link to be added*
-
----
-
-## Structure
-
-### Contents
-The mathematical background of the audience is quite ample, so ideally in your 60-minutes-talk you'd use half of the time for introduction, background, and overview, and the other half for your own results. You won't be punished if you do it differently, but that would be the idea. Both slides and blackboard talks are possible. 
-
-### Repository
-
-- `main.tex`: Main LaTeX file to compile the slides  
-- `Pictures/`: Directory for figures and diagrams  
-- `bibfile.bib`: (If applicable) Bibliography file  
-- `math.sty`: Custom style file with Math macros
-- `custom-style.sty`: Custom style file with all required packaged (to comply with the multifile format)
-
----
+- `main.tex`: main Beamer file;
+- `HoLim-intro.tex`: motivation and roadmap;
+- `HoLim-background.tex`: higher Courant algebras and homotopy fibers;
+- `HoLim-NewMorphism.tex`: results of arXiv:2602.14702;
+- `HoLim-DiracOutlook.tex`: ongoing work on higher Dirac structures;
+- `HoLim-complementary-material.tex`: backup slides;
+- `HoLim-aknowledgements.tex`: bibliography and acknowledgements;
+- `Pictures/`: standalone TikZ figures;
+- `bibfile.bib`: bibliography;
+- `math.sty`, `custom-style.sty`, `beamerthemetoninus.sty`: macros and theme.
 
 ## Compilation
 
-To compile the slides, run:
+Compile the presentation with:
+
+```bash
+latexmk -pdf main.tex
+```
+
+or manually with:
 
 ```bash
 pdflatex main.tex
 bibtex main
 pdflatex main.tex
 pdflatex main.tex
-````
+```
 
-Ensure all required LaTeX packages are installed.
+The source uses standard Beamer, TikZ, `tikz-cd`, `standalone`, `mathalfa`, and related LaTeX packages. On Debian or Ubuntu, the packages are available through a sufficiently complete TeX Live installation.
 
----
+The default build is the live presentation. Set `\Handouttrue` near the beginning of `main.tex` to obtain the printable version with notes.
 
-## TODO: Possible Improvements
+## Earlier version
 
-* [ ] 
-
-Contributions via issues or PRs are welcome!
-
----
+The repository history preserves the version used for the 2025 talk *A canonical morphism between twisted and untwisted higher Courant L-infinity algebras*.
 
 ## License
+
 GNU General Public License v3.0.
-© Antonio Miti, 2025
 
----
-
-> *This file was prepared with the assistance of [ChatGPT](https://openai.com/chatgpt).*
+Copyright Antonio Michele Miti, 2025-2026.

@@ -13,9 +13,8 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 
-\usepackage{stackengine}
 \providecommand{\pairing}{\langle\cdot,\cdot\rangle}
-\providecommand{\pair}[2]{\left({\stackanchor[5pt]{$#1$}{$#2$}}\right)}
+\providecommand{\pair}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
 \newcommand{\dd}{\ensuremath{d}}
 \DeclareMathOperator{\cyc}{\scriptstyle\text{(cyc.)}}
 \newcommand{\Courant}[2][]{\mathfrak{Courant}^{(#2)}_{~#1}}
