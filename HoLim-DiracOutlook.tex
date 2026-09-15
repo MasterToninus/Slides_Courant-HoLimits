@@ -1,0 +1,131 @@
+%- HandOut Flag ---------------------------------------------------------------
+\makeatletter
+\@ifundefined{ifHandout}{%
+  \expandafter\newif\csname ifHandout\endcsname
+}{}
+\makeatother
+
+\documentclass[beamer,10pt]{standalone}
+
+\ifHandout
+  \setbeameroption{show notes}
+\fi
+
+\usepackage{custom-style}
+\usepackage{math}
+\usetheme{toninus}
+
+\begin{document}
+
+%-----------------------------------------------------------------------------
+\subsection{From graphs to higher Dirac structures}
+
+\begin{frame}{Higher Dirac observables}
+  Let $L\subset E^{(n)}=TM\oplus\wedge^nT^*M$ be an isotropic involutive
+  subbundle. Its Hamiltonian pairs are
+  \[
+    \Ham_L^{(n-1)}=
+    \left\{(X,\theta)\in\X(M)\oplus\Omega^{n-1}(M)
+      \ \middle|\ (X,\d\theta)\in\Gamma(L)\right\}.
+  \]
+
+  \vfill\pause
+  Zambon's brackets give an observable $L_\infty$-algebra on
+  \[
+    \Zambon[L]{n-1}=
+    \left(
+      \Omega^0\xrightarrow{\d}\cdots\xrightarrow{\d}
+      \Omega^{n-2}\xrightarrow{(0,\d)}\Ham_L^{(n-1)}
+    \right).
+  \]
+
+  \vfill\pause
+  \begin{exblock}[Closed forms as a special case]
+    If $L=\graph(\sigma)$ for
+    $\sigma\in\Omega^{n+1}_{\mathrm{cl}}(M)$, then
+    \[
+      \Zambon[\graph(\sigma)]{n-1}\cong\Rogers[\sigma]{n-1}.
+    \]
+  \end{exblock}
+\end{frame}
+\note[itemize]{
+  \item The higher Dirac structure replaces the single closed form as the geometric input.
+  \item The definition uses Hamiltonian pairs because the Hamiltonian vector field need not be unique for a general higher Dirac structure.
+}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{A candidate homotopy-fiber description}
+  For $L=\graph(\sigma)$, the observable algebra is the homotopy fiber of the
+  multicontraction morphism
+  \[
+    \iota_\infty\sigma\colon\X_{\ham,\sigma}\longrightarrow A_\sigma.
+  \]
+
+  \vfill\pause
+  For a general $L$, the Hamiltonian condition still supplies local data
+  \[
+    (X,\theta)\in\Ham_L^{(n-1)},
+    \qquad (X,\d\theta)\in\Gamma(L).
+  \]
+  These data suggest an $L_\infty$-morphism
+  $\varphi_{L,\infty}\colon\X_{\ham,L}\to A_L$ whose higher components are
+  built from iterated contractions of $\d\theta$.
+
+  \vfill\pause
+  \begin{block}{Working construction}
+    \[
+      \begin{tikzcd}[ampersand replacement=\&,column sep=large]
+        \Zambon[L]{n-1} \ar[r] \ar[d]
+          \& 0 \ar[d] \\
+        \X_{\ham,L} \ar[r,"\varphi_{L,\infty}"']
+          \& A_L
+      \end{tikzcd}
+      \qquad
+      \Zambon[L]{n-1}\simeq\hofib(\varphi_{L,\infty}).
+    \]
+  \end{block}
+\end{frame}
+\note[itemize]{
+  \item This slide describes ongoing work, not a theorem from arXiv:2602.14702.
+  \item The main technical issue is to define the target dg space so that the construction is independent of the choice of Hamiltonian form.
+}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{The comparison problem}
+  The homotopy-fiber model should produce a natural comparison morphism
+  \[
+    \Zambon[L]{n-1}
+      \dashrightarrow
+    \Courant{n}
+  \]
+  and recover the closed-form morphism when $L=\graph(\sigma)$.
+
+  \vfill\pause
+  \begin{displaymath}
+    \begin{tikzcd}[ampersand replacement=\&,column sep=large]
+      \Zambon[\graph(\sigma)]{n-1}
+        \ar[r,"\cong"] \ar[d]
+        \& \Rogers[\sigma]{n-1} \ar[d] \\
+      \Courant{n}
+        \ar[r,equal]
+        \& \Courant{n}
+    \end{tikzcd}
+  \end{displaymath}
+
+  \vfill\pause
+  \begin{alertblock}{Twisted higher Dirac structures}
+    For $L'\subset E_H^{(n)}$, the naive flat dg-Lie model develops an
+    obstruction controlled by contractions of $H$. This points to curved
+    dg-Lie algebras and curved mapping cones as the appropriate next setting.
+  \end{alertblock}
+
+  \vfill
+  \hfill\textcolor{gray}{Ongoing work with A. Basu and D. Fiorenza}
+\end{frame}
+\note[itemize]{
+  \item In the untwisted setting, the aim is a comparison morphism compatible with the graph case.
+  \item In the twisted setting, the obstruction already appears at low arity through terms of the form $\iota_X\iota_YH$.
+  \item The curved formulation is exploratory and should not be presented as a completed theorem.
+}
+
+\end{document}
